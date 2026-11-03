@@ -14,7 +14,7 @@ const devices: Device[] = [
     name: "Smoke detector",
     location: "2nd floor corridor",
     result: "fail",
-    deficiency: { clause: "S536 ref.", note: "No alarm with test smoke. Replace detector." },
+    deficiency: { clause: "S536", note: "No alarm with test smoke. Replace detector." },
   },
   { name: "Heat detector", location: "Mechanical room", result: "pass" },
   { name: "Horn/strobe", location: "Parkade P1", result: "fail", impairment: true },

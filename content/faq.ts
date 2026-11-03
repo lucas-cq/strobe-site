@@ -3,50 +3,48 @@ export type FaqItem = {
   answer: string;
 };
 
-export const faq: { title: string; items: FaqItem[] } = {
-  title: "Questions contractors ask",
+export const faq: { eyebrow: string; title: string; items: FaqItem[] } = {
+  eyebrow: "FAQ",
+  title: "Questions we get a lot",
   items: [
     {
-      question: "Does Strobe submit to the City for me?",
-      answer:
-        "In Calgary, Strobe fills every field of the 311 request and attaches the deficient reports. You review it and click submit, then the SR number is saved to the site. In Edmonton, Strobe prepares the report and deficiency details for your LIV upload. We don't submit on your behalf without your review.",
+      question: "Does Strobe file with the City for me?",
+      answer: "Strobe gets the filing ready. You look it over and send it. Nothing goes to the City without you.",
     },
     {
       question: "Does it work with no signal?",
-      answer:
-        "Yes. Inspections run fully offline on the phone and sync when the device is back online. Photos queue and upload on their own.",
+      answer: "Yes. Inspections work fully offline and sync when you're back in range.",
     },
     {
       question: "Do building owners need an account?",
-      answer: "No. Owners open reports, quotes and close-outs from a secure link that expires.",
+      answer: "No. They open the report and quote from a link on their phone.",
     },
     {
       question: "What does it cost?",
       answer:
-        "A flat monthly price per shop, not per tech. Early-access shops lock in founding pricing. Talk to us and we'll walk you through it.",
+        "One flat monthly price per shop, however many techs you have. Early-access shops lock in founding pricing. We'll go over it on a call.",
     },
     {
       // TODO Lucas: confirm you'll do this import by hand for early shops.
-      question: "Can we bring our existing sites and device lists?",
-      answer: "Yes. During onboarding we'll import your current sites and device lists from your spreadsheets.",
+      question: "Can we bring our existing sites over?",
+      answer: "Yes. We'll help move your sites and device lists over from your spreadsheets.",
     },
     {
       question: "Which systems does it cover?",
-      answer:
-        "Fire alarm inspections to CAN/ULC-S536 first. Other system types are on the roadmap. Tell us what you inspect on the early-access form.",
+      answer: "Fire alarm first. Tell us what else you inspect on the form and it helps us decide what's next.",
     },
     {
       question: "Where is our data stored?",
-      answer: "Customer data in the Strobe app is stored in Canada.",
+      answer: "Your customers' inspection data is stored in Canada.",
     },
     {
       question: "Is Strobe connected to the City or the fire department?",
       answer:
-        "No. Strobe is independent software that prepares your filings. It's not affiliated with the City of Calgary, the City of Edmonton or their fire departments.",
+        "No. Strobe is independent software. It isn't affiliated with the City of Calgary, the City of Edmonton or their fire departments.",
     },
     {
-      question: "We're outside Calgary and Edmonton. Can we use it?",
-      answer: "Yes. Reports and quoting work anywhere. Tell us your fire department and we'll map its filing process.",
+      question: "We're not in Calgary or Edmonton. Can we use it?",
+      answer: "Yes. Reports and quotes work anywhere in Alberta. Tell us your fire department and we'll look at how they handle filings.",
     },
   ],
 };

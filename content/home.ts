@@ -1,156 +1,148 @@
-import type { NavLink } from "./site";
-
-export type Step = {
-  title: string;
-  who: string;
-  where?: string;
-  body: string;
-  links?: NavLink[];
-};
-
+// Home page copy, from SITE_V2.md section 3. Keep it plain: short sentences, outcomes not workflow.
 export const home = {
   hero: {
-    eyebrow: "Fire and life safety inspection software for Alberta",
-    /** Phones only: the full eyebrow wraps to two lines at 375px. */
-    eyebrowShort: "Fire and life safety software · Alberta",
+    eyebrow: "Inspection software for Alberta fire alarm contractors",
+    /** Phones only, so the eyebrow stays on one line at 375px. */
+    eyebrowShort: "Fire alarm inspection software · Alberta",
     title: "Inspect it. Quote it. File it. Same day.",
-    sub: "Strobe takes your techs from the panel to a finished CAN/ULC-S536 report on their phone, gets the repair quote to the owner before you leave the site, and has your Calgary or Edmonton filing ready before the deadline.",
-    note: "Early access for Alberta shops. Flat price per shop, not per tech.",
+    sub: "Your techs finish the S536 report on their phone. The owner gets the repair quote before you're out of the parking lot. And the City paperwork is ready before the deadline, in Calgary or Edmonton.",
+    note: "Open to Alberta shops now. One flat price per shop, not per tech.",
     visualAlt:
       "Sample screens: a tech's phone showing a fire alarm device list with one failed smoke detector, next to the repair quote the building owner receives.",
   },
 
+  proof: {
+    label: "What Strobe covers",
+    items: [
+      "CAN/ULC-S536 reports",
+      "Works with no signal",
+      "Calgary 311 reporting",
+      "Edmonton LIV uploads",
+      "Any panel brand",
+      "Owners sign from their phone",
+      "Data stored in Canada",
+    ],
+  },
+
   problem: {
-    eyebrow: "The problem",
-    title: "One inspection. Three jobs. Done three times.",
+    eyebrow: "Sound familiar?",
+    title: "The inspection takes a day. The paperwork takes all week.",
     cards: [
       {
-        title: "Retyping",
-        body: "Notes on paper or in a Word template, retyped into a report back at the office, then retyped again into a quote.",
+        title: "Typing it twice",
+        body: "Notes from site get typed into a report back at the office. Then someone types them again for the quote.",
       },
       {
-        title: "Late quotes",
-        body: "The quote goes out days after the inspection. By then the owner has called someone else.",
+        title: "Quotes that show up late",
+        body: "The owner gets your quote three days later. By then they've already called someone else.",
       },
       {
-        title: "The City clock",
-        body: "Calgary wants deficient systems reported within 10 business days, and Edmonton wants reports in LIV. That deadline lives in someone's head or a spreadsheet.",
+        title: "A deadline on a sticky note",
+        body: "Calgary wants deficient systems reported within 10 business days, and Edmonton wants reports in LIV. Right now that's tracked in someone's head.",
       },
     ],
   },
 
   how: {
     eyebrow: "How it works",
-    title: "From the panel to the City filing, in one record",
-    lede: "Every stage reuses what came before it, so nobody types the same thing twice.",
-    steps: [
-      {
-        title: "Inspect, even with no signal.",
-        who: "Tech",
-        where: "Phone",
-        body: "The site and last year's device list are already loaded. Pass or fail each device, and a fail becomes a deficiency with a photo, location and note. An impairment alerts the manager right away. Works offline in basements and parkades.",
-      },
-      {
-        title: "Report and quote on site.",
-        who: "Tech, then manager",
-        body: "The tech signs and the S536 report is generated. That's day 0 for the City clock. The manager checks each deficiency and prices the lines from your price book.",
-      },
-      {
-        title: "Owner approves by link.",
-        who: "Owner",
-        where: "Any device",
-        body: "Building owners don't need another login. The report and quote open on any phone, with a photo next to every line. They approve some or all lines, e-sign and add a PO number.",
-      },
-      {
-        title: "File with the City.",
-        who: "Manager",
-        body: "Strobe counts business days per system and flags anything still deficient. Calgary gets a pre-filled 311 packet, and Edmonton gets an upload-ready LIV package.",
-        links: [
-          { label: "Calgary filing", href: "/calgary" },
-          { label: "Edmonton LIV", href: "/edmonton" },
-        ],
-      },
-      {
-        title: "Repair, close out, keep the record.",
-        who: "Tech, then owner",
-        body: "The work order carries the original photos. The owner signs off by link and gets the close-out package with the SR number on it. Next year's inspection starts from this one.",
-      },
-    ] satisfies Step[],
-  },
-
-  buttons: {
-    eyebrow: "Two buttons",
-    title: "The two buttons that matter after an inspection",
+    title: "Less office work after every inspection",
+    lede: "Your techs already do the hard part on site. Strobe takes care of what comes after.",
     cards: [
       {
-        title: "Send quote.",
-        kicker: "The money button.",
-        body: "Quote lines come straight from the deficiencies, priced from your price book, plus labour and tax. It goes out the same day, before anyone else has quoted.",
-        visualAlt: "The top of a sample owner quote, with deficiency lines, prices and checkboxes.",
+        title: "Works in the parkade",
+        body: "Last year's devices are already loaded. Pass, fail, snap a photo, move on. No signal needed. It syncs when you're back upstairs.",
       },
       {
-        title: "Report to City.",
-        kicker: "The compliance button.",
-        subtitle: "The clock starts at the inspection, not when the owner says yes.",
-        body: "Approving a quote doesn't pause Calgary's 10 business days. Only a fixed system does. The button turns urgent at day 8, or right away for an impairment, and one click builds the whole filing, timestamped.",
-        visualAlt: "Sample City clock showing three systems counting business days, with the Report to City button turning urgent.",
+        title: "Report done on site",
+        body: "The S536 report is finished and signed before the tech leaves. Nobody types it up later.",
+      },
+      {
+        title: "Quote out the same day",
+        body: "Failed devices turn into a quote the owner can approve and sign on their phone. No login, no chasing PDFs over email.",
+      },
+      {
+        title: "City filing, handled",
+        body: "Strobe keeps an eye on the deadline for every deficient system and has your filing ready when it's time.",
+        links: [
+          { label: "Calgary", href: "/calgary" },
+          { label: "Edmonton", href: "/edmonton" },
+        ],
       },
     ],
   },
 
-  features: {
-    eyebrow: "What's in early access",
-    title: "Fire alarm first, done properly",
-    lede: "Early-access shops get the full fire alarm workflow today. Your feedback sets the order of what comes next.",
-    comingSoonLabel: "Coming soon",
-    /** Shop-level promises, shown first in the same grid as the features. */
-    shopPoints: [
-      { title: "Flat price per shop, not per tech.", icon: "price" },
-      { title: "Panel-agnostic: Notifier, Mircom, Edwards, Simplex, whatever you service.", icon: "panel" },
-      // TODO Lucas: keep only if the app really will run in Canada (e.g. Google Cloud Toronto).
-      { title: "Your customers' inspection data is stored in Canada.", icon: "canada" },
+  deadline: {
+    eyebrow: "The City deadline",
+    title: "The clock starts at the inspection. Not when the owner says yes.",
+    body: "A signed quote doesn't pause Calgary's 10 business days. Only a fixed system does. Strobe keeps count for every site, warns you well before it's a problem, and keeps a timestamped record that you reported on time.",
+    visualAlt: "Sample City clock in dark mode with three systems at different business-day counts.",
+    links: [
+      { label: "How Calgary reporting works", href: "/calgary" },
+      { label: "How Edmonton LIV works", href: "/edmonton" },
     ],
   },
 
   cities: {
     eyebrow: "Calgary and Edmonton",
-    title: "Fire alarm deficiency reporting for both cities",
+    title: "Set up for how each city actually does it",
     cards: [
       {
         city: "Calgary",
-        title: "Calgary 311 deficiency reporting",
-        body: "10 business days. One 311 request per address. Up to 7 systems per request. Strobe fills every field, attaches the deficient reports and saves your SR number.",
-        link: { label: "How Calgary filing works", href: "/calgary" },
+        label: "311 deficiency reporting",
+        body: "Deficient systems get reported within 10 business days, one request per address. Strobe has the request ready, so filing takes minutes instead of an afternoon.",
+        link: { label: "Calgary reporting", href: "/calgary" },
+        strip: "linear-gradient(90deg, #4b3be6, #2e8bff)",
       },
       {
         city: "Edmonton",
-        title: "Edmonton LIV report uploads",
-        body: "Since September 8, 2026, third-party ITM reports go through LIV. Strobe gives you the report PDF and deficiency list laid out the way LIV asks for them, and tracks proof of correction.",
-        link: { label: "How Edmonton LIV works", href: "/edmonton" },
+        label: "LIV report uploads",
+        body: "Since September 8, 2026, third-party inspection reports go through LIV. Strobe has your report and deficiency list ready to upload.",
+        link: { label: "Edmonton LIV", href: "/edmonton" },
+        strip: "linear-gradient(90deg, #2e8bff, #5ccbff)",
       },
     ],
-    elsewhere:
-      "Elsewhere in Alberta? Strobe follows the Alberta Fire Code. Tell us your fire department and we'll map its process.",
+    elsewhere: "Somewhere else in Alberta? Tell us your fire department and we'll look at how they handle it.",
+  },
+
+  earlyAccess: {
+    eyebrow: "Early access",
+    title: "Starting with fire alarm",
+    lede: "Sprinkler and kitchen suppression are next. Early shops decide which comes first.",
+    feature: {
+      title: "Help shape what we build.",
+      body: "Early-access shops get founding pricing, a direct line to me, and a real say in what gets built next.",
+      button: "Get early access",
+    },
+    cards: [
+      { title: "One price per shop", body: "Hire another tech without your software bill going up." },
+      { title: "Any panel", body: "Notifier, Mircom, Edwards, Simplex. If you inspect it, you can report on it in Strobe." },
+      // TODO Lucas: keep only if the app really will run in Canada (e.g. Google Cloud Toronto).
+      { title: "Stored in Canada", body: "Your customers' inspection data stays in Canada." },
+      // TODO Lucas: confirm you'll import spreadsheets by hand. If not, use:
+      // { title: "Up and running in a day", body: "No hardware, no install. Your techs use their own phones." },
+      { title: "We'll move you over", body: "Send us your spreadsheets. We'll bring your sites and device lists in for you." },
+    ],
   },
 
   founder: {
-    eyebrow: "A note from the founder",
-    body: "I'm Lucas, a software engineer in Calgary. I'm building Strobe with local fire alarm techs because the reporting side of this work is still Word templates, spreadsheets and retyping. If you run a shop in Alberta, I'd like 20 minutes of your time to show you where it's at and hear what's missing.",
-    signature: "Lucas, founder",
+    eyebrow: "From the founder",
+    body: "I'm Lucas, a software engineer in Calgary. I'm building Strobe with local fire alarm techs. Most shops I talk to still run inspections through Word templates and spreadsheets. If that's you, give me 20 minutes. I'll show you what we've built, and you tell me what's missing.",
+    name: "Lucas Cummings",
+    role: "Founder, Strobe",
     /** Shown when public/founder.jpg is missing. */
     initials: "LC",
+    photoAlt: "Lucas Cummings, founder of Strobe",
     // TODO Lucas: add your LinkedIn profile URL. The link stays hidden while this is empty.
     linkedinUrl: "",
     linkedinLabel: "LinkedIn",
-    photoAlt: "Lucas, founder of Strobe",
     /** Shown only when NEXT_PUBLIC_CAL_LINK is set. */
-    bookLabel: "Book 20 minutes with Lucas",
+    bookLabel: "Book 20 minutes",
     /** Shown when there's no booking link; the link then goes to the form. */
     bookFallback: "Talk to Lucas",
   },
 
-  earlyAccess: {
+  earlyAccessForm: {
     title: "Get early access",
-    sub: "Tell us about your shop. You'll hear from me within one business day.",
+    sub: "Tell us a bit about your shop. I'll get back to you within one business day.",
   },
 };

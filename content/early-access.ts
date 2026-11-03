@@ -53,7 +53,7 @@ export const earlyAccessForm = {
 
   submit: "Get early access",
   submitting: "Sending…",
-  privacyNote: { before: "We'll only use this to talk to you about Strobe. See our ", link: "privacy policy", after: "." },
+  privacyNote: { before: "We only use this to talk to you about Strobe. ", link: "Privacy policy", after: "." },
 
   errors: {
     required: "This is required.",

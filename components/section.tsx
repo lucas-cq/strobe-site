@@ -1,11 +1,12 @@
 import type { ReactNode } from "react";
 import { Container } from "./ui";
 
-type Tone = "white" | "surface" | "night";
+type Tone = "white" | "surface" | "lavender" | "night";
 
 const tones: Record<Tone, string> = {
   white: "bg-white",
   surface: "bg-surface",
+  lavender: "bg-lavender",
   night: "on-dark bg-night text-white",
 };
 
@@ -82,7 +83,7 @@ export function ArrowLink({
       }`}
     >
       {children}
-      <span aria-hidden="true" className="transition-transform group-hover:translate-x-0.5">
+      <span aria-hidden="true" className="transition-transform duration-200 group-hover:translate-x-[3px]">
         →
       </span>
     </a>

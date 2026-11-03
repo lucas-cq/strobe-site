@@ -1,6 +1,6 @@
 import type { NavLink } from "./site";
 
-/** Shared shape for the /calgary and /edmonton pages. */
+/** Shared shape for the /calgary and /edmonton pages (SITE_V2.md sections 4 and 5). */
 export type CityPageContent = {
   meta: {
     title: string;
@@ -11,30 +11,20 @@ export type CityPageContent = {
   intro: string;
   /** Read by screen readers in place of the decorative mockup. */
   visualAlt: string;
+  /** What the city expects, in plain English. Facts only: see section 6 of the original brief. */
   rules: {
     eyebrow: string;
     title: string;
     items: string[];
-    footnote?: string;
+    systems: { title: string; items: string[] };
   };
-  systems: {
-    title: string;
-    items: string[];
-  };
-  steps: {
+  /** What changes with Strobe: outcomes, not workflow steps. */
+  withStrobe: {
     eyebrow: string;
     title: string;
-    items: { title: string; body: string }[];
-    /** A plain-language limit on what Strobe does, shown under the steps. */
+    cards: { title: string; body: string }[];
+    /** A plain-language limit on what Strobe does, shown under the cards. */
     note?: string;
-    /** Feature id from content/features.ts, shown as a coming-soon item. */
-    comingSoon?: string;
-  };
-  fieldMap?: {
-    title: string;
-    lede: string;
-    columns: [string, string];
-    rows: [string, string][];
   };
   sources: {
     title: string;

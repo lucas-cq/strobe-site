@@ -67,11 +67,16 @@ export function CheckCircle({ done = true }: { done?: boolean }) {
   );
 }
 
-export function CopyButton() {
+/** A grey placeholder row: shows there's more without showing what it is. */
+export function SkeletonRow({ width = "w-2/3" }: { width?: string }) {
   return (
-    <span className="inline-flex h-6 shrink-0 items-center rounded-md border border-line bg-white px-2 text-[11px] font-medium text-ink-2">
-      Copy
-    </span>
+    <div className="flex items-center gap-3 px-4 py-3">
+      <span className="size-5 shrink-0 rounded-full bg-surface ring-1 ring-line" />
+      <span className="flex-1 space-y-1.5">
+        <span className="block h-2 w-16 rounded-full bg-line" />
+        <span className={`block h-2.5 rounded-full bg-surface ring-1 ring-line ${width}`} />
+      </span>
+    </div>
   );
 }
 

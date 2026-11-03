@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import localFont from "next/font/local";
 import { Analytics } from "@vercel/analytics/next";
 import { AttributionCapture } from "@/components/attribution";
+import { RevealObserver } from "@/components/reveal-observer";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 import { site } from "@/content/site";
@@ -56,6 +57,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         </main>
         <SiteFooter />
         <AttributionCapture />
+        <RevealObserver />
         {/* Cookieless. Only on Vercel, where the /_vercel/insights endpoint exists. */}
         {process.env.VERCEL && <Analytics />}
       </body>

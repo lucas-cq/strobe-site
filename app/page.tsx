@@ -1,12 +1,14 @@
 import { EarlyAccessSection } from "@/components/early-access-section";
 import { Cities } from "@/components/home/cities";
+import { CityDeadline } from "@/components/home/city-deadline";
+import { EarlyAccessBento } from "@/components/home/early-access-bento";
 import { Faq } from "@/components/home/faq";
-import { FeatureList } from "@/components/home/feature-list";
 import { FounderNote } from "@/components/home/founder-note";
 import { Hero } from "@/components/home/hero";
 import { HowItWorks } from "@/components/home/how-it-works";
 import { Problem } from "@/components/home/problem";
-import { TwoButtons } from "@/components/home/two-buttons";
+import { ProofStrip } from "@/components/proof-strip";
+import { home } from "@/content/home";
 import { JsonLd } from "@/components/json-ld";
 import { site } from "@/content/site";
 import { homeMetadata } from "@/lib/metadata";
@@ -43,11 +45,12 @@ export default function HomePage() {
     <>
       <JsonLd data={structuredData} />
       <Hero />
+      <ProofStrip label={home.proof.label} items={home.proof.items} />
       <Problem />
       <HowItWorks />
-      <TwoButtons />
+      <CityDeadline />
       <Cities />
-      <FeatureList />
+      <EarlyAccessBento />
       <FounderNote />
       <Faq />
       <EarlyAccessSection />

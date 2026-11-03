@@ -15,6 +15,9 @@
   --color-muted: #6b6880; /* captions, labels */
   --color-line: #e6e5ef; /* borders, dividers */
   --color-surface: #f7f7fb; /* alternate section background */
+  --color-lavender: #f5f3ff; /* tinted section background */
+  --color-indigo-50: #eeedfd; /* proof strip, pills */
+  --color-indigo-100: #dedbfb; /* decorative quote marks, hover fills */
   --color-field: #8f8ca8; /* form control borders: 3.2:1 on white, meets non-text contrast */
 
   /* Text on night. Both pass AA against --color-night. */
@@ -33,6 +36,7 @@
   --color-pass-ink: #166534;
 
   --radius-card: 12px;
+  --radius-card-lg: 16px; /* gradient-border and bento cards */
   --radius-button: 10px;
 
   --shadow-soft: 0 1px 2px rgb(20 17 46 / 0.04), 0 8px 24px rgb(20 17 46 / 0.06);
@@ -51,7 +55,69 @@
   font-variant-numeric: tabular-nums;
 }
 
-/* Motion: one hero entrance plus gentle section fade-ins. Off for reduced motion. */
+/* Effects (SITE_V2.md section 2). Every animation has a reduced-motion fallback below. */
+
+@utility bg-gradient-brand {
+  background-image: var(--gradient-brand);
+}
+
+/* The brand gradient ends in a light blue that white body text fails AA on, so bands and cards
+   with white text use this darker version: white text stays above 6.8:1 across all of it. */
+@utility bg-gradient-band {
+  background-image: var(--gradient-band);
+}
+
+/* Faint 32px grid that fades out toward the edges. Hero and form band only. */
+@utility bg-grid {
+  background-image:
+    linear-gradient(to right, rgb(20 17 46 / 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgb(20 17 46 / 0.04) 1px, transparent 1px);
+  background-size: 32px 32px;
+  mask-image: radial-gradient(ellipse 70% 65% at 50% 40%, black 30%, transparent 75%);
+}
+
+/* Same grid in white, for the indigo band */
+@utility bg-grid-light {
+  background-image:
+    linear-gradient(to right, rgb(255 255 255 / 0.08) 1px, transparent 1px),
+    linear-gradient(to bottom, rgb(255 255 255 / 0.08) 1px, transparent 1px);
+  background-size: 32px 32px;
+  mask-image: radial-gradient(ellipse 70% 65% at 50% 40%, black 30%, transparent 75%);
+}
+
+/* White card with a thin indigo-to-blue gradient border */
+@utility card-gradient {
+  border: 1px solid transparent;
+  border-radius: var(--radius-card-lg);
+  background:
+    linear-gradient(#fff, #fff) padding-box,
+    var(--gradient-hairline) border-box;
+}
+
+/* Cards only, never text blocks */
+@utility hover-lift {
+  transition:
+    transform 200ms ease,
+    box-shadow 200ms ease;
+  &:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 16px 40px -16px rgb(75 59 230 / 0.35);
+  }
+}
+
+/* Big "01" to "04". Decorative: always aria-hidden. */
+@utility gradient-numeral {
+  font-family: var(--font-display);
+  font-size: 48px;
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: -0.03em;
+  background-image: var(--gradient-brand);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
 @keyframes hero-enter {
   /* Starts mostly visible: the mockups are the hero's largest element, so they shouldn't hide while loading */
   from {
@@ -64,35 +130,88 @@
   }
 }
 
-@keyframes reveal {
-  from {
-    opacity: 0;
-    transform: translateY(12px);
-  }
-  to {
-    opacity: 1;
-    transform: none;
+@keyframes live-blink {
+  50% {
+    opacity: 0.35;
   }
 }
+
+/* The whole mark fades as one image; the beams are never redrawn or recoloured */
+@keyframes strobe-pulse {
+  0%,
+  100% {
+    opacity: 0.06;
+  }
+  50% {
+    opacity: 0.12;
+  }
+}
+
+@keyframes marquee {
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+/* Hero eyebrow only */
+.live-dot {
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  border-radius: 9999px;
+  background: var(--color-indigo);
+  animation: live-blink 1.6s ease-in-out infinite;
+}
+
+.strobe-pulse {
+  opacity: 0.08;
+  animation: strobe-pulse 5s ease-in-out infinite;
+}
+
+/* Proof strip: a duplicated list slides left forever and pauses on hover */
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marquee 40s linear infinite;
+}
+.marquee:hover .marquee-track {
+  animation-play-state: paused;
+}
+
+/* Reveal on scroll is done in components/reveal-observer.tsx with the Web Animations API,
+   so it never touches markup during hydration and hides nothing if JavaScript doesn't run. */
 
 @media (prefers-reduced-motion: no-preference) {
   .hero-enter {
     animation: hero-enter 300ms cubic-bezier(0.2, 0.7, 0.2, 1) both;
   }
+}
 
-  /* Scroll-driven, so no JavaScript. Browsers without support just show the content. */
-  @supports (animation-timeline: view()) {
-    .reveal {
-      animation: reveal linear both;
-      animation-timeline: view();
-      animation-range: entry 0% entry 35%;
-    }
+@media (prefers-reduced-motion: reduce) {
+  .live-dot,
+  .strobe-pulse {
+    animation: none;
+  }
+  .marquee-track {
+    animation: none;
+    width: auto;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .marquee-duplicate {
+    display: none;
+  }
+  .hover-lift:hover {
+    transform: none;
   }
 }
 
 @layer base {
   :root {
     --focus-ring: var(--color-indigo);
+    --gradient-brand: linear-gradient(135deg, #2b1a8c 0%, #4b3be6 45%, #2e8bff 100%);
+    --gradient-hairline: linear-gradient(135deg, rgb(75 59 230 / 0.45), rgb(46 139 255 / 0.15));
+    --gradient-band: linear-gradient(135deg, #2b1a8c 0%, #4b3be6 100%);
     color-scheme: light;
   }
 

@@ -4,9 +4,9 @@ import { Section, SectionHeader } from "../section";
 /** Native <details> accordion: keyboard and screen-reader support with no client JavaScript. */
 export function Faq() {
   return (
-    <Section id="faq" tone="surface" labelledBy="faq-title">
+    <Section id="faq" tone="lavender" labelledBy="faq-title">
       <div className="grid gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:gap-16">
-        <SectionHeader id="faq-title" eyebrow="FAQ" title={faq.title} />
+        <SectionHeader id="faq-title" eyebrow={faq.eyebrow} title={faq.title} />
         <div className="reveal divide-y divide-line border-y border-line">
           {faq.items.map((item) => (
             <details key={item.question} className="group">

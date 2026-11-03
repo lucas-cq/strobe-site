@@ -16,7 +16,7 @@ export const terms: LegalDocument = {
     {
       heading: "Early access",
       body: [
-        "Strobe is in early access. Features described on this site may change, and some are marked as coming soon. Joining early access or booking a walkthrough doesn't create an agreement to provide the Strobe app. Any use of the app will be covered by a separate agreement.",
+        "Strobe is in early access. Features described on this site may change. Joining early access or booking a walkthrough doesn't create an agreement to provide the Strobe app. Any use of the app will be covered by a separate agreement.",
       ],
     },
     {

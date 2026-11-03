@@ -1,21 +1,26 @@
 import { home } from "@/content/home";
 import { formAnchor, site } from "@/content/site";
+import { WalkthroughButton } from "../cal-booking";
+import { BackgroundMark, GridPattern, LiveDot } from "../effects";
 import { InspectPhone } from "../mockups/inspect-phone";
 import { OwnerQuoteCard } from "../mockups/owner-quote-card";
-import { Eyebrow } from "../section";
 import { Container, buttonClasses } from "../ui";
-import { WalkthroughButton } from "../cal-booking";
 
 export function Hero() {
   const { hero } = home;
   return (
-    <section aria-labelledby="hero-title" className="relative overflow-hidden">
-      <Container className="grid items-center gap-14 pt-12 pb-20 md:pt-20 md:pb-24 lg:grid-cols-[1.05fr_1fr] lg:gap-8">
+    <section aria-labelledby="hero-title" className="relative overflow-hidden bg-white">
+      <GridPattern />
+      {/* The logo mark, huge and faint, off to the right */}
+      <BackgroundMark className="top-1/2 -right-56 w-[900px] -translate-y-1/2 opacity-5 max-lg:hidden" />
+
+      <Container className="relative grid items-center gap-14 pt-12 pb-20 md:pt-20 md:pb-24 lg:grid-cols-[1.05fr_1fr] lg:gap-8">
         <div>
-          <Eyebrow>
+          <p className="flex items-center gap-2 text-sm font-medium tracking-wide text-indigo">
+            <LiveDot />
             <span className="sm:hidden">{hero.eyebrowShort}</span>
             <span className="hidden sm:inline">{hero.eyebrow}</span>
-          </Eyebrow>
+          </p>
           <h1 id="hero-title" className="mt-4 text-[2.375rem] leading-[1.06] text-ink sm:text-5xl lg:text-[3.75rem]">
             {hero.title}
           </h1>
@@ -43,15 +48,7 @@ export function Hero() {
           <div className="hero-enter relative mx-auto w-[520px] pt-[140px] pb-10 max-[400px]:[zoom:0.62] min-[400px]:max-sm:[zoom:0.7]">
             <div
               aria-hidden="true"
-              className="bg-brand-gradient absolute top-1/2 left-1/2 size-[105%] -translate-x-1/2 -translate-y-1/2 rounded-full opacity-[0.16] blur-3xl"
-            />
-            {/* eslint-disable-next-line @next/next/no-img-element -- brand SVG, referenced by path */}
-            <img
-              src="/brand/strobe-mark.svg"
-              alt=""
-              width={512}
-              height={512}
-              className="absolute top-1/2 left-1/2 w-[88%] -translate-x-1/2 -translate-y-1/2 opacity-[0.07]"
+              className="bg-gradient-brand absolute top-1/2 left-1/2 size-[115%] -translate-x-1/2 -translate-y-1/2 rounded-full opacity-[0.18] blur-3xl"
             />
             <InspectPhone className="absolute top-0 left-0" />
             <OwnerQuoteCard className="relative ml-[232px] w-[288px]" />

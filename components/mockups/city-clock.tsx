@@ -12,7 +12,7 @@ type SystemRow = {
 
 const rows: SystemRow[] = [
   { system: "Fire Alarm", site: "88 Elm St SE", day: 1, impairment: true },
-  { system: "Fire Alarm", site: "1200 Sample Ave SW", day: 8 },
+  { system: "Fire Alarm", site: "1200 Sample Ave SW", day: 9 },
   { system: "Fire Alarm", site: "455 Oak St NE", day: 6 },
 ];
 

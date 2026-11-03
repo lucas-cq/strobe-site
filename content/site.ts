@@ -65,7 +65,7 @@ export const site: SiteContent = {
   cta: {
     primary: "Get early access",
     primaryShort: "Get access",
-    walkthrough: "Book a 20-minute walkthrough",
+    walkthrough: "Book a 20-minute call",
     walkthroughFallback: "Talk to Lucas",
   },
   skipLink: "Skip to content",
