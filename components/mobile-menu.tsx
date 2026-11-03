@@ -1,10 +1,10 @@
 "use client";
 
-import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import { site } from "@/content/site";
 import { EarlyAccessLink } from "./early-access-link";
 import { Lockup } from "./lockup";
+import { PageLink } from "./page-link";
 import { buttonClasses } from "./ui";
 
 export function MobileMenu() {
@@ -50,9 +50,9 @@ export function MobileMenu() {
       >
         <div className="flex h-full flex-col">
           <div className="flex h-16 items-center justify-between border-b border-line px-4">
-            <Link href="/" onClick={close} aria-label="Strobe home">
+            <PageLink href="/" onClick={close} aria-label="Strobe home">
               <Lockup className="h-7 w-auto" label="" />
-            </Link>
+            </PageLink>
             <button
               type="button"
               className="-mr-2 inline-flex size-11 items-center justify-center rounded-button hover:bg-surface"
@@ -69,13 +69,13 @@ export function MobileMenu() {
             <ul className="divide-y divide-line">
               {site.nav.map((link) => (
                 <li key={link.href}>
-                  <Link
+                  <PageLink
                     href={link.href}
                     onClick={close}
                     className="flex min-h-14 items-center text-lg font-medium text-ink"
                   >
                     {link.label}
-                  </Link>
+                  </PageLink>
                 </li>
               ))}
             </ul>

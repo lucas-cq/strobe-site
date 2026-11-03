@@ -43,7 +43,13 @@ export const viewport: Viewport = {
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="en-CA" className={`${inter.variable} ${interDisplay.variable} antialiased`}>
+    // data-scroll-behavior: Next 16 only scrolls new pages to the very top instantly when this is set,
+    // since globals.css makes html scroll smoothly for in-page anchors.
+    <html
+      lang="en-CA"
+      data-scroll-behavior="smooth"
+      className={`${inter.variable} ${interDisplay.variable} antialiased`}
+    >
       <body className="flex min-h-dvh flex-col">
         <a
           href="#main"

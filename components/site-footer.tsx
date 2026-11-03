@@ -1,7 +1,7 @@
 import { cacheLife } from "next/cache";
-import Link from "next/link";
 import { site } from "@/content/site";
 import { Lockup } from "./lockup";
+import { PageLink } from "./page-link";
 import { Container } from "./ui";
 
 async function CopyrightYear() {
@@ -18,9 +18,9 @@ export function SiteFooter() {
       <Container className="py-14 md:py-16">
         <div className="flex flex-col gap-10 md:flex-row md:items-start md:justify-between">
           <div className="max-w-sm">
-            <Link href="/" aria-label="Strobe home" className="inline-block rounded-sm">
+            <PageLink href="/" aria-label="Strobe home" className="inline-block rounded-sm">
               <Lockup tone="white" className="h-8 w-auto" label="" />
-            </Link>
+            </PageLink>
             <p className="mt-4 text-[15px] text-night-muted">{site.location}</p>
             <a
               href={`mailto:${site.email}`}
@@ -34,9 +34,9 @@ export function SiteFooter() {
             <ul className="grid grid-cols-2 gap-x-10 gap-y-3 text-[15px] sm:grid-cols-3">
               {links.map((link) => (
                 <li key={link.href}>
-                  <Link href={link.href} className="text-night-text underline-offset-4 hover:text-white hover:underline">
+                  <PageLink href={link.href} className="text-night-text underline-offset-4 hover:text-white hover:underline">
                     {link.label}
-                  </Link>
+                  </PageLink>
                 </li>
               ))}
             </ul>
