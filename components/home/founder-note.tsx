@@ -11,7 +11,7 @@ const hasPhoto = existsSync(path.join(process.cwd(), "public", "founder.jpg"));
 export function FounderNote() {
   const { founder } = home;
   return (
-    <Section labelledBy="founder-title" flushTop>
+    <Section labelledBy="founder-title">
       <figure className="reveal mx-auto max-w-3xl rounded-card border border-line bg-surface p-6 md:p-10">
         <h2 id="founder-title" className="font-sans text-sm font-medium tracking-wide text-indigo">
           {founder.eyebrow}

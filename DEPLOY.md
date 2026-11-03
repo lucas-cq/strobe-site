@@ -78,6 +78,7 @@ Without the secret key, production rejects every submission on purpose.
 |---|---|
 | `NEXT_PUBLIC_SITE_URL` | `https://strobehq.com` |
 | `IP_HASH_SALT` | A long random string: `openssl rand -hex 32`. Set once and don't change it. |
+| `LEAD_TOKEN_SECRET` | Optional. Another long random string for the success screen's optional details form. Falls back to `IP_HASH_SALT`. |
 | `NEXT_PUBLIC_CAL_LINK` | See step 7 |
 
 Variables starting with `NEXT_PUBLIC_` are baked in at build time, so **redeploy** after
@@ -129,4 +130,5 @@ cookie banner. The component only renders on Vercel builds, so local builds stay
 - `pnpm leads:prune` deletes expired data by hand. The form also does it after each
   submission.
 - Schema change: edit `db/schema.ts`, run `pnpm db:generate`, commit the new migration, then
-  `pnpm db:migrate` against Neon.
+  `pnpm db:migrate` against Neon **before** pushing the code that needs it. (Migrations so far
+  only add or relax things, so running them before the deploy is always safe.)

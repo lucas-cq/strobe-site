@@ -16,7 +16,8 @@ export const leads = pgTable("leads", {
   phone: text("phone"),
   cities: text("cities").array().notNull(),
   techCount: text("tech_count").notNull(),
-  currentMethod: text("current_method").notNull(),
+  // Optional: collected in step 2 of the form.
+  currentMethod: text("current_method"),
   currentSoftware: text("current_software"),
   systems: text("systems").array().notNull().default(sql`'{}'::text[]`),
   notes: text("notes"),

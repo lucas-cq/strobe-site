@@ -27,7 +27,7 @@ export function Section({
 }) {
   return (
     <section id={id} aria-labelledby={labelledBy} className={`${tones[tone]} ${className}`}>
-      <Container className={`py-16 md:py-24 ${flushTop ? "pt-0 md:pt-0" : ""}`}>{children}</Container>
+      <Container className={`py-14 md:py-20 ${flushTop ? "pt-0 md:pt-0" : ""}`}>{children}</Container>
     </section>
   );
 }

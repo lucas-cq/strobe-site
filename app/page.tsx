@@ -1,14 +1,11 @@
 import { EarlyAccessSection } from "@/components/early-access-section";
 import { Cities } from "@/components/home/cities";
-import { CityClockBand } from "@/components/home/city-clock-band";
 import { Faq } from "@/components/home/faq";
 import { FeatureList } from "@/components/home/feature-list";
-import { ForOwners } from "@/components/home/for-owners";
 import { FounderNote } from "@/components/home/founder-note";
 import { Hero } from "@/components/home/hero";
 import { HowItWorks } from "@/components/home/how-it-works";
 import { Problem } from "@/components/home/problem";
-import { ShopPoints } from "@/components/home/shop-points";
 import { TwoButtons } from "@/components/home/two-buttons";
 import { JsonLd } from "@/components/json-ld";
 import { site } from "@/content/site";
@@ -48,12 +45,9 @@ export default function HomePage() {
       <Hero />
       <Problem />
       <HowItWorks />
-      <FeatureList />
       <TwoButtons />
-      <CityClockBand />
       <Cities />
-      <ForOwners />
-      <ShopPoints />
+      <FeatureList />
       <FounderNote />
       <Faq />
       <EarlyAccessSection />

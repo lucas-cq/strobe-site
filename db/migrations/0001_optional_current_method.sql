@@ -1,0 +1,1 @@
+ALTER TABLE "leads" ALTER COLUMN "current_method" DROP NOT NULL;

@@ -1,7 +1,7 @@
 import type { ReactNode } from "react";
 
 type ButtonVariant = "primary" | "secondary" | "secondary-on-dark";
-type ButtonSize = "md" | "lg";
+type ButtonSize = "sm" | "md" | "lg";
 
 const base =
   "inline-flex items-center justify-center gap-2 rounded-button font-medium whitespace-nowrap transition-colors duration-150 disabled:cursor-not-allowed disabled:opacity-60";
@@ -13,6 +13,7 @@ const variants: Record<ButtonVariant, string> = {
 };
 
 const sizes: Record<ButtonSize, string> = {
+  sm: "h-9 px-3 text-sm",
   md: "h-10 px-4 text-[15px]",
   lg: "h-12 px-5 text-base",
 };

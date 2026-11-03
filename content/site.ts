@@ -19,6 +19,8 @@ export type SiteContent = {
   legalLinks: NavLink[];
   cta: {
     primary: string;
+    /** The compact version in the mobile header. */
+    primaryShort: string;
     /** Shown only when NEXT_PUBLIC_CAL_LINK is set and the button opens a real booking. */
     walkthrough: string;
     /** Shown when there's no booking link. The button then goes to the form, so it mustn't say "book". */
@@ -62,6 +64,7 @@ export const site: SiteContent = {
   ],
   cta: {
     primary: "Get early access",
+    primaryShort: "Get access",
     walkthrough: "Book a 20-minute walkthrough",
     walkthroughFallback: "Talk to Lucas",
   },

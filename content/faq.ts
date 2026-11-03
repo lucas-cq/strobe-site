@@ -23,7 +23,7 @@ export const faq: { title: string; items: FaqItem[] } = {
     {
       question: "What does it cost?",
       answer:
-        "A flat monthly price per shop, not per tech. Early-access shops lock in founding pricing. Book a call and we'll walk you through it.",
+        "A flat monthly price per shop, not per tech. Early-access shops lock in founding pricing. Talk to us and we'll walk you through it.",
     },
     {
       // TODO Lucas: confirm you'll do this import by hand for early shops.

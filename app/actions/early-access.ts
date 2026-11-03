@@ -7,10 +7,10 @@ import { after } from "next/server";
 import { earlyAccessForm } from "@/content/early-access";
 import { getDb } from "@/db";
 import { leadSubmissions, leads } from "@/db/schema";
+import { createDetailsToken } from "@/lib/details-token";
 import {
   type EarlyAccessState,
   type FieldErrors,
-  type FieldName,
   earlyAccessSchema,
   firstNameOf,
   hiddenFields,
@@ -47,7 +47,7 @@ export async function submitEarlyAccess(prev: EarlyAccessState, formData: FormDa
   // 1. Honeypot: bots fill every field. Pretend it worked and store nothing.
   if (clip(formData.get(hiddenFields.honeypot), 200)) {
     const firstName = firstNameOf(values.fullName);
-    return { status: "success", attempt, firstName, fullName: values.fullName, email: "" };
+    return { status: "success", attempt, firstName, fullName: values.fullName, email: "", detailsToken: null };
   }
 
   const h = await headers();
@@ -78,13 +78,12 @@ export async function submitEarlyAccess(prev: EarlyAccessState, formData: FormDa
   if (!parsed.success) {
     const fieldErrors: FieldErrors = {};
     for (const issue of parsed.error.issues) {
-      const field = issue.path[0] as FieldName;
+      const field = String(issue.path[0]);
       fieldErrors[field] ??= issue.message;
     }
     return fail(errors.summary(Object.keys(fieldErrors).length), fieldErrors);
   }
   const input = parsed.data;
-  if (input.currentMethod !== earlyAccessForm.softwareMethod) input.currentSoftware = null;
 
   const attribution: LeadAttribution = {
     utmSource: clip(formData.get(hiddenFields.utmSource), 200),
@@ -95,6 +94,7 @@ export async function submitEarlyAccess(prev: EarlyAccessState, formData: FormDa
   };
 
   // 5. Upsert by lowercased email. A repeat submission updates the row and bumps the count.
+  // Only step-1 fields are written here, so a repeat never wipes the optional step-2 details.
   const now = new Date();
   const consent = input.consent
     ? { marketingConsent: true, consentAt: now, consentText: earlyAccessForm.fields.consent.label }
@@ -102,19 +102,15 @@ export async function submitEarlyAccess(prev: EarlyAccessState, formData: FormDa
   const row = {
     fullName: input.fullName,
     company: input.company,
-    phone: input.phone,
     cities: input.cities,
     techCount: input.techCount,
-    currentMethod: input.currentMethod,
-    currentSoftware: input.currentSoftware,
-    systems: input.systems,
-    notes: input.notes,
     ...consent,
     ...attribution,
     ipHash,
   };
 
   let submissionCount = 1;
+  let leadId: string;
   try {
     const [saved] = await db
       .insert(leads)
@@ -125,6 +121,7 @@ export async function submitEarlyAccess(prev: EarlyAccessState, formData: FormDa
       })
       .returning({ id: leads.id, submissionCount: leads.submissionCount });
     submissionCount = saved.submissionCount;
+    leadId = saved.id;
     await db.insert(leadSubmissions).values({ ipHash, leadId: saved.id });
   } catch (err) {
     console.error("[early-access] saving lead failed", err);
@@ -137,6 +134,13 @@ export async function submitEarlyAccess(prev: EarlyAccessState, formData: FormDa
   // Housekeeping: enforce the retention periods in the privacy policy.
   after(() => pruneExpired(db).catch((err) => console.error("[early-access] pruning failed", err)));
 
-  // 7. Success.
-  return { status: "success", attempt, firstName, fullName: input.fullName, email: input.email };
+  // 7. Success, with a short-lived token for the optional step-2 details.
+  return {
+    status: "success",
+    attempt,
+    firstName,
+    fullName: input.fullName,
+    email: input.email,
+    detailsToken: createDetailsToken(leadId),
+  };
 }

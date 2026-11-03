@@ -3,33 +3,25 @@
  * so the client bundle doesn't pull in Zod.
  */
 
-export type FieldName =
-  | "fullName"
-  | "email"
-  | "company"
-  | "phone"
-  | "cities"
-  | "techCount"
-  | "currentMethod"
-  | "currentSoftware"
-  | "systems"
-  | "notes"
-  | "consent";
-export type FieldErrors = Partial<Record<FieldName, string>>;
+export type FieldErrors = Partial<Record<string, string>>;
 
-/** What the user typed, echoed back so nothing is lost when there's an error. */
+/** Step 1: what the user typed, echoed back so nothing is lost when there's an error. */
 export type FormValues = {
   fullName: string;
   email: string;
   company: string;
-  phone: string;
   cities: string[];
   techCount: string;
+  consent: boolean;
+};
+
+/** Step 2: the optional details on the success screen. */
+export type DetailsValues = {
   currentMethod: string;
   currentSoftware: string;
   systems: string[];
+  phone: string;
   notes: string;
-  consent: boolean;
 };
 
 export type EarlyAccessState =
@@ -41,11 +33,27 @@ export type EarlyAccessState =
       fieldErrors: FieldErrors;
       values: FormValues;
     }
-  | { status: "success"; attempt: number; firstName: string; fullName: string; email: string };
+  | {
+      status: "success";
+      attempt: number;
+      firstName: string;
+      fullName: string;
+      email: string;
+      /** Signed, short-lived token that lets step 2 update this lead. Null when step 2 is unavailable. */
+      detailsToken: string | null;
+    };
 
 export const initialEarlyAccessState: EarlyAccessState = { status: "idle", attempt: 0 };
 
-/** Hidden fields the form sends alongside the visible ones. */
+export type DetailsState =
+  | { status: "idle"; attempt: number }
+  | { status: "error"; attempt: number; message: string; fieldErrors: FieldErrors; values: DetailsValues }
+  | { status: "saved"; attempt: number }
+  | { status: "expired"; attempt: number };
+
+export const initialDetailsState: DetailsState = { status: "idle", attempt: 0 };
+
+/** Hidden fields the forms send alongside the visible ones. */
 export const hiddenFields = {
   honeypot: "website",
   turnstile: "cf-turnstile-response",
@@ -54,5 +62,5 @@ export const hiddenFields = {
   utmCampaign: "utm_campaign",
   referrer: "referrer",
   landingPath: "landing_path",
+  detailsToken: "details_token",
 } as const;
-

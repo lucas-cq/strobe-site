@@ -4,7 +4,7 @@ import { emails } from "@/content/emails";
 import { site } from "@/content/site";
 import { ConfirmationEmail, confirmationText } from "@/emails/confirmation";
 import { LeadNotificationEmail, leadNotificationText } from "@/emails/lead-notification";
-import type { EarlyAccessInput } from "./early-access";
+import type { DetailsInput, EarlyAccessInput } from "./early-access";
 
 export type LeadAttribution = {
   utmSource: string | null;
@@ -49,13 +49,8 @@ export async function sendLeadEmails(
     ["Full name", lead.fullName],
     ["Work email", lead.email],
     ["Company", lead.company],
-    ["Phone", lead.phone ?? ""],
     ["Where they work", cities],
     ["Techs", lead.techCount],
-    ["Reports today", lead.currentMethod],
-    ["Which software", lead.currentSoftware ?? ""],
-    ["What they inspect", lead.systems.join(", ")],
-    ["Notes", lead.notes ?? ""],
     ["Product updates", lead.consent ? "Yes" : "No"],
     ["Submission count", String(meta.submissionCount)],
     ["UTM source", attribution.utmSource ?? ""],
@@ -97,5 +92,48 @@ export async function sendLeadEmails(
   for (const result of results) {
     if (result.status === "rejected") console.error("[email] send failed", result.reason);
     else if (result.value.error) console.error("[email] Resend error", result.value.error);
+  }
+}
+
+/**
+ * Tells LEADS_NOTIFY_TO what a lead added in the optional step-2 form.
+ * Never throws: the details are already saved.
+ */
+export async function sendLeadDetailsEmail(
+  lead: { fullName: string; email: string; company: string },
+  details: DetailsInput,
+) {
+  const apiKey = process.env.RESEND_API_KEY;
+  const from = process.env.RESEND_FROM;
+  const notifyTo = process.env.LEADS_NOTIFY_TO;
+  if (!apiKey || !from || !notifyTo) {
+    console.warn("[email] Resend or LEADS_NOTIFY_TO is not set; skipping the details email for", lead.email);
+    return;
+  }
+
+  const rows: [string, string][] = [
+    ["Full name", lead.fullName],
+    ["Work email", lead.email],
+    ["Company", lead.company],
+    ["Reports today", details.currentMethod ?? ""],
+    ["Which software", details.currentSoftware ?? ""],
+    ["What they inspect", details.systems.join(", ")],
+    ["Phone", details.phone ?? ""],
+    ["Notes", details.notes ?? ""],
+  ];
+  const summary = `${lead.company} added details for your call`;
+
+  try {
+    const { error } = await new Resend(apiKey).emails.send({
+      from,
+      to: notifyTo,
+      replyTo: lead.email,
+      subject: emails.details.subject(lead.company),
+      html: await render(<LeadNotificationEmail rows={rows} summary={summary} heading={emails.details.heading} />),
+      text: leadNotificationText({ rows, summary }),
+    });
+    if (error) console.error("[email] Resend error", error);
+  } catch (err) {
+    console.error("[email] details send failed", err);
   }
 }

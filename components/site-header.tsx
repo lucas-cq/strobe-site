@@ -32,6 +32,10 @@ export function SiteHeader() {
           <div className="hidden md:block">
             <EarlyAccessLink className={buttonClasses("primary")}>{site.cta.primary}</EarlyAccessLink>
           </div>
+          {/* Phones get a compact button so there's a way to act without opening the menu */}
+          <div className="md:hidden">
+            <EarlyAccessLink className={buttonClasses("primary", "sm")}>{site.cta.primaryShort}</EarlyAccessLink>
+          </div>
           <MobileMenu />
         </div>
       </Container>

@@ -16,4 +16,8 @@ export const emails = {
       `New early access: ${company} (${cities}, ${techCount})`,
     heading: "New early-access request",
   },
+  details: {
+    subject: (company: string) => `Call prep details: ${company}`,
+    heading: "Details added for your call",
+  },
 };

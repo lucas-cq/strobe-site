@@ -40,68 +40,40 @@ export const home = {
   how: {
     eyebrow: "How it works",
     title: "From the panel to the City filing, in one record",
-    lede: "Every step reuses what came before it, so nobody types the same thing twice.",
+    lede: "Every stage reuses what came before it, so nobody types the same thing twice.",
     steps: [
-      {
-        title: "Set up the site once.",
-        who: "Manager",
-        where: "Web",
-        body: "Customer, site, systems, devices and contacts are entered once. Every report, quote and City filing pulls from that record.",
-      },
       {
         title: "Inspect, even with no signal.",
         who: "Tech",
         where: "Phone",
-        body: "Last year's device list is already loaded. Pass or fail each device. A fail becomes a deficiency with a photo, location, clause reference and note. An impairment alerts the manager right away. Works offline in basements and parkades, and syncs when back online.",
+        body: "The site and last year's device list are already loaded. Pass or fail each device, and a fail becomes a deficiency with a photo, location and note. An impairment alerts the manager right away. Works offline in basements and parkades.",
       },
       {
-        title: "Finish the report on site.",
-        who: "Tech",
-        where: "Phone",
-        body: "Recommendations and the tech's signature, and the S536 report is generated. That's day 0 for the City clock.",
+        title: "Report and quote on site.",
+        who: "Tech, then manager",
+        body: "The tech signs and the S536 report is generated. That's day 0 for the City clock. The manager checks each deficiency and prices the lines from your price book.",
       },
       {
-        title: "Review and price.",
-        who: "Manager",
-        body: "See every deficiency with its photos, fix the wording, and price the lines from your price book.",
-      },
-      {
-        title: "Send report + quote.",
-        who: "Manager",
-        body: "One link to the owner. No login, works on a phone, and every quote line shows the deficiency photo next to the price. You see when they open it, and a reminder goes out if they don't open it within 2 days.",
-      },
-      {
-        title: "Owner signs.",
+        title: "Owner approves by link.",
         who: "Owner",
         where: "Any device",
-        body: "They approve all or some lines, e-sign and add a PO number. Approval becomes a work order for your techs.",
+        body: "Building owners don't need another login. The report and quote open on any phone, with a photo next to every line. They approve some or all lines, e-sign and add a PO number.",
       },
       {
         title: "File with the City.",
         who: "Manager",
-        body: "Strobe tracks business days per system and flags anything still deficient. Calgary gets a pre-filled 311 packet, and Edmonton gets an upload-ready LIV package.",
+        body: "Strobe counts business days per system and flags anything still deficient. Calgary gets a pre-filled 311 packet, and Edmonton gets an upload-ready LIV package.",
         links: [
           { label: "Calgary filing", href: "/calgary" },
           { label: "Edmonton LIV", href: "/edmonton" },
         ],
       },
       {
-        title: "Repair and close out.",
+        title: "Repair, close out, keep the record.",
         who: "Tech, then owner",
-        body: "The work order carries the original photos. The tech completes the repair side of section 20.2, the owner signs the compliance statement by link, and Strobe produces the repair completion letter.",
-      },
-      {
-        title: "Records that keep.",
-        who: "Automatic",
-        body: "Every test, photo, signature, quote and filing is stored per site, and next year's inspection starts from this one.",
+        body: "The work order carries the original photos. The owner signs off by link and gets the close-out package with the SR number on it. Next year's inspection starts from this one.",
       },
     ] satisfies Step[],
-  },
-
-  features: {
-    eyebrow: "What's in early access",
-    title: "Fire alarm first, done properly",
-    lede: "Early-access shops get the full fire alarm workflow today. Items marked coming soon are on the roadmap, and your feedback sets the order.",
   },
 
   buttons: {
@@ -112,25 +84,28 @@ export const home = {
         title: "Send quote.",
         kicker: "The money button.",
         body: "Quote lines come straight from the deficiencies, priced from your price book, plus labour and tax. It goes out the same day, before anyone else has quoted.",
-        visualAlt: "Sample owner quote with four deficiency lines, three selected, and an approve button.",
+        visualAlt: "The top of a sample owner quote, with deficiency lines, prices and checkboxes.",
       },
       {
         title: "Report to City.",
         kicker: "The compliance button.",
-        body: "It lights up when a site has a system with open deficiencies and turns urgent at day 8, or immediately for an impairment. One click builds the whole filing, and every filing is timestamped.",
+        subtitle: "The clock starts at the inspection, not when the owner says yes.",
+        body: "Approving a quote doesn't pause Calgary's 10 business days. Only a fixed system does. The button turns urgent at day 8, or right away for an impairment, and one click builds the whole filing, timestamped.",
         visualAlt: "Sample City clock showing three systems counting business days, with the Report to City button turning urgent.",
       },
     ],
   },
 
-  clock: {
-    eyebrow: "The City clock",
-    title: "The clock starts at the inspection, not when the owner says yes.",
-    body: "Approving a quote doesn't pause Calgary's 10 business days. Only a fixed system does. Strobe counts business days per system, reminds you at day 5 and day 8, and keeps a timestamped record that you reported on time.",
-    visualAlt: "Sample City clock in dark mode with three systems at different business-day counts.",
-    links: [
-      { label: "How Calgary filing works", href: "/calgary" },
-      { label: "How Edmonton LIV works", href: "/edmonton" },
+  features: {
+    eyebrow: "What's in early access",
+    title: "Fire alarm first, done properly",
+    lede: "Early-access shops get the full fire alarm workflow today. Your feedback sets the order of what comes next.",
+    comingSoonLabel: "Coming soon",
+    /** Shop-level promises, shown first in the same grid as the features. */
+    shopPoints: [
+      { title: "Flat price per shop, not per tech.", icon: "price" },
+      { title: "Panel-agnostic: Notifier, Mircom, Edwards, Simplex, whatever you service.", icon: "panel" },
+      { title: "Your data stays in Canada.", icon: "canada" },
     ],
   },
 
@@ -153,22 +128,6 @@ export const home = {
     ],
     elsewhere:
       "Elsewhere in Alberta? Strobe follows the Alberta Fire Code. Tell us your fire department and we'll map its process.",
-  },
-
-  owners: {
-    eyebrow: "For owners",
-    title: "Building owners don't need another login.",
-    body: "Reports, quotes and close-outs open from a link on any phone. Photos sit next to every line, so owners see what they're paying for. When the fire officer asks for proof of repair, the owner has the whole package with the SR number on it.",
-  },
-
-  shops: {
-    eyebrow: "Built for shops like yours",
-    title: "Made for small and mid-size Alberta shops",
-    points: [
-      { title: "Flat price per shop, not per tech.", icon: "price" },
-      { title: "Panel-agnostic: Notifier, Mircom, Edwards, Simplex, whatever you service.", icon: "panel" },
-      { title: "Your data stays in Canada.", icon: "canada" },
-    ],
   },
 
   founder: {

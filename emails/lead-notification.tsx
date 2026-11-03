@@ -5,11 +5,12 @@ type LeadNotificationProps = {
   /** Label and value pairs, already formatted, in display order. */
   rows: [string, string][];
   summary: string;
+  heading?: string;
 };
 
 const cell = { fontSize: "14px", lineHeight: "20px", padding: "8px 12px", borderBottom: "1px solid #E6E5EF", verticalAlign: "top" as const };
 
-export function LeadNotificationEmail({ rows, summary }: LeadNotificationProps) {
+export function LeadNotificationEmail({ rows, summary, heading = emails.notification.heading }: LeadNotificationProps) {
   return (
     <Html lang="en">
       <Head />
@@ -17,7 +18,7 @@ export function LeadNotificationEmail({ rows, summary }: LeadNotificationProps) 
       <Body style={{ backgroundColor: "#F7F7FB", fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif", margin: 0 }}>
         <Container style={{ maxWidth: "640px", padding: "24px 16px" }}>
           <Heading as="h1" style={{ fontSize: "18px", color: "#14112E", margin: "0 0 4px" }}>
-            {emails.notification.heading}
+            {heading}
           </Heading>
           <Text style={{ fontSize: "14px", color: "#3B3858", margin: "0 0 16px" }}>{summary}</Text>
           <Section style={{ backgroundColor: "#ffffff", border: "1px solid #E6E5EF", borderRadius: "8px" }}>
