@@ -11,9 +11,9 @@ type SystemRow = {
 };
 
 const rows: SystemRow[] = [
-  { system: "Fire Alarm", site: "88 Placeholder Rd SE", day: 1, impairment: true },
+  { system: "Fire Alarm", site: "88 Elm St SE", day: 1, impairment: true },
   { system: "Fire Alarm", site: "1200 Sample Ave SW", day: 8 },
-  { system: "Fire Alarm", site: "455 Example St NE", day: 6 },
+  { system: "Fire Alarm", site: "455 Oak St NE", day: 6 },
 ];
 
 type Urgency = "ok" | "warn" | "now";
@@ -63,7 +63,7 @@ export function CityClock({ variant = "light", className = "" }: { variant?: "li
           <p className="font-display text-[15px] font-semibold tracking-[-0.01em]">City clock</p>
           <p className={`text-[11px] ${t.sub}`}>Calgary · business days since inspection</p>
         </div>
-        <SampleLabel dark={dark} />
+        <SampleLabel dark={dark} className="text-[10px]" />
       </div>
 
       <ul className={`divide-y ${t.divide}`}>
@@ -74,8 +74,9 @@ export function CityClock({ variant = "light", className = "" }: { variant?: "li
           return (
             <li key={row.site} className="px-4 py-3">
               <div className="flex items-baseline justify-between gap-3">
-                <p className="min-w-0 truncate text-[12px] font-semibold">
-                  {row.system} <span className={`font-normal ${t.sub}`}>· {row.site}</span>
+                <p className="min-w-0 text-[12px] leading-4 font-semibold">
+                  {row.system}
+                  <span className={`block font-normal ${t.sub}`}>{row.site}</span>
                 </p>
                 <p
                   className={`tabular shrink-0 text-[11px] font-semibold ${

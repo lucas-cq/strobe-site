@@ -12,7 +12,10 @@ export function Hero() {
     <section aria-labelledby="hero-title" className="relative overflow-hidden">
       <Container className="grid items-center gap-14 pt-12 pb-20 md:pt-20 md:pb-24 lg:grid-cols-[1.05fr_1fr] lg:gap-8">
         <div>
-          <Eyebrow>{hero.eyebrow}</Eyebrow>
+          <Eyebrow>
+            <span className="sm:hidden">{hero.eyebrowShort}</span>
+            <span className="hidden sm:inline">{hero.eyebrow}</span>
+          </Eyebrow>
           <h1 id="hero-title" className="mt-4 text-[2.375rem] leading-[1.06] text-ink sm:text-5xl lg:text-[3.75rem]">
             {hero.title}
           </h1>

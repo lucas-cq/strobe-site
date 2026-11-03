@@ -14,6 +14,9 @@ const fields = [
 
 const attachments = ["S536-report-1200-Sample-Ave.pdf", "Deficiency-summary.pdf"];
 
+// The page's "Where every field comes from" table lists all 8 fields, so the mockup shows a few.
+const SHOWN = 4;
+
 /** The pre-filled Calgary 311 packet. Decorative: pair it with a text alternative. */
 export function CalgaryPacket({ className = "" }: { className?: string }) {
   return (
@@ -33,7 +36,7 @@ export function CalgaryPacket({ className = "" }: { className?: string }) {
       </div>
 
       <ol className="divide-y divide-line">
-        {fields.map((f) => (
+        {fields.slice(0, SHOWN).map((f) => (
           <li key={f.label} className="flex items-center gap-3 px-4 py-2">
             <CheckCircle />
             <div className="min-w-0 flex-1">
@@ -43,6 +46,10 @@ export function CalgaryPacket({ className = "" }: { className?: string }) {
             <CopyButton />
           </li>
         ))}
+        <li className="flex items-center gap-3 px-4 py-2 text-[11px] font-medium text-ink-2">
+          <CheckCircle />
+          <span className="tabular">+ {fields.length - SHOWN} more fields</span>
+        </li>
       </ol>
 
       <div className="border-t border-line px-4 py-3">

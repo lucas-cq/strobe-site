@@ -3,7 +3,7 @@ import type { ReactNode } from "react";
 /** Every mockup carries this so nobody mistakes it for a real customer. */
 export function SampleLabel({ dark = false, className = "" }: { dark?: boolean; className?: string }) {
   return (
-    <span className={`text-[11px] font-medium ${dark ? "text-night-muted" : "text-muted"} ${className}`}>
+    <span className={`text-[11px] font-medium whitespace-nowrap ${dark ? "text-night-muted" : "text-muted"} ${className}`}>
       Sample data
     </span>
   );

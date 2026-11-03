@@ -16,7 +16,8 @@ export function FounderNote() {
         <h2 id="founder-title" className="font-sans text-sm font-medium tracking-wide text-indigo">
           {founder.eyebrow}
         </h2>
-        <blockquote className="mt-4 font-display text-xl leading-relaxed tracking-[-0.01em] text-ink md:text-2xl">
+        {/* Body font at a smaller size on phones, so the note isn't a heavy block of 9+ lines */}
+        <blockquote className="mt-4 font-sans text-lg leading-relaxed text-ink md:font-display md:text-2xl md:tracking-[-0.01em]">
           <p>{founder.body}</p>
         </blockquote>
         <figcaption className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-4">
@@ -38,6 +39,17 @@ export function FounderNote() {
               </span>
             )}
             <span className="font-medium text-ink">{founder.signature}</span>
+            {founder.linkedinUrl && (
+              <a
+                href={founder.linkedinUrl}
+                target="_blank"
+                rel="me noopener noreferrer"
+                className="text-sm font-medium text-ink-2 underline underline-offset-4 hover:text-ink"
+              >
+                {founder.linkedinLabel}
+                <span className="sr-only"> (opens in a new tab)</span>
+              </a>
+            )}
           </span>
           <WalkthroughButton
             className="group inline-flex items-center gap-1.5 font-medium text-indigo underline-offset-4 hover:underline"

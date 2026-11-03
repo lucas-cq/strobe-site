@@ -9,11 +9,15 @@ const statusTone: Record<LivStatus, Tone> = {
   Resolved: "pass",
 };
 
-const deficiencies: { type: string; location: string; severity: string; status: LivStatus }[] = [
-  { type: "Smoke detector", location: "3rd floor corridor", severity: "High", status: "Open" },
-  { type: "Horn/strobe", location: "Stairwell B", severity: "Medium", status: "In Progress" },
-  { type: "Annunciator", location: "Main lobby", severity: "Low", status: "Cleared" },
-  { type: "End-of-line resistor", location: "Zone 2", severity: "Low", status: "Resolved" },
+// Severity is shown as a coloured dot only: we don't claim to know LIV's own severity labels.
+type Severity = 1 | 2 | 3;
+const severityDot: Record<Severity, string> = { 1: "bg-fail", 2: "bg-warn", 3: "bg-muted/50" };
+
+const deficiencies: { type: string; location: string; severity: Severity; status: LivStatus }[] = [
+  { type: "Smoke detector", location: "3rd floor corridor", severity: 1, status: "Open" },
+  { type: "Horn/strobe", location: "Stairwell B", severity: 2, status: "In Progress" },
+  { type: "Annunciator", location: "Main lobby", severity: 3, status: "Cleared" },
+  { type: "End-of-line resistor", location: "Zone 2", severity: 3, status: "Resolved" },
 ];
 
 const checks = ["Report PDF", "Premises and system type", "Deficiencies by type, location and severity"];
@@ -43,21 +47,24 @@ export function LivChecklist({ className = "" }: { className?: string }) {
       </ul>
 
       <div className="border-t border-line bg-surface/60 px-4 py-2">
-        <div className="grid grid-cols-[1fr_auto] gap-x-3 py-1 text-[10px] font-medium text-ink-2">
-          <span>Deficiency · location · severity</span>
-          <span>Status</span>
+        <div className="grid grid-cols-[1fr_44px_84px] gap-x-2 py-1 text-[10px] font-medium text-ink-2">
+          <span>Deficiency · location</span>
+          <span className="text-center">Severity</span>
+          <span className="text-right">Status</span>
         </div>
         <ul>
           {deficiencies.map((d) => (
-            <li key={d.type} className="grid grid-cols-[1fr_auto] items-center gap-x-3 py-1.5">
+            <li key={d.type} className="grid grid-cols-[1fr_44px_84px] items-center gap-x-2 py-1.5">
               <p className="min-w-0 truncate text-[12px] leading-4">
                 <span className="font-semibold">{d.type}</span>
-                <span className="text-ink-2">
-                  {" "}
-                  · {d.location} · {d.severity}
-                </span>
+                <span className="text-ink-2"> · {d.location}</span>
               </p>
-              <Chip tone={statusTone[d.status]}>{d.status}</Chip>
+              <span className="flex justify-center">
+                <span className={`size-2 rounded-full ${severityDot[d.severity]}`} />
+              </span>
+              <Chip tone={statusTone[d.status]} className="justify-self-end">
+                {d.status}
+              </Chip>
             </li>
           ))}
         </ul>

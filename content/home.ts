@@ -11,6 +11,8 @@ export type Step = {
 export const home = {
   hero: {
     eyebrow: "Fire and life safety inspection software for Alberta",
+    /** Phones only: the full eyebrow wraps to two lines at 375px. */
+    eyebrowShort: "Fire and life safety software · Alberta",
     title: "Inspect it. Quote it. File it. Same day.",
     sub: "Strobe takes your techs from the panel to a finished CAN/ULC-S536 report on their phone, gets the repair quote to the owner before you leave the site, and has your Calgary or Edmonton filing ready before the deadline.",
     note: "Early access for Alberta shops. Flat price per shop, not per tech.",
@@ -105,7 +107,8 @@ export const home = {
     shopPoints: [
       { title: "Flat price per shop, not per tech.", icon: "price" },
       { title: "Panel-agnostic: Notifier, Mircom, Edwards, Simplex, whatever you service.", icon: "panel" },
-      { title: "Your data stays in Canada.", icon: "canada" },
+      // TODO Lucas: keep only if the app really will run in Canada (e.g. Google Cloud Toronto).
+      { title: "Your customers' inspection data is stored in Canada.", icon: "canada" },
     ],
   },
 
@@ -136,6 +139,9 @@ export const home = {
     signature: "Lucas, founder",
     /** Shown when public/founder.jpg is missing. */
     initials: "LC",
+    // TODO Lucas: add your LinkedIn profile URL. The link stays hidden while this is empty.
+    linkedinUrl: "",
+    linkedinLabel: "LinkedIn",
     photoAlt: "Lucas, founder of Strobe",
     /** Shown only when NEXT_PUBLIC_CAL_LINK is set. */
     bookLabel: "Book 20 minutes with Lucas",

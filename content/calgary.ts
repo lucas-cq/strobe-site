@@ -12,7 +12,7 @@ export const calgary: CityPageContent = {
   intro:
     "Calgary Fire Department expects deficient fire safety systems to be reported within 10 business days of the initial inspection. Strobe tracks that clock for every system and builds the 311 request for you.",
   visualAlt:
-    "Sample Calgary 311 packet: the eight City form fields filled in with copy buttons, two attached PDF reports, and a saved SR number.",
+    "Sample Calgary 311 packet: the first City form fields filled in with copy buttons, four more fields filled the same way, two attached PDF reports, and a saved SR number.",
 
   rules: {
     eyebrow: "The rule, plainly",
