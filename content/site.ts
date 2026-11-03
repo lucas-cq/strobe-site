@@ -5,6 +5,8 @@ export type NavLink = {
 
 export type SiteContent = {
   name: string;
+  /** The legal party named on /privacy and /terms. */
+  legalEntityName: string;
   url: string;
   defaultTitle: string;
   defaultDescription: string;
@@ -17,7 +19,10 @@ export type SiteContent = {
   legalLinks: NavLink[];
   cta: {
     primary: string;
+    /** Shown only when NEXT_PUBLIC_CAL_LINK is set and the button opens a real booking. */
     walkthrough: string;
+    /** Shown when there's no booking link. The button then goes to the form, so it mustn't say "book". */
+    walkthroughFallback: string;
   };
   skipLink: string;
   menu: {
@@ -33,6 +38,8 @@ export type SiteContent = {
 
 export const site: SiteContent = {
   name: "Strobe",
+  // TODO Lucas: confirm, and update once Strobe is incorporated.
+  legalEntityName: "Lucas Cummings, operating as Strobe",
   url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://strobehq.com",
   defaultTitle: "Strobe | Fire inspection software for Alberta contractors",
   defaultDescription:
@@ -56,6 +63,7 @@ export const site: SiteContent = {
   cta: {
     primary: "Get early access",
     walkthrough: "Book a 20-minute walkthrough",
+    walkthroughFallback: "Talk to Lucas",
   },
   skipLink: "Skip to content",
   menu: {

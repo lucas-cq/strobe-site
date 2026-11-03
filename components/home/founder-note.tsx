@@ -39,8 +39,11 @@ export function FounderNote() {
             )}
             <span className="font-medium text-ink">{founder.signature}</span>
           </span>
-          <WalkthroughButton className="group inline-flex items-center gap-1.5 font-medium text-indigo underline-offset-4 hover:underline">
-            {founder.bookLabel}
+          <WalkthroughButton
+            className="group inline-flex items-center gap-1.5 font-medium text-indigo underline-offset-4 hover:underline"
+            label={founder.bookLabel}
+            fallbackLabel={founder.bookFallback}
+          >
             <span aria-hidden="true" className="transition-transform group-hover:translate-x-0.5">
               →
             </span>

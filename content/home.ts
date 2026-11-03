@@ -178,7 +178,10 @@ export const home = {
     /** Shown when public/founder.jpg is missing. */
     initials: "LC",
     photoAlt: "Lucas, founder of Strobe",
+    /** Shown only when NEXT_PUBLIC_CAL_LINK is set. */
     bookLabel: "Book 20 minutes with Lucas",
+    /** Shown when there's no booking link; the link then goes to the form. */
+    bookFallback: "Talk to Lucas",
   },
 
   earlyAccess: {

@@ -1,6 +1,7 @@
 import type { LegalDocument } from "./legal-types";
+import { site } from "./site";
 
-// Draft, pending legal review. Replace {{LEGAL_ENTITY_NAME}} before launch.
+// Draft, pending legal review. The legal name comes from site.legalEntityName.
 export const terms: LegalDocument = {
   meta: {
     title: "Terms of use | Strobe fire inspection software",
@@ -9,7 +10,7 @@ export const terms: LegalDocument = {
   title: "Terms of use",
   updated: "November 2, 2026",
   intro: [
-    "{{LEGAL_ENTITY_NAME}} (\"Strobe\", \"we\" or \"us\") runs strobehq.com. By using this website, you agree to these terms. If you don't agree, please don't use the site.",
+    `${site.legalEntityName} ("Strobe", "we" or "us") runs strobehq.com. By using this website, you agree to these terms. If you don't agree, please don't use the site.`,
   ],
   sections: [
     {

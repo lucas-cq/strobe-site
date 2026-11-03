@@ -75,7 +75,7 @@ export const features: Feature[] = [
   },
   {
     id: "calgary-extension",
-    title: "One-click Calgary form fill",
+    title: "Calgary form auto-fill",
     description: "A browser extension that fills the City form for you.",
     status: "coming-soon",
   },

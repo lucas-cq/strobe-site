@@ -31,7 +31,11 @@ export function CityPage({ content, visual }: { content: CityPageContent; visual
               <a href={`#${formAnchor}`} className={buttonClasses("primary", "lg")}>
                 {site.cta.primary}
               </a>
-              <WalkthroughButton className={buttonClasses("secondary", "lg")}>{site.cta.walkthrough}</WalkthroughButton>
+              <WalkthroughButton
+                className={buttonClasses("secondary", "lg")}
+                label={site.cta.walkthrough}
+                fallbackLabel={site.cta.walkthroughFallback}
+              />
             </div>
           </div>
           <div className="hero-enter min-w-0">

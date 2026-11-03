@@ -1,8 +1,9 @@
 import type { LegalDocument } from "./legal-types";
+import { site } from "./site";
 
 // Draft, pending legal review.
-// Written to fit PIPEDA and Alberta's PIPA. Replace {{LEGAL_ENTITY_NAME}} before launch,
-// and check the retention periods match what the code and your providers actually do.
+// Written to fit PIPEDA and Alberta's PIPA. The legal name comes from site.legalEntityName.
+// Check the retention periods match what the code and your providers actually do.
 export const privacy: LegalDocument = {
   meta: {
     title: "Privacy policy | Strobe fire inspection software",
@@ -12,7 +13,7 @@ export const privacy: LegalDocument = {
   title: "Privacy policy",
   updated: "November 2, 2026",
   intro: [
-    "{{LEGAL_ENTITY_NAME}} (\"Strobe\", \"we\" or \"us\") runs strobehq.com. This policy explains what we collect through this website and the early-access form, why we collect it, and the choices you have. It covers the website only. The Strobe app has its own terms.",
+    `${site.legalEntityName} ("Strobe", "we" or "us") runs strobehq.com. This policy explains what we collect through this website and the early-access form, why we collect it, and the choices you have. It covers the website only. The Strobe app has its own terms.`,
     "Questions about privacy go to our privacy contact at privacy@strobehq.com.",
   ],
   sections: [

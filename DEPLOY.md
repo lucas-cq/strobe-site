@@ -111,8 +111,8 @@ cookie banner. The component only renders on Vercel builds, so local builds stay
 
 ## 10. Before you announce it
 
-- [ ] Replace `{{LEGAL_ENTITY_NAME}}` in `content/privacy.ts` and `content/terms.ts`, and
-      have both drafts reviewed.
+- [ ] Confirm `legalEntityName` in `content/site.ts` (used on `/privacy` and `/terms`), and
+      have both legal drafts reviewed.
 - [ ] Confirm the FAQ import answer in `content/faq.ts` (marked TODO).
 - [ ] Submit the form on strobehq.com with your own address. Check: the row in Neon, the
       confirmation email (and that replying reaches you), the notification email, and the

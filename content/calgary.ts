@@ -8,7 +8,7 @@ export const calgary: CityPageContent = {
       "Strobe fire inspection software tracks Calgary's 10-business-day deficiency reporting clock for every system and pre-fills your 311 fire safety system request, with the deficient reports attached.",
   },
   eyebrow: "Calgary",
-  title: "Calgary fire safety system reporting, done in one click",
+  title: "Calgary deficiency reporting, ready before day 10",
   intro:
     "Calgary Fire Department expects deficient fire safety systems to be reported within 10 business days of the initial inspection. Strobe tracks that clock for every system and builds the 311 request for you.",
   visualAlt:
