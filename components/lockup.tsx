@@ -37,7 +37,17 @@ export function Lockup({ tone = "ink", className, label = "Strobe" }: LockupProp
         href={sources[tone]}
         width={LOCKUP_CANVAS.width}
         height={LOCKUP_CANVAS.height}
+        className={tone === "ink" ? "lockup-day" : undefined}
       />
+      {/* Browser night modes darken the page but not this image, so globals.css swaps in the white file */}
+      {tone === "ink" && (
+        <image
+          href={sources.white}
+          width={LOCKUP_CANVAS.width}
+          height={LOCKUP_CANVAS.height}
+          className="lockup-night"
+        />
+      )}
     </svg>
   );
 }

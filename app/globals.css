@@ -85,13 +85,14 @@
   mask-image: radial-gradient(ellipse 70% 65% at 50% 40%, black 30%, transparent 75%);
 }
 
-/* White card with a thin indigo-to-blue gradient border */
+/* White card with a thin indigo-to-blue gradient border. The gradient is written out rather than
+   var(--gradient-hairline) so browser night modes (Dark Reader) can parse and darken the card. */
 @utility card-gradient {
   border: 1px solid transparent;
   border-radius: var(--radius-card-lg);
   background:
     linear-gradient(#fff, #fff) padding-box,
-    var(--gradient-hairline) border-box;
+    linear-gradient(135deg, rgb(75 59 230 / 0.45), rgb(46 139 255 / 0.15)) border-box;
 }
 
 /* Cards only, never text blocks */
@@ -270,4 +271,25 @@
   .on-dark {
     --focus-ring: var(--color-ice);
   }
+}
+
+/* Browser night modes. The site has no dark theme, but Firefox's Night Mode, Brave and the Dark
+   Reader extension repaint it and set this attribute on <html>. They darken every gradient
+   and leave images alone, so the numerals drop to plain indigo (which they lighten) and the logo
+   swaps to its white file. */
+html[data-darkreader-scheme="dark"] .gradient-numeral {
+  background-image: none;
+  color: var(--color-indigo);
+}
+
+.lockup-night {
+  display: none;
+}
+
+html[data-darkreader-scheme="dark"] .lockup-day {
+  display: none;
+}
+
+html[data-darkreader-scheme="dark"] .lockup-night {
+  display: inline;
 }
