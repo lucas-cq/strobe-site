@@ -51,6 +51,8 @@ export async function sendLeadEmails(
     ["Company", lead.company],
     ["Where they work", cities],
     ["Techs", lead.techCount],
+    ["City or town", lead.city ?? ""],
+    ["Plan interest", lead.plan ?? ""],
     ["Product updates", lead.consent ? "Yes" : "No"],
     ["Submission count", String(meta.submissionCount)],
     ["UTM source", attribution.utmSource ?? ""],

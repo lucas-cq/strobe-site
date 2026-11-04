@@ -13,7 +13,8 @@ export type SiteContent = {
   email: string;
   founderEmail: string;
   privacyEmail: string;
-  location: string;
+  /** Footer line, after the flag. `lead` is bold. */
+  location: { lead: string; rest: string };
   nonAffiliation: string;
   nav: NavLink[];
   legalLinks: NavLink[];
@@ -43,24 +44,26 @@ export const site: SiteContent = {
   // TODO Lucas: confirm, and update once Strobe is incorporated.
   legalEntityName: "Lucas Cummings, operating as Strobe",
   url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://strobehq.com",
-  defaultTitle: "Strobe | Fire inspection software for Alberta contractors",
+  defaultTitle: "Strobe | Fire alarm inspection software for Canadian shops",
   defaultDescription:
-    "Strobe is fire and life safety inspection software for Alberta contractors. CAN/ULC-S536 reports on the phone, same-day repair quotes, and Calgary 311 and Edmonton LIV filings ready to submit.",
+    "Fire alarm inspection software for Canadian contractors. CAN/ULC-S536 reports, same-day quotes, and city filings routed by site address. Works offline.",
   email: "hello@strobehq.com",
   founderEmail: "lucas@strobehq.com",
   privacyEmail: "privacy@strobehq.com",
-  location: "Built in Calgary, Alberta",
+  location: { lead: "Built in Alberta, for Alberta.", rest: "Ready for shops across Canada." },
   nonAffiliation:
-    "Strobe is independent software and is not affiliated with the City of Calgary, the City of Edmonton or their fire departments.",
+    "Strobe is independent software and is not affiliated with any city, county or fire department, including the City of Calgary, the City of Edmonton, Strathcona County and the City of Lethbridge.",
   nav: [
-    { label: "How it works", href: "/#how" },
+    { label: "How it works", href: "/#how-it-works" },
     { label: "Calgary", href: "/calgary" },
     { label: "Edmonton", href: "/edmonton" },
+    { label: "Pricing", href: "/pricing" },
     { label: "FAQ", href: "/#faq" },
   ],
   legalLinks: [
     { label: "Privacy", href: "/privacy" },
     { label: "Terms", href: "/terms" },
+    { label: "Your data", href: "/your-data" },
   ],
   cta: {
     primary: "Get early access",
@@ -81,6 +84,6 @@ export const site: SiteContent = {
 };
 
 /** Routes that embed the early-access form, so the CTA can scroll instead of navigate. */
-export const formRoutes = ["/", "/calgary", "/edmonton", "/early-access"];
+export const formRoutes = ["/", "/calgary", "/edmonton", "/pricing", "/early-access"];
 
 export const formAnchor = "early-access";

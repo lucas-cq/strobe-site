@@ -1,12 +1,11 @@
-// Home page copy, from SITE_V2.md section 3. Keep it plain: short sentences, outcomes not workflow.
+// Home page copy, from SITE_V2.md section 3 and STROBE_SITE_CANADA.md. Keep it plain: short sentences.
 export const home = {
   hero: {
-    eyebrow: "Inspection software for Alberta fire alarm contractors",
-    /** Phones only, so the eyebrow stays on one line at 375px. */
-    eyebrowShort: "Fire alarm inspection software · Alberta",
+    /** Follows the Canadian flag in the eyebrow chip. */
+    eyebrow: "Made in Canada · CAN/ULC-S536",
     title: "Inspect it. Quote it. File it. Same day.",
-    sub: "Your techs finish the S536 report on their phone. The owner gets the repair quote before you're out of the parking lot. And the City paperwork is ready before the deadline, in Calgary or Edmonton.",
-    note: "Open to Alberta shops now. One flat price per shop, not per tech.",
+    sub: "Fire alarm inspection software for Canadian shops. Your techs inspect offline. Strobe builds the S536 report and the quote, then reads the site address and gets the deficiency filing ready in that city's format.",
+    secondaryCta: "See how it works",
     visualAlt:
       "Sample screens: a tech's phone showing a fire alarm device list with one failed smoke detector, next to the repair quote the building owner receives.",
   },
@@ -45,30 +44,50 @@ export const home = {
 
   how: {
     eyebrow: "How it works",
-    title: "Less office work after every inspection",
-    lede: "Your techs already do the hard part on site. Strobe takes care of what comes after.",
-    cards: [
+    title: "One inspection, entered once.",
+    lede: "Everything after the inspection is built from it. Nobody retypes a thing.",
+    steps: [
       {
-        title: "Works in the parkade",
-        body: "Last year's devices are already loaded. Pass, fail, snap a photo, move on. No signal needed. It syncs when you're back upstairs.",
+        role: "Tech · phone",
+        title: "Inspect, even with no signal.",
+        body: "Last year's devices are already loaded. Pass or fail each one. A fail becomes a deficiency with a photo, a location and a note. Works in basements and parkades and syncs when you're back online.",
+        visualAlt: "Sample phone screen: the device list for Elm Street Plaza with pass and fail toggles, one failed pull station with a photo and note, and a pill saying 14 changes are saved offline.",
       },
       {
-        title: "Report done on site",
-        body: "The S536 report is finished and signed before the tech leaves. Nobody types it up later.",
+        role: "Tech · phone",
+        title: "The report builds itself.",
+        body: "Sign on the device and the CAN/ULC-S536 report is ready. No retyping into Word at night.",
+        visualAlt: "Sample signature pad on the tech's phone, then a preview of the finished CAN/ULC-S536 report PDF.",
       },
       {
-        title: "Quote out the same day",
-        body: "Failed devices turn into a quote the owner can approve and sign on their phone. No login, no chasing PDFs over email.",
+        role: "Office · web",
+        title: "Quote it the same day.",
+        body: "Every deficiency turns into a quote line. Price it from your price book and send it before anyone else quotes the job.",
+        visualAlt: "Sample quote builder: three deficiency lines, each with a photo thumbnail and a price, and a button to send the quote.",
       },
       {
-        title: "City filing, handled",
-        body: "Strobe keeps an eye on the deadline for every deficient system and has your filing ready when it's time.",
-        links: [
-          { label: "Calgary", href: "/calgary" },
-          { label: "Edmonton", href: "/edmonton" },
-        ],
+        role: "Owner · any device",
+        title: "The owner approves by link.",
+        body: "No login and no app. The owner sees each deficiency with its photo and price, approves what they want and signs.",
+        visualAlt: "Sample owner view on a phone: each deficiency with approve and decline toggles, two approved and one declined, and a signature.",
+      },
+      {
+        role: "Office · web",
+        title: "Filed with the right city.",
+        body: "Strobe reads the site address, picks the right fire department and gets the filing ready in their format, with the deadline counting down.",
+        visualAlt: "Sample filing card for 88 Elm St SE, Calgary: it goes to Calgary Fire Department as a 311 online request, with the packet ready to review.",
       },
     ],
+  },
+
+  switching: {
+    eyebrow: "Switching",
+    title: "We set you up. You keep your data.",
+    // The two cards come from content/promises.ts.
+    question: "Questions about switching?",
+    /** Shown only when NEXT_PUBLIC_CAL_LINK is set. */
+    bookLabel: "Book 20 minutes",
+    bookFallback: "Talk to Lucas",
   },
 
   deadline: {
@@ -83,25 +102,20 @@ export const home = {
   },
 
   cities: {
-    eyebrow: "Calgary and Edmonton",
-    title: "Set up for how each city actually does it",
-    cards: [
-      {
-        city: "Calgary",
-        label: "311 deficiency reporting",
-        body: "Deficient systems get reported within 10 business days, one request per address. Strobe has the request ready, so filing takes minutes instead of an afternoon.",
-        link: { label: "Calgary reporting", href: "/calgary" },
-        strip: "linear-gradient(90deg, #4b3be6, #2e8bff)",
-      },
-      {
-        city: "Edmonton",
-        label: "LIV report uploads",
-        body: "Since September 8, 2026, third-party inspection reports go through LIV. Strobe has your report and deficiency list ready to upload.",
-        link: { label: "Edmonton LIV", href: "/edmonton" },
-        strip: "linear-gradient(90deg, #2e8bff, #5ccbff)",
-      },
-    ],
-    elsewhere: "Somewhere else in Alberta? Tell us your fire department and we'll look at how they handle it.",
+    eyebrow: "Every city files differently",
+    title: "Strobe knows where your report goes.",
+    lede: "Calgary wants a 311 request. Edmonton wants LIV. Strathcona County has its own portal. Lethbridge wants an email. Strobe reads the site address and gets the right one ready.",
+    inputLabel: "Site address",
+    inputPlaceholder: 'Try "Sherwood Park" or "Lethbridge"',
+    chipsLabel: "City",
+    /** Link text per city, shown under the result card. */
+    links: {
+      calgary: "Calgary details",
+      edmonton: "Edmonton details",
+      elsewhere: "Request my city",
+    } as Partial<Record<string, string>>,
+    footnote:
+      "Demo only: the app uses the full site address. Rules checked November 2026, so always confirm with your fire department. More cities are added as shops ask for them.",
   },
 
   earlyAccess: {
@@ -114,13 +128,10 @@ export const home = {
       button: "Get early access",
     },
     cards: [
-      { title: "One price per shop", body: "Hire another tech without your software bill going up." },
+      { title: "Office users free", body: "Pay for the techs in the field. The office doesn't cost extra." },
       { title: "Any panel", body: "Notifier, Mircom, Edwards, Simplex. If you inspect it, you can report on it in Strobe." },
-      // TODO Lucas: keep only if the app really will run in Canada (e.g. Google Cloud Toronto).
-      { title: "Stored in Canada", body: "Your customers' inspection data stays in Canada." },
-      // TODO Lucas: confirm you'll import spreadsheets by hand. If not, use:
-      // { title: "Up and running in a day", body: "No hardware, no install. Your techs use their own phones." },
-      { title: "We'll move you over", body: "Send us your spreadsheets. We'll bring your sites and device lists in for you." },
+      { title: "Stored in Canada", body: "Your customers' inspection data stays in Canada, on Google Cloud in Toronto." },
+      { title: "Works across Canada", body: "Reports, quotes and owner approvals work anywhere. City filing grows as shops ask." },
     ],
   },
 

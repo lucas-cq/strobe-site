@@ -18,6 +18,7 @@ import {
 } from "@/lib/early-access-shared";
 import { type Attribution, readAttribution } from "./attribution";
 import { hasCalLink } from "./cal-booking";
+import { PREFILL_EVENT, type Prefill, readPrefill } from "./prefill-link";
 import { Turnstile } from "./turnstile";
 import { buttonClasses } from "./ui";
 
@@ -41,7 +42,7 @@ function useFocusFirstError(formRef: React.RefObject<HTMLFormElement | null>, er
 
 /* Step 1 */
 
-const stepOneOrder = ["fullName", "email", "company", "cities", "techCount"];
+const stepOneOrder = ["fullName", "email", "company", "cities", "city", "techCount"];
 
 export function EarlyAccessForm() {
   const [state, formAction, pending] = useActionState(submitEarlyAccess, initialEarlyAccessState);
@@ -83,6 +84,22 @@ function StepOne({
     });
   }, []);
 
+  // Fill "City or town" and the hidden plan from ?city= and ?plan=, and again whenever a
+  // PrefillLink on this page is clicked. A value the server echoed back after an error wins.
+  useEffect(() => {
+    const apply = ({ city, plan }: Prefill, overwrite: boolean) => {
+      const form = formRef.current;
+      const cityInput = form?.querySelector<HTMLInputElement>('[name="city"]');
+      const planInput = form?.querySelector<HTMLInputElement>(`[name="${hiddenFields.plan}"]`);
+      if (cityInput && city !== undefined && (overwrite || !cityInput.value)) cityInput.value = city;
+      if (planInput && plan !== undefined && (overwrite || !planInput.value)) planInput.value = plan;
+    };
+    apply(readPrefill(), false);
+    const onPrefill = (e: Event) => apply((e as CustomEvent<Prefill>).detail, true);
+    window.addEventListener(PREFILL_EVENT, onPrefill);
+    return () => window.removeEventListener(PREFILL_EVENT, onPrefill);
+  }, []);
+
   useFocusFirstError(formRef, errors, stepOneOrder);
 
   return (
@@ -120,6 +137,15 @@ function StepOne({
         required
       />
 
+      <TextField
+        name="city"
+        label={f.city.label}
+        hint={f.city.hint}
+        autoComplete="address-level2"
+        defaultValue={values.city}
+        error={errors.city}
+      />
+
       <ChipGroup
         type="radio"
         name="techCount"
@@ -147,6 +173,8 @@ function StepOne({
           <input type="text" name={hiddenFields.honeypot} tabIndex={-1} autoComplete="off" defaultValue="" />
         </label>
       </div>
+
+      <input type="hidden" name={hiddenFields.plan} defaultValue={values.plan ?? ""} />
 
       <div ref={attributionRef} hidden>
         <input type="hidden" name={hiddenFields.utmSource} />
@@ -213,6 +241,7 @@ function SuccessState({
           {copy.success.title(firstName)}
         </h3>
         <p className="mt-3 text-lg text-ink-2">{copy.success.body}</p>
+        <p className="mt-2 font-medium text-ink">{copy.success.nextStep}</p>
       </div>
 
       {detailsToken && <StepTwo token={detailsToken} />}

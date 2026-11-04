@@ -82,3 +82,33 @@ export function SkeletonRow({ width = "w-2/3" }: { width?: string }) {
 
 export const cad = (n: number) =>
   new Intl.NumberFormat("en-CA", { style: "currency", currency: "CAD" }).format(n);
+
+/** A phone with a status bar, for mockups. Decorative: the mockup sets aria-hidden. */
+export function PhoneFrame({ children, className = "" }: { children: ReactNode; className?: string }) {
+  return (
+    <div className={`w-[256px] ${className}`}>
+      <div className="rounded-[40px] bg-night p-[7px] shadow-[0_24px_60px_-20px_rgb(20_17_46/0.45)]">
+        <div className="flex h-[520px] flex-col overflow-hidden rounded-[33px] bg-white text-ink">
+          <div className="flex items-center justify-between px-6 pt-3 pb-1 text-[11px] font-semibold">
+            <span className="tabular">9:41</span>
+            <span className="h-[18px] w-20 rounded-full bg-night" />
+            <span className="w-7" />
+          </div>
+          {children}
+          <div className="mt-auto flex justify-center pt-2 pb-2">
+            <span className="h-1 w-24 rounded-full bg-ink/80" />
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+/** A drawn signature, for sign-off mockups. */
+export function SignatureLine({ className = "h-6 w-auto" }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 120 28" className={`text-ink ${className}`} fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round">
+      <path d="M4 20c6-10 10-16 12-14s-6 16-2 16 8-12 12-12-2 10 2 10 6-8 10-8 0 7 4 7 8-9 14-9 2 9 8 9 10-6 16-8 10 2 16 0" />
+    </svg>
+  );
+}

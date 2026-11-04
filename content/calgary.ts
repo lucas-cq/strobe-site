@@ -4,9 +4,9 @@ import type { CityPageContent } from "./city-types";
 // Copy from SITE_V2.md section 4: outcomes, not the workflow.
 export const calgary: CityPageContent = {
   meta: {
-    title: "Calgary 311 deficiency reporting for fire alarm contractors | Strobe",
+    title: "Calgary fire alarm deficiency reporting | Strobe",
     description:
-      "Strobe fire inspection software keeps count of Calgary's 10 business days for every deficient system and has your 311 fire safety system request ready to file.",
+      "Report deficient fire safety systems to the City of Calgary before day 10. Strobe builds the 311 packet from your inspection. You review and submit.",
   },
   eyebrow: "Calgary",
   title: "Calgary deficiency reporting, ready before day 10",

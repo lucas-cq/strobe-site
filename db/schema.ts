@@ -16,6 +16,9 @@ export const leads = pgTable("leads", {
   phone: text("phone"),
   cities: text("cities").array().notNull(),
   techCount: text("tech_count").notNull(),
+  // Optional, step 1: typed, or prefilled from ?city= (the city selector) and ?plan= (the pricing page).
+  city: text("city"),
+  plan: text("plan"),
   // Optional: collected in step 2 of the form.
   currentMethod: text("current_method"),
   currentSoftware: text("current_software"),

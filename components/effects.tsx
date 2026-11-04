@@ -36,11 +36,6 @@ export function BackgroundMark({
   );
 }
 
-/** The blinking dot in the hero eyebrow. Nowhere else. */
-export function LiveDot() {
-  return <span aria-hidden="true" className="live-dot" />;
-}
-
 /** 2px brand-gradient line along the top edge of a card. Put the card in `relative overflow-hidden`. */
 export function TopGradientLine() {
   return <span aria-hidden="true" className="bg-gradient-brand absolute inset-x-0 top-0 h-0.5" />;

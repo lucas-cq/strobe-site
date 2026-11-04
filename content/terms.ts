@@ -5,7 +5,7 @@ import { site } from "./site";
 export const terms: LegalDocument = {
   meta: {
     title: "Terms of use | Strobe fire inspection software",
-    description: "The terms for using strobehq.com, the website for Strobe fire inspection software for Alberta contractors.",
+    description: "The terms for using strobehq.com, the website for Strobe fire alarm inspection software for Canadian shops.",
   },
   title: "Terms of use",
   updated: "November 2, 2026",

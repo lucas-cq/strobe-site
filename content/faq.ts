@@ -1,15 +1,33 @@
 export type FaqItem = {
   question: string;
+  /** Plain text. [label](/path) becomes a link to another page on the site. */
   answer: string;
 };
 
-export const faq: { eyebrow: string; title: string; items: FaqItem[] } = {
+export type FaqContent = { eyebrow: string; title: string; items: FaqItem[] };
+
+export const faq: FaqContent = {
   eyebrow: "FAQ",
   title: "Questions we get a lot",
   items: [
     {
       question: "Does Strobe file with the City for me?",
       answer: "Strobe gets the filing ready. You look it over and send it. Nothing goes to the City without you.",
+    },
+    {
+      question: "How does Strobe know which city to file with?",
+      answer:
+        "From the site address. When you set up a site, Strobe matches it to the fire department that covers it and uses that department's rules and format.",
+    },
+    {
+      question: "Does Strobe work outside Alberta?",
+      answer:
+        "Yes. Inspections, S536 reports, quotes and owner approvals work anywhere in Canada. City filing is mapped for Calgary, Edmonton, Strathcona County and Lethbridge, and more get added as shops ask for them.",
+    },
+    {
+      question: "My city isn't on the list. Now what?",
+      answer:
+        "You still get a clean S536 report and a deficiency summary to send. Tell us your city in the form and we'll map its rules.",
     },
     {
       question: "Does it work with no signal?",
@@ -22,12 +40,21 @@ export const faq: { eyebrow: string; title: string; items: FaqItem[] } = {
     {
       question: "What does it cost?",
       answer:
-        "One flat monthly price per shop, however many techs you have. Early-access shops lock in founding pricing. We'll go over it on a call.",
+        "You pay per tech, per month, in Canadian dollars. Office users are free on Crew and Shop. Early-access shops lock in founding pricing. See [Pricing](/pricing).",
     },
     {
-      // TODO Lucas: confirm you'll do this import by hand for early shops.
-      question: "Can we bring our existing sites over?",
-      answer: "Yes. We'll help move your sites and device lists over from your spreadsheets.",
+      question: "Do I have to talk to sales?",
+      answer: "No. Pricing will be on the website, and you can start without a call.",
+    },
+    {
+      question: "How hard is it to switch?",
+      answer:
+        "Not hard, because we do the heavy lifting. Every plan starts with a free onboarding session: we move your sites, devices and past reports over from spreadsheets or your current software, and get your team set up.",
+    },
+    {
+      question: "Who owns the data?",
+      answer:
+        "You do. Export all of it any time, as CSV and PDF, on every plan, even after you cancel. See [Your data](/your-data).",
     },
     {
       question: "Which systems does it cover?",
@@ -35,16 +62,12 @@ export const faq: { eyebrow: string; title: string; items: FaqItem[] } = {
     },
     {
       question: "Where is our data stored?",
-      answer: "Your customers' inspection data is stored in Canada.",
+      answer: "In Canada, on Google Cloud in Toronto.",
     },
     {
       question: "Is Strobe connected to the City or the fire department?",
       answer:
-        "No. Strobe is independent software. It isn't affiliated with the City of Calgary, the City of Edmonton or their fire departments.",
-    },
-    {
-      question: "We're not in Calgary or Edmonton. Can we use it?",
-      answer: "Yes. Reports and quotes work anywhere in Alberta. Tell us your fire department and we'll look at how they handle filings.",
+        "No. Strobe is independent software. It isn't affiliated with any city, county or fire department.",
     },
   ],
 };

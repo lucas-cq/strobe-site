@@ -1,21 +1,6 @@
-import { Fragment, type ReactNode } from "react";
 import type { LegalBlock, LegalDocument } from "@/content/legal-types";
+import { linkify } from "./linkify";
 import { Container } from "./ui";
-
-const linkPattern = /([\w.+-]+@[\w-]+\.[\w.-]+|https?:\/\/[^\s)]+)/g;
-
-/** Turns email addresses and URLs in plain copy into links. */
-function linkify(text: string): ReactNode {
-  return text.split(linkPattern).map((part, i) => {
-    if (i % 2 === 0) return <Fragment key={i}>{part}</Fragment>;
-    const href = part.includes("@") && !part.startsWith("http") ? `mailto:${part}` : part;
-    return (
-      <a key={i} href={href} className="font-medium text-indigo underline underline-offset-4 hover:text-violet">
-        {part}
-      </a>
-    );
-  });
-}
 
 function Block({ block }: { block: LegalBlock }) {
   if (typeof block === "string") return <p>{linkify(block)}</p>;

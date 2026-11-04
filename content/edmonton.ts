@@ -5,9 +5,9 @@ import type { CityPageContent } from "./city-types";
 // Copy from SITE_V2.md section 5.
 export const edmonton: CityPageContent = {
   meta: {
-    title: "Edmonton LIV inspection report uploads for fire contractors | Strobe",
+    title: "Edmonton LIV fire inspection report submission | Strobe",
     description:
-      "Strobe fire inspection software gets your Edmonton LIV uploads ready: the inspection report and deficiency list the way LIV asks for them, and proof of correction after repairs.",
+      "Edmonton requires third-party fire system reports in LIV since Sept 8, 2026. Strobe prepares an upload-ready LIV package from every inspection.",
   },
   eyebrow: "Edmonton",
   title: "Edmonton LIV uploads without the retyping",

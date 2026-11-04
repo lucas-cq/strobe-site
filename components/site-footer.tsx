@@ -1,5 +1,6 @@
 import { cacheLife } from "next/cache";
 import { site } from "@/content/site";
+import { CanadaFlag } from "./canada-flag";
 import { Lockup } from "./lockup";
 import { PageLink } from "./page-link";
 import { Container } from "./ui";
@@ -21,7 +22,12 @@ export function SiteFooter() {
             <PageLink href="/" aria-label="Strobe home" className="inline-block rounded-sm">
               <Lockup tone="white" className="h-8 w-auto" label="" />
             </PageLink>
-            <p className="mt-4 text-[15px] text-night-muted">{site.location}</p>
+            <p className="mt-4 flex items-start gap-2.5 text-[15px] text-night-muted">
+              <CanadaFlag decorative className="mt-[5px] h-3 w-6" />
+              <span>
+                <strong className="font-semibold text-night-text">{site.location.lead}</strong> {site.location.rest}
+              </span>
+            </p>
             <a
               href={`mailto:${site.email}`}
               className="mt-1 inline-block text-[15px] font-medium text-white underline-offset-4 hover:underline"

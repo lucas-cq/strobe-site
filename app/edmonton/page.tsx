@@ -6,5 +6,5 @@ import { pageMetadata } from "@/lib/metadata";
 export const metadata = pageMetadata({ ...edmonton.meta, path: "/edmonton", ownImage: true });
 
 export default function EdmontonPage() {
-  return <CityPage content={edmonton} visual={<LivChecklist className="mx-auto lg:mr-0" />} />;
+  return <CityPage content={edmonton} path="/edmonton" visual={<LivChecklist className="mx-auto lg:mr-0" />} />;
 }

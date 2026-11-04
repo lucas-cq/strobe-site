@@ -104,6 +104,8 @@ export async function submitEarlyAccess(prev: EarlyAccessState, formData: FormDa
     company: input.company,
     cities: input.cities,
     techCount: input.techCount,
+    city: input.city,
+    plan: input.plan,
     ...consent,
     ...attribution,
     ipHash,

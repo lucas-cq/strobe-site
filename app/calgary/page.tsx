@@ -6,5 +6,5 @@ import { pageMetadata } from "@/lib/metadata";
 export const metadata = pageMetadata({ ...calgary.meta, path: "/calgary", ownImage: true });
 
 export default function CalgaryPage() {
-  return <CityPage content={calgary} visual={<CalgaryPacket className="mx-auto lg:mr-0" />} />;
+  return <CityPage content={calgary} path="/calgary" visual={<CalgaryPacket className="mx-auto lg:mr-0" />} />;
 }

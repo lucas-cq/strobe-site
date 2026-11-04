@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { BackgroundMark, GridPattern, LiveDot, TopGradientLine } from "@/components/effects";
+import { BackgroundMark, GridPattern, TopGradientLine } from "@/components/effects";
 import { CityClock } from "@/components/mockups/city-clock";
 import { ProofStrip } from "@/components/proof-strip";
 import { ArrowLink } from "@/components/section";
@@ -27,8 +27,7 @@ export default function EffectsPreview() {
         <BackgroundMark className="-right-24 top-1/2 w-[640px] -translate-y-1/2 opacity-5" />
         <Container className="relative py-20">
           <p className="flex items-center gap-2 text-sm font-medium text-indigo">
-            <LiveDot />
-            Inspection software for Alberta fire alarm contractors
+            Fire alarm inspection software for Canadian shops
           </p>
           <h1 className="mt-4 max-w-2xl text-5xl text-ink">Effects preview</h1>
           <p className="mt-4 max-w-xl text-lg text-ink-2">Grid pattern, glow, faded mark, live dot and the polished buttons. Hover the primary button and the arrow link.</p>

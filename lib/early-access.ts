@@ -1,6 +1,6 @@
 import { z } from "zod";
 import { earlyAccessForm } from "@/content/early-access";
-import type { DetailsValues, FormValues } from "./early-access-shared";
+import { type DetailsValues, type FormValues, hiddenFields, planIds } from "./early-access-shared";
 
 export * from "./early-access-shared";
 
@@ -21,6 +21,9 @@ export const earlyAccessSchema = z.object({
   company: z.string().trim().min(1, errors.company).max(160, errors.tooLong),
   cities: z.array(z.enum(values(fields.cities.options))).min(1, errors.cities),
   techCount: z.enum(values(fields.techCount.options), errors.choose),
+  city: optionalText(120),
+  // Anything unexpected in the hidden field is dropped rather than shown as an error.
+  plan: z.string().transform((s) => (planIds as readonly string[]).includes(s) ? s : null),
   consent: z.boolean(),
 });
 
@@ -53,6 +56,8 @@ export function readFormValues(formData: FormData): FormValues {
     company: str(formData, "company"),
     cities: all(formData, "cities"),
     techCount: str(formData, "techCount"),
+    city: str(formData, "city"),
+    plan: str(formData, hiddenFields.plan),
     consent: formData.get("consent") === "on",
   };
 }

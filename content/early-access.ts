@@ -11,8 +11,9 @@ export const earlyAccessForm = {
     cities: {
       label: "Where do you work?",
       hint: "Pick all that apply",
-      options: opts("Calgary", "Edmonton", "Elsewhere in Alberta"),
+      options: opts("Calgary", "Edmonton", "Elsewhere in Alberta", "Elsewhere in Canada"),
     },
+    city: { label: "City or town", hint: "Optional" },
     techCount: {
       label: "How many techs?",
       options: opts("Just me", "2–5", "6–15", "16+"),
@@ -73,6 +74,7 @@ export const earlyAccessForm = {
   success: {
     title: (firstName: string) => `You're on the list, ${firstName}.`,
     body: "I'll email you from lucas@strobehq.com within one business day.",
+    nextStep: "Next step: we'll book your free onboarding session.",
     bookPrompt: "Want to skip the wait? Pick a time below.",
   },
 

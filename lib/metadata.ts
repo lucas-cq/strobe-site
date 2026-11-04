@@ -33,7 +33,7 @@ export function pageMetadata({
       // unless the route generates its own.
       ...(ownImage
         ? {}
-        : { images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: "Strobe, fire inspection software for Alberta" }] }),
+        : { images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: "Strobe, fire alarm inspection software for Canadian shops" }] }),
     },
     twitter: {
       card: "summary_large_image",

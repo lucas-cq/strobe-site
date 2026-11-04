@@ -3,6 +3,7 @@ import type { CityPageContent } from "@/content/city-types";
 import { formAnchor, site } from "@/content/site";
 import { WalkthroughButton } from "../cal-booking";
 import { EarlyAccessSection } from "../early-access-section";
+import { JsonLd } from "../json-ld";
 import { GridPattern } from "../effects";
 import { Eyebrow, Section, SectionHeader } from "../section";
 import { Container, buttonClasses } from "../ui";
@@ -11,11 +12,26 @@ import { Container, buttonClasses } from "../ui";
  * Layout shared by /calgary and /edmonton. All copy comes from content/.
  * Rhythm: hero (white, grid) → the rule (lavender) → with Strobe (white) → sources (lavender) → form band.
  */
-export function CityPage({ content, visual }: { content: CityPageContent; visual: ReactNode }) {
+export function CityPage({ content, path, visual }: { content: CityPageContent; path: string; visual: ReactNode }) {
   const { rules, withStrobe, sources } = content;
+  const url = new URL(path, site.url).toString();
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    name: content.meta.title,
+    url,
+    description: content.meta.description,
+    about: {
+      "@type": "Service",
+      name: content.meta.title.replace(/ \| Strobe$/, ""),
+      provider: { "@type": "Organization", name: "Strobe", url: site.url },
+      areaServed: { "@type": "City", name: content.eyebrow },
+    },
+  };
 
   return (
     <>
+      <JsonLd data={structuredData} />
       {/* Hero */}
       <section aria-labelledby="city-title" className="relative overflow-hidden bg-white">
         <GridPattern />

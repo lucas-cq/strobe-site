@@ -1,7 +1,8 @@
 import { home } from "@/content/home";
+import { promises } from "@/content/promises";
 import { formAnchor, site } from "@/content/site";
-import { WalkthroughButton } from "../cal-booking";
-import { BackgroundMark, GridPattern, LiveDot } from "../effects";
+import { CanadaFlag } from "../canada-flag";
+import { BackgroundMark, GridPattern } from "../effects";
 import { InspectPhone } from "../mockups/inspect-phone";
 import { OwnerQuoteCard } from "../mockups/owner-quote-card";
 import { Container, buttonClasses } from "../ui";
@@ -16,10 +17,9 @@ export function Hero() {
 
       <Container className="relative grid items-center gap-14 pt-12 pb-20 md:pt-20 md:pb-24 lg:grid-cols-[1.05fr_1fr] lg:gap-8">
         <div>
-          <p className="flex items-center gap-2 text-sm font-medium tracking-wide text-indigo">
-            <LiveDot />
-            <span className="sm:hidden">{hero.eyebrowShort}</span>
-            <span className="hidden sm:inline">{hero.eyebrow}</span>
+          <p className="inline-flex items-center gap-2 rounded-full bg-white px-3 py-1.5 text-sm font-medium tracking-wide text-ink-2 ring-1 ring-indigo-100">
+            <CanadaFlag decorative className="h-2.5 w-5" />
+            {hero.eyebrow}
           </p>
           <h1 id="hero-title" className="mt-4 text-[2.375rem] leading-[1.06] text-ink sm:text-5xl lg:text-[3.75rem]">
             {hero.title}
@@ -29,13 +29,11 @@ export function Hero() {
             <a href={`#${formAnchor}`} className={buttonClasses("primary", "lg")}>
               {site.cta.primary}
             </a>
-            <WalkthroughButton
-              className={buttonClasses("secondary", "lg")}
-              label={site.cta.walkthrough}
-              fallbackLabel={site.cta.walkthroughFallback}
-            />
+            <a href="#how-it-works" className={buttonClasses("secondary", "lg")}>
+              {hero.secondaryCta}
+            </a>
           </div>
-          <p className="mt-4 text-sm text-muted">{hero.note}</p>
+          <p className="mt-4 text-sm text-muted">{promises.short}</p>
         </div>
 
         <div className="relative">

@@ -1,32 +1,26 @@
 import { home } from "@/content/home";
-import { ArrowLink, Section, SectionHeader } from "../section";
+import { jurisdictionById } from "@/content/jurisdictions";
+import { JurisdictionCard } from "../jurisdiction-card";
+import { StepApprove, StepInspect, StepQuote, StepReport } from "../mockups/how-steps";
+import { Section, SectionHeader } from "../section";
+import { StepSwitcher } from "./step-switcher";
 
-/** Four outcome cards: 4 across on desktop, 2 by 2 on tablets, stacked on phones. */
+/** The five steps from inspection to city filing (STROBE_SITE_CANADA.md section 6), on the dark band. */
 export function HowItWorks() {
   const { how } = home;
+  const visuals = [
+    { visual: <StepInspect /> },
+    { visual: <StepReport />, wide: true },
+    { visual: <StepQuote /> },
+    { visual: <StepApprove /> },
+    { visual: <JurisdictionCard jurisdiction={jurisdictionById("calgary")} decorative className="w-full max-w-[460px]" /> },
+  ];
+  const steps = how.steps.map((step, i) => ({ ...step, ...visuals[i] }));
+
   return (
-    <Section id="how" labelledBy="how-title">
-      <SectionHeader id="how-title" eyebrow={how.eyebrow} title={how.title} lede={how.lede} />
-      <ol className="mt-10 grid gap-4 sm:grid-cols-2 md:gap-5 lg:grid-cols-4">
-        {how.cards.map((card, i) => (
-          <li key={card.title} className="reveal card-gradient hover-lift flex flex-col p-6">
-            <span aria-hidden="true" className="gradient-numeral">
-              {String(i + 1).padStart(2, "0")}
-            </span>
-            <h3 className="mt-5 text-xl text-ink">{card.title}</h3>
-            <p className="mt-2 text-[15px] text-ink-2">{card.body}</p>
-            {card.links && (
-              <p className="mt-auto flex gap-5 pt-4 text-[15px]">
-                {card.links.map((link) => (
-                  <ArrowLink key={link.href} href={link.href}>
-                    {link.label}
-                  </ArrowLink>
-                ))}
-              </p>
-            )}
-          </li>
-        ))}
-      </ol>
+    <Section id="how-it-works" tone="night" labelledBy="how-title">
+      <SectionHeader id="how-title" eyebrow={how.eyebrow} title={how.title} lede={how.lede} dark />
+      <StepSwitcher steps={steps} />
     </Section>
   );
 }

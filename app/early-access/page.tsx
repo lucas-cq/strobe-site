@@ -2,9 +2,9 @@ import { EarlyAccessSection } from "@/components/early-access-section";
 import { pageMetadata } from "@/lib/metadata";
 
 export const metadata = pageMetadata({
-  title: "Get early access | Strobe fire inspection software for Alberta",
+  title: "Get early access | Strobe fire alarm inspection software",
   description:
-    "Apply for early access to Strobe, fire and life safety inspection software for Alberta contractors. Flat price per shop, not per tech.",
+    "Apply for early access to Strobe, fire alarm inspection software for Canadian shops. Free onboarding, and your data stays yours.",
   path: "/early-access",
 });
 

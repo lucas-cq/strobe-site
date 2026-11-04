@@ -131,12 +131,6 @@
   }
 }
 
-@keyframes live-blink {
-  50% {
-    opacity: 0.35;
-  }
-}
-
 /* The whole mark fades as one image; the beams are never redrawn or recoloured */
 @keyframes strobe-pulse {
   0%,
@@ -148,20 +142,16 @@
   }
 }
 
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+}
+
 @keyframes marquee {
   to {
     transform: translateX(-50%);
   }
-}
-
-/* Hero eyebrow only */
-.live-dot {
-  display: inline-block;
-  width: 6px;
-  height: 6px;
-  border-radius: 9999px;
-  background: var(--color-indigo);
-  animation: live-blink 1.6s ease-in-out infinite;
 }
 
 .strobe-pulse {
@@ -189,7 +179,6 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .live-dot,
   .strobe-pulse {
     animation: none;
   }

@@ -12,6 +12,9 @@ export type FormValues = {
   company: string;
   cities: string[];
   techCount: string;
+  city: string;
+  /** Hidden: the pricing plan someone asked to hear about. */
+  plan: string;
   consent: boolean;
 };
 
@@ -63,4 +66,8 @@ export const hiddenFields = {
   referrer: "referrer",
   landingPath: "landing_path",
   detailsToken: "details_token",
+  plan: "plan",
 } as const;
+
+/** Plans a "Get notified" link can pass to the form. Mirrors the ids in content/pricing.ts. */
+export const planIds = ["solo", "crew", "shop"] as const;
