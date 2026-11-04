@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build && node scripts/check-rendered.mjs && node scripts/check-meta.mjs",
+    "build": "tsx scripts/check-meta.ts && next build && node scripts/check-rendered.mjs",
     "start": "next start",
     "lint": "eslint",
     "db:generate": "drizzle-kit generate",
