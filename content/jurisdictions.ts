@@ -22,8 +22,10 @@ export type Jurisdiction = {
   href?: string;
   /** Where the rule comes from. Not shown on the page. */
   sourceUrl?: string;
-  /** Month the rule was last checked, e.g. "2026-11". */
+  /** Day the rule was last checked, e.g. "2026-11-06". */
   checkedOn?: string;
+  /** One extra line shown under the result card. */
+  note?: string;
 };
 
 export const jurisdictions: Jurisdiction[] = [
@@ -40,7 +42,7 @@ export const jurisdictions: Jurisdiction[] = [
       "The full 311 packet, every field filled, reports attached. You review and click submit, then the SR number is saved to the site.",
     href: "/calgary",
     sourceUrl: "https://www.calgary.ca/for-business/operations/fire-safety-systems.html",
-    checkedOn: "2026-11",
+    checkedOn: "2026-11-06",
   },
   {
     id: "edmonton",
@@ -49,12 +51,12 @@ export const jurisdictions: Jurisdiction[] = [
     sampleAddress: "10220 104 Ave NW, Edmonton",
     goesTo: "Edmonton Fire Rescue Services",
     method: "LIV online platform",
-    trigger: "Every third-party inspection report, required since Sept 8, 2026",
+    trigger: "Non-compliant reports are required. All reports are recommended. Since Sept 8, 2026.",
     deadline: "Submit after each inspection",
     strobePrepares: "An upload-ready LIV package: the report PDF plus the deficiency list.",
     href: "/edmonton",
     sourceUrl: "https://www.edmonton.ca/programs_services/fire_rescue/fire-inspection-report-submission",
-    checkedOn: "2026-11",
+    checkedOn: "2026-11-06",
   },
   {
     id: "strathcona",
@@ -67,7 +69,7 @@ export const jurisdictions: Jurisdiction[] = [
     deadline: "Upload within 14 days of the inspection",
     strobePrepares: "An upload-ready report for the portal, with a reminder before day 14.",
     sourceUrl: "https://www.strathcona.ca/business-and-development/business/fire-inspections/",
-    checkedOn: "2026-11",
+    checkedOn: "2026-11-06",
   },
   {
     id: "lethbridge",
@@ -76,12 +78,13 @@ export const jurisdictions: Jurisdiction[] = [
     sampleAddress: "910 4 Ave S, Lethbridge",
     goesTo: "Lethbridge Fire and Emergency Services",
     method: "Email to the Fire Prevention Bureau",
-    trigger: "A deficiency with no repair arranged within 10 business days",
-    deadline: "Day 10 after the owner gets the report. Clean reports within 30 days.",
+    trigger: "Every report",
+    deadline: "Clean reports within 30 days. Deficient reports within 10 business days if no repair is arranged.",
     strobePrepares:
-      "The email to deficientreports@lethbridge.ca drafted with the report attached, ready on day 10.",
+      "The email with the report attached: to the Fire Prevention Bureau for clean reports, or to deficientreports@lethbridge.ca when a repair isn't arranged in time.",
+    note: "Lethbridge also requires contractors to be on its registry.",
     sourceUrl: "https://www.lethbridge.ca/media/1hrlio4n/2026-letter-to-fire-alarm-testing-companies.pdf",
-    checkedOn: "2026-11",
+    checkedOn: "2026-11-06",
   },
   {
     id: "elsewhere",
@@ -90,9 +93,11 @@ export const jurisdictions: Jurisdiction[] = [
     sampleAddress: "Your site, anywhere in Canada",
     goesTo: "Your local fire department",
     method: "Varies by city",
-    trigger: "Check your fire department's rules",
-    deadline: "n/a",
-    strobePrepares: "A CAN/ULC-S536 report and a deficiency summary, ready to send.",
+    trigger: "An owner who won't or can't fix a deficiency",
+    deadline: "Right away, in writing. That's the fire code rule in Alberta and most provinces.",
+    strobePrepares:
+      "The S536 report, a deficiency summary, and the paper trail (when the report and quote were sent, and the owner's answer), ready to send.",
+    checkedOn: "2026-11-06",
   },
 ];
 

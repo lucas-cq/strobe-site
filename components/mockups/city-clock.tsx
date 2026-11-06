@@ -99,7 +99,7 @@ export function CityClock({ variant = "light", className = "" }: { variant?: "li
           className={`flex h-9 items-center justify-center gap-2 rounded-button text-[13px] font-semibold ${button[mostUrgent]}`}
         >
           {mostUrgent === "now" && <span className="size-1.5 rounded-full bg-white" />}
-          Report to City
+          Report to fire department
         </div>
       </div>
     </div>

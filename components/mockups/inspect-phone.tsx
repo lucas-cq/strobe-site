@@ -1,4 +1,4 @@
-import { Chip, PhotoBlock, SampleLabel } from "./parts";
+import { Chip, SampleLabel } from "./parts";
 
 type Device = {
   name: string;
@@ -68,15 +68,10 @@ export function InspectPhone({ className = "" }: { className?: string }) {
                   <Chip tone={d.result}>{d.result === "pass" ? "Pass" : "Fail"}</Chip>
                 </div>
                 {d.deficiency && (
-                  <div className="mx-3 mb-3 rounded-lg border border-line bg-white p-2.5">
-                    <div className="flex gap-2.5">
-                      <PhotoBlock label="Photo" className="h-[68px] w-[76px] shrink-0" />
-                      <div className="min-w-0 text-[11px] leading-4">
-                        <p className="font-semibold text-fail-ink">Deficiency</p>
-                        <p className="mt-0.5 text-ink-2">{d.deficiency.clause}</p>
-                        <p className="mt-1 text-ink">{d.deficiency.note}</p>
-                      </div>
-                    </div>
+                  <div className="mx-3 mb-3 rounded-lg border border-line bg-white p-2.5 text-[11px] leading-4">
+                    <p className="font-semibold text-fail-ink">Deficiency</p>
+                    <p className="mt-0.5 text-ink-2">{d.deficiency.clause}</p>
+                    <p className="mt-1 text-ink">{d.deficiency.note}</p>
                   </div>
                 )}
               </li>

@@ -66,7 +66,8 @@ export const pricing = {
     items: [
       { text: "Offline inspections on iOS and Android" },
       { text: "CAN/ULC-S536 reports" },
-      { text: "Deficiency photos, quotes and owner approval by link" },
+      { text: "Quotes and owner approval by link" },
+      { text: "Optional deficiency photos" },
       { text: "City filing for supported cities" },
       { lead: promises.onboarding.title, text: "we migrate your data and get you set up" },
       { lead: promises.data.title, text: "export everything any time, as CSV and PDF" },

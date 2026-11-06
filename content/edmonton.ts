@@ -47,7 +47,7 @@ export const edmonton: CityPageContent = {
       { title: "See what's still open", body: "Know which reports are in and which deficiencies still need proof of correction." },
       {
         title: "Proof of correction, sorted",
-        body: "After the repair, everything you or the owner needs to upload is in one place.",
+        body: "After the repair, everything you or the owner needs to upload is in one place. If the City asks for a note or a photo when you close a deficiency, it's there.",
       },
     ],
     note: "Strobe isn't connected to LIV and doesn't upload for you. It gets everything ready so the upload is quick.",

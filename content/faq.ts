@@ -11,11 +11,12 @@ export const faq: FaqContent = {
   title: "Questions we get a lot",
   items: [
     {
-      question: "Does Strobe file with the City for me?",
-      answer: "Strobe gets the filing ready. You look it over and send it. Nothing goes to the City without you.",
+      question: "Do I have to send reports to the fire department?",
+      answer:
+        "Usually not. You send the report to the building contact, and Strobe does that when you sign. Edmonton, Strathcona County and Lethbridge want reports from the contractor. And anywhere, if an owner won't fix a deficiency, you're required to tell the fire department. In those cases Strobe has it ready, and you send it.",
     },
     {
-      question: "How does Strobe know which city to file with?",
+      question: "How does Strobe know each city's rules?",
       answer:
         "From the site address. When you set up a site, Strobe matches it to the fire department that covers it and uses that department's rules and format.",
     },
@@ -32,6 +33,14 @@ export const faq: FaqContent = {
     {
       question: "Does it work with no signal?",
       answer: "Yes. Inspections work fully offline and sync when you're back in range.",
+    },
+    {
+      question: "Does it work on my phone?",
+      answer: "Yes. It's built for the phone first, one-handed, with a radio in the other hand. It works on an iPad or a laptop too.",
+    },
+    {
+      question: "Does my whole crew need the app?",
+      answer: "No. Only whoever is running the panel. Everyone on the crew goes on the report.",
     },
     {
       question: "Do building owners need an account?",
@@ -58,7 +67,7 @@ export const faq: FaqContent = {
     },
     {
       question: "Which systems does it cover?",
-      answer: "Fire alarm first. Tell us what else you inspect on the form and it helps us decide what's next.",
+      answer: "Fire alarm, including the sprinkler flow and tamper devices you test during the alarm inspection. Extinguishers are next.",
     },
     {
       question: "Where is our data stored?",

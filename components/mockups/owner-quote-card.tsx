@@ -1,4 +1,4 @@
-import { CheckIcon, PhotoBlock, SampleLabel, cad } from "./parts";
+import { CheckIcon, SampleLabel, cad } from "./parts";
 
 const lines = [
   { item: "Replace smoke detector", where: "2nd floor corridor", price: 185, approved: true },
@@ -31,7 +31,6 @@ export function OwnerQuoteCard({ className = "" }: { className?: string }) {
       <ul className="divide-y divide-line">
         {lines.map((l) => (
           <li key={l.item} className="flex items-center gap-3 px-4 py-2.5">
-            <PhotoBlock className="size-9 shrink-0" />
             <div className="min-w-0 flex-1">
               <p className="text-[12px] leading-4 font-semibold">{l.item}</p>
               <p className="truncate text-[11px] leading-4 text-ink-2">{l.where}</p>

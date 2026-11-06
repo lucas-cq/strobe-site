@@ -30,23 +30,6 @@ export function Chip({ tone, children, className = "" }: { tone: Tone; children:
   );
 }
 
-/** Abstract stand-in for a deficiency photo. Never a real image. */
-export function PhotoBlock({ label, className = "" }: { label?: string; className?: string }) {
-  return (
-    <div
-      className={`relative overflow-hidden rounded-md bg-[linear-gradient(135deg,#d9d7ea_0%,#b9b6d3_45%,#9c98bd_100%)] ${className}`}
-    >
-      <div className="absolute -right-3 -bottom-4 size-10 rounded-full bg-white/30" />
-      <div className="absolute top-2 left-3 h-1.5 w-8 rounded-full bg-white/40" />
-      {label && (
-        <span className="absolute bottom-1.5 left-1.5 rounded bg-night/75 px-1.5 py-0.5 text-[10px] font-medium text-white">
-          {label}
-        </span>
-      )}
-    </div>
-  );
-}
-
 export function CheckIcon({ className = "size-3" }: { className?: string }) {
   return (
     <svg viewBox="0 0 16 16" className={className} fill="none" stroke="currentColor" strokeWidth="2.25">

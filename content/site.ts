@@ -46,7 +46,7 @@ export const site: SiteContent = {
   url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://strobehq.com",
   defaultTitle: "Strobe | Fire alarm inspection software for Canadian shops",
   defaultDescription:
-    "Fire alarm inspection software for Canadian contractors. CAN/ULC-S536 reports, same-day quotes, and city filings routed by site address. Works offline.",
+    "Fire alarm inspection software for Canadian shops. Run the panel from your phone, even offline. S536 reports, same-day quotes, each city's rules built in.",
   email: "hello@strobehq.com",
   founderEmail: "lucas@strobehq.com",
   privacyEmail: "privacy@strobehq.com",

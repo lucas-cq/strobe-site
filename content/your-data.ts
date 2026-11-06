@@ -10,7 +10,7 @@ export const yourData: LegalDocument = {
       "Your inspection data belongs to you. Export sites, devices, reports, photos and quotes any time as CSV and PDF, on every plan, even after you cancel.",
   },
   title: promises.data.title,
-  updated: "November 4, 2026",
+  updated: "November 6, 2026",
   intro: [
     "You own your data. Strobe stores and processes it to run the service, nothing else.",
   ],
@@ -21,9 +21,9 @@ export const yourData: LegalDocument = {
         "Go to Settings → Export. You get a ZIP file with:",
         {
           list: [
-            "CSV files of your sites, devices, deficiencies and quotes.",
+            "CSV files of your sites, devices, inspections and results, deficiencies and quotes.",
             "Every report, quote and city filing as a PDF.",
-            "Your photos, in their original quality.",
+            "Any photos, in their original quality.",
           ],
         },
         "No fee, no request, no waiting.",

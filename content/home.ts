@@ -4,10 +4,10 @@ export const home = {
     /** Follows the Canadian flag in the eyebrow chip. */
     eyebrow: "Made in Canada · CAN/ULC-S536",
     title: "Inspect it. Quote it. File it. Same day.",
-    sub: "Fire alarm inspection software for Canadian shops. Your techs inspect offline. Strobe builds the S536 report and the quote, then reads the site address and gets the deficiency filing ready in that city's format.",
+    sub: "Fire alarm inspection software for Canadian shops. Run the panel from your phone, even with no signal. Strobe builds the S536 report, sends it to the building, quotes what's left to fix, and knows each city's rules for when the fire department needs it.",
     secondaryCta: "See how it works",
     visualAlt:
-      "Sample screens: a tech's phone showing a fire alarm device list with one failed smoke detector, next to the repair quote the building owner receives.",
+      "Sample screens: a tech's phone showing a fire alarm device list with one failed smoke detector and its deficiency note, next to the repair quote the building owner receives.",
   },
 
   proof: {
@@ -28,8 +28,8 @@ export const home = {
     title: "The inspection takes a day. The paperwork takes all week.",
     cards: [
       {
-        title: "Typing it twice",
-        body: "Notes from site get typed into a report back at the office. Then someone types them again for the quote.",
+        title: "A spreadsheet for every building",
+        body: "Every building is its own Excel file. Find last year's, copy the devices over, fill it in, save it as a PDF, email it. Then do it again next year.",
       },
       {
         title: "Quotes that show up late",
@@ -48,33 +48,33 @@ export const home = {
     lede: "Everything after the inspection is built from it. Nobody retypes a thing.",
     steps: [
       {
-        role: "Tech · phone",
-        title: "Inspect, even with no signal.",
-        body: "Last year's devices are already loaded. Pass or fail each one. A fail becomes a deficiency with a photo, a location and a note. Works in basements and parkades and syncs when you're back online.",
-        visualAlt: "Sample phone screen: the device list for Elm Street Plaza with pass and fail toggles, one failed pull station with a photo and note, and a pill saying 14 changes are saved offline.",
+        role: "Panel tech · phone",
+        title: "Run the panel from your phone.",
+        body: "Your walker calls devices on the radio. Last year's devices are already loaded in walk order, so a pass is one tap and the next device comes up. Jump to any device by number. Works in basements and parkades and syncs when you're back online.",
+        visualAlt: "Sample phone screen in panel mode at Elm Street Plaza: device 31 of 42, pull station L2-14 in the Level 2 east stair, which passed in 2025, with a smoke detector up next, a large Pass button, a smaller Fail button, a Jump button with a number pad, and a pill saying 14 changes are saved offline.",
       },
       {
-        role: "Tech · phone",
+        role: "Panel tech · phone",
         title: "The report builds itself.",
-        body: "Sign on the device and the CAN/ULC-S536 report is ready. No retyping into Word at night.",
+        body: "The crew signs on the phone and the CAN/ULC-S536 report is ready, then emailed to the building contact. No more Excel to PDF to email at night.",
         visualAlt: "Sample signature pad on the tech's phone, then a preview of the finished CAN/ULC-S536 report PDF.",
       },
       {
         role: "Office · web",
         title: "Quote it the same day.",
-        body: "Every deficiency turns into a quote line. Price it from your price book and send it before anyone else quotes the job.",
-        visualAlt: "Sample quote builder: three deficiency lines, each with a photo thumbnail and a price, and a button to send the quote.",
+        body: "Anything you didn't fix on site turns into a quote line. Price it from your price book and send it before anyone else quotes the job.",
+        visualAlt: "Sample quote builder: three deficiency lines, each with its location and a price, and a button to send the quote.",
       },
       {
         role: "Owner · any device",
         title: "The owner approves by link.",
-        body: "No login and no app. The owner sees each deficiency with its photo and price, approves what they want and signs.",
+        body: "No login and no app. The owner sees each deficiency with its location and price, approves what they want and signs.",
         visualAlt: "Sample owner view on a phone: each deficiency with approve and decline toggles, two approved and one declined, and a signature.",
       },
       {
         role: "Office · web",
-        title: "Filed with the right city.",
-        body: "Strobe reads the site address, picks the right fire department and gets the filing ready in their format, with the deadline counting down.",
+        title: "Ready when the fire department needs it.",
+        body: "Strobe reads the site address and knows that city's rules. Where every report has to go in, like Edmonton or Lethbridge, it's ready to send. Anywhere else, if an owner won't fix a deficiency, you have to tell the fire department, and Strobe has the report and the paper trail ready.",
         visualAlt: "Sample filing card for 88 Elm St SE, Calgary: it goes to Calgary Fire Department as a 311 online request, with the packet ready to review.",
       },
     ],
@@ -103,8 +103,8 @@ export const home = {
 
   cities: {
     eyebrow: "Every city files differently",
-    title: "Strobe knows where your report goes.",
-    lede: "Calgary wants a 311 request. Edmonton wants LIV. Strathcona County has its own portal. Lethbridge wants an email. Strobe reads the site address and gets the right one ready.",
+    title: "Strobe knows each city's rules.",
+    lede: "Your report goes to the building. When the fire department needs it too, every city wants it differently. Calgary uses a 311 request when a deficiency isn't fixed in time. Edmonton wants reports in LIV. Strathcona County has its own portal. Lethbridge wants every report by email.",
     inputLabel: "Site address",
     inputPlaceholder: 'Try "Sherwood Park" or "Lethbridge"',
     chipsLabel: "City",
@@ -121,7 +121,7 @@ export const home = {
   earlyAccess: {
     eyebrow: "Early access",
     title: "Starting with fire alarm",
-    lede: "Sprinkler and kitchen suppression are next. Early shops decide which comes first.",
+    lede: "Extinguishers and sprinkler are next. Early shops decide which comes first.",
     feature: {
       title: "Help shape what we build.",
       body: "Early-access shops get founding pricing, a direct line to me, and a real say in what gets built next.",
@@ -131,7 +131,7 @@ export const home = {
       { title: "Office users free", body: "Pay for the techs in the field. The office doesn't cost extra." },
       { title: "Any panel", body: "Notifier, Mircom, Edwards, Simplex. If you inspect it, you can report on it in Strobe." },
       { title: "Stored in Canada", body: "Your customers' inspection data stays in Canada, on Google Cloud in Toronto." },
-      { title: "Works across Canada", body: "Reports, quotes and owner approvals work anywhere. City filing grows as shops ask." },
+      { title: "Works across Canada", body: "Reports, quotes and owner approvals work anywhere. City rules are mapped for Calgary, Edmonton, Strathcona County and Lethbridge, with more added as shops ask." },
     ],
   },
 

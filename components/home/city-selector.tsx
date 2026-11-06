@@ -110,6 +110,7 @@ export function CitySelector() {
             <div key={selected} className="motion-safe:animate-[fade-in_200ms_ease-out]">
               <h3 className="sr-only">{j.name}</h3>
               <JurisdictionCard jurisdiction={j} footer={footer} />
+              {j.note && <p className="mt-3 text-[15px] text-ink-2">{j.note}</p>}
             </div>
           </div>
         </div>

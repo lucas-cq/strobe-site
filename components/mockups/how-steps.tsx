@@ -1,4 +1,4 @@
-import { Chip, PhoneFrame, PhotoBlock, SampleLabel, SignatureLine, cad } from "./parts";
+import { Chip, PhoneFrame, SampleLabel, SignatureLine, cad } from "./parts";
 
 /*
  * The mockups for the five How it works steps. All sample data, all decorative: the section
@@ -26,23 +26,33 @@ function Toggle({ left, right, on, tones }: { left: string; right: string; on: "
   );
 }
 
-const passFail: [string, string] = ["bg-pass text-white", "bg-fail-ink text-white"];
 const approveDecline: [string, string] = ["bg-indigo text-white", "bg-ink-2 text-white"];
 
-/** Step 1: the tech's device list, offline. */
+/** A 3x3 grid of keys: the Jump button's number pad icon. */
+function KeypadIcon({ className = "" }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 12 12" className={className} fill="currentColor">
+      {[1.5, 6, 10.5].flatMap((y) => [1.5, 6, 10.5].map((x) => <circle key={`${x}-${y}`} cx={x} cy={y} r="1.25" />))}
+    </svg>
+  );
+}
+
+/** Step 1: panel mode. One device at a time, called over the radio, passed with one tap. */
 export function StepInspect() {
-  const devices = [
-    { name: "Smoke detector", where: "Level 2 corridor", fail: false },
-    { name: "Pull station", where: "Level 2 east stair", fail: true },
-    { name: "Heat detector", where: "Parkade P1", fail: false },
-    { name: "Horn/strobe", where: "Level 3 lobby", fail: false },
-  ];
   return (
     <div aria-hidden="true" className="select-none">
       <PhoneFrame>
         <div className="border-b border-line px-4 pt-2 pb-3">
-          <p className="font-display text-[15px] leading-tight font-semibold tracking-[-0.01em]">{SITE.name}</p>
-          <p className="mt-0.5 text-[11px] text-ink-2">{SITE.address} · Fire Alarm · Annual</p>
+          <div className="flex items-start justify-between gap-2">
+            <div className="min-w-0">
+              <p className="truncate font-display text-[15px] leading-tight font-semibold tracking-[-0.01em]">{SITE.name}</p>
+              <p className="mt-0.5 truncate text-[11px] text-ink-2">Panel mode · Fire Alarm</p>
+            </div>
+            <span className="flex shrink-0 items-center gap-1.5 rounded-md bg-surface px-2 py-1 text-[11px] font-semibold text-ink ring-1 ring-line">
+              <KeypadIcon className="size-3 text-ink-2" />
+              Jump
+            </span>
+          </div>
           <div className="mt-2.5 flex items-center gap-2">
             <div className="h-1.5 flex-1 overflow-hidden rounded-full bg-surface">
               <div className="h-full w-[74%] rounded-full bg-indigo" />
@@ -50,34 +60,33 @@ export function StepInspect() {
             <span className="tabular text-[10px] font-medium text-ink-2">31 of 42</span>
           </div>
         </div>
-        <ul className="divide-y divide-line">
-          {devices.map((d) => (
-            <li key={d.name} className={d.fail ? "bg-fail/[0.04]" : ""}>
-              <div className="flex items-center gap-2 px-4 py-2.5">
-                <div className="min-w-0 flex-1">
-                  <p className="truncate text-[12px] leading-4 font-semibold">{d.name}</p>
-                  <p className="truncate text-[11px] leading-4 text-ink-2">{d.where}</p>
-                </div>
-                <Toggle left="Pass" right="Fail" on={d.fail ? "right" : "left"} tones={passFail} />
-              </div>
-              {d.fail && (
-                <div className="mx-3 mb-3 flex gap-2.5 rounded-lg border border-line bg-white p-2.5">
-                  <PhotoBlock label="Photo" className="h-[64px] w-[72px] shrink-0" />
-                  <div className="min-w-0 text-[11px] leading-4">
-                    <p className="font-semibold text-fail-ink">Deficiency</p>
-                    <p className="mt-0.5 text-ink-2">Level 2 east stair</p>
-                    <p className="mt-1">Handle won&apos;t latch. Replace station.</p>
-                  </div>
-                </div>
-              )}
-            </li>
-          ))}
-        </ul>
-        <div className="mt-auto flex justify-center px-4 pt-3">
+
+        <div className="flex flex-1 flex-col justify-center px-5 text-center">
+          <p className="tabular text-[12px] font-semibold tracking-[0.06em] text-indigo">L2-14</p>
+          <p className="mt-1 font-display text-[28px] leading-tight font-semibold tracking-[-0.02em]">Pull station</p>
+          <p className="mt-1 text-[13px] text-ink-2">Level 2 east stair</p>
+          <p className="mt-4 text-[11px] text-muted">
+            Last year: <span className="tabular">Pass (2025)</span>
+          </p>
+        </div>
+
+        <p className="truncate px-4 pb-3 text-center text-[11px] text-muted">
+          Up next: Smoke detector · <span className="tabular">L2-15</span>
+        </p>
+
+        <div className="flex justify-center px-4 pb-3">
           <span className="flex items-center gap-1.5 rounded-full bg-warn/15 px-3 py-1 text-[11px] font-semibold text-warn-ink">
             <span className="size-1.5 rounded-full bg-warn" />
             Offline, <span className="tabular">14</span> changes saved
           </span>
+        </div>
+        <div className="flex gap-2 px-4">
+          <div className="flex h-14 flex-1 items-center justify-center rounded-button bg-pass-ink text-[17px] font-semibold text-white">
+            Pass
+          </div>
+          <div className="flex h-14 w-[72px] items-center justify-center rounded-button border border-fail-ink/40 text-[14px] font-semibold text-fail-ink">
+            Fail
+          </div>
         </div>
       </PhoneFrame>
       <SampleLabel className="mt-2 block text-center" />
@@ -167,7 +176,6 @@ export function StepQuote() {
       <ul className="divide-y divide-line">
         {deficiencies.map((d) => (
           <li key={d.item} className="flex items-center gap-3 px-5 py-3">
-            <PhotoBlock className="size-10 shrink-0" />
             <div className="min-w-0 flex-1">
               <p className="text-[12px] leading-4 font-semibold">{d.item}</p>
               <p className="truncate text-[11px] leading-4 text-ink-2">{d.where}</p>
@@ -213,7 +221,6 @@ export function StepApprove() {
           {deficiencies.map((d) => (
             <li key={d.item} className="px-4 py-2.5">
               <div className="flex items-center gap-2.5">
-                <PhotoBlock className="size-9 shrink-0" />
                 <div className="min-w-0 flex-1">
                   <p className="text-[12px] leading-4 font-semibold">{d.item}</p>
                   <p className="tabular text-[11px] leading-4 text-ink-2">{cad(d.price)}</p>
