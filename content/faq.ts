@@ -1,4 +1,8 @@
+import { plans } from "./pricing";
 import { reportRulesGuidePath } from "./site";
+
+// Read from the plans, so a price change can't leave an old number in the FAQ.
+const [solo, crew, shop] = plans.map((plan) => `$${plan.priceCadMonthly}`);
 
 export type FaqItem = {
   question: string;
@@ -51,11 +55,11 @@ export const faq: FaqContent = {
     {
       question: "What does it cost?",
       answer:
-        "You pay per tech, per month, in Canadian dollars. Office users are free on Crew and Shop. Early-access shops lock in founding pricing. See [Pricing](/pricing).",
+        `Solo is ${solo} a month for one tech. Crew is ${crew} per tech, per month for 2 to 5 techs. Shop is ${shop} per tech, per month for 6 or more. All prices are in CAD, and office users are free on Crew and Shop. Early-access shops lock in founding pricing. See [Pricing](/pricing).`,
     },
     {
       question: "Do I have to talk to sales?",
-      answer: "No. Pricing will be on the website, and you can start without a call.",
+      answer: "No. The prices are on the website, and you can start without a call. There's no contract, and you can cancel anytime.",
     },
     {
       question: "How hard is it to switch?",
