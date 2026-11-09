@@ -3,6 +3,9 @@ export type NavLink = {
   href: string;
 };
 
+/** A tech who reviewed a page. Only with their written OK. */
+export type Reviewer = { name: string; role: string };
+
 /** A top-level nav entry: a link, or a menu of links. */
 export type NavItem = NavLink | { label: string; children: NavLink[] };
 
@@ -29,6 +32,8 @@ export type SiteContent = {
     sameAs: string[];
   };
   nav: NavItem[];
+  /** Footer only, between the nav and the legal links. */
+  footerLinks: NavLink[];
   legalLinks: NavLink[];
   cta: {
     primary: string;
@@ -59,6 +64,8 @@ export type SiteContent = {
 export const cityLinks: NavLink[] = [
   { label: "Calgary", href: "/calgary" },
   { label: "Edmonton", href: "/edmonton" },
+  { label: "Strathcona County", href: "/strathcona-county" },
+  { label: "Lethbridge", href: "/lethbridge" },
 ];
 
 export const site: SiteContent = {
@@ -88,6 +95,7 @@ export const site: SiteContent = {
     { label: "Pricing", href: "/pricing" },
     { label: "FAQ", href: "/#faq" },
   ],
+  footerLinks: [{ label: "About", href: "/about" }],
   legalLinks: [
     { label: "Privacy", href: "/privacy" },
     { label: "Terms", href: "/terms" },
@@ -116,6 +124,6 @@ export const site: SiteContent = {
 };
 
 /** Routes that embed the early-access form, so the CTA can scroll instead of navigate. */
-export const formRoutes = ["/", "/calgary", "/edmonton", "/pricing", "/early-access"];
+export const formRoutes = ["/", "/calgary", "/edmonton", "/strathcona-county", "/lethbridge", "/pricing", "/early-access"];
 
 export const formAnchor = "early-access";

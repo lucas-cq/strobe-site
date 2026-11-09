@@ -3,15 +3,15 @@ import { CheckCircle, Chip, SampleLabel, SkeletonRow } from "./parts";
 // Deliberately thin: no severity labels or status table. We don't claim to know LIV's own values.
 const checks = ["Report PDF", "Deficiency list"];
 
-/** An Edmonton LIV upload, ready to go. Decorative: pair it with a text alternative. */
-export function LivChecklist({ className = "" }: { className?: string }) {
+/** A report upload, ready to go (Edmonton's LIV by default). Decorative: pair it with a text alternative. */
+export function LivChecklist({ title = "LIV upload", className = "" }: { title?: string; className?: string }) {
   return (
     <div
       aria-hidden="true"
       className={`w-full max-w-[420px] rounded-card-lg border border-line bg-white text-ink shadow-soft select-none ${className}`}
     >
       <div className="flex items-start justify-between gap-3 border-b border-line px-4 py-3">
-        <p className="font-display text-[15px] font-semibold tracking-[-0.01em]">LIV upload</p>
+        <p className="font-display text-[15px] font-semibold tracking-[-0.01em]">{title}</p>
         <Chip tone="pass">Ready to upload</Chip>
       </div>
 

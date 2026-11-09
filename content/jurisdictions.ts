@@ -68,6 +68,7 @@ export const jurisdictions: Jurisdiction[] = [
     trigger: "Every inspection report",
     deadline: "Upload within 14 days of the inspection",
     strobePrepares: "An upload-ready report for the portal, with a reminder before day 14.",
+    href: "/strathcona-county",
     sourceUrl: "https://www.strathcona.ca/business-and-development/business/fire-inspections/",
     checkedOn: "2026-11-06",
   },
@@ -83,6 +84,7 @@ export const jurisdictions: Jurisdiction[] = [
     strobePrepares:
       "The email with the report attached: to the Fire Prevention Bureau for clean reports, or to deficientreports@lethbridge.ca when a repair isn't arranged in time.",
     note: "Lethbridge also requires contractors to be on its registry.",
+    href: "/lethbridge",
     sourceUrl: "https://www.lethbridge.ca/media/1hrlio4n/2026-letter-to-fire-alarm-testing-companies.pdf",
     checkedOn: "2026-11-06",
   },

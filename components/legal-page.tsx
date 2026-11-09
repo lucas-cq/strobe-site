@@ -1,4 +1,5 @@
 import type { LegalBlock, LegalDocument } from "@/content/legal-types";
+import { formatDate } from "@/lib/dates";
 import { linkify } from "./linkify";
 import { Container } from "./ui";
 
@@ -12,11 +13,6 @@ function Block({ block }: { block: LegalBlock }) {
     </ul>
   );
 }
-
-const longDate = new Intl.DateTimeFormat("en-CA", { dateStyle: "long", timeZone: "UTC" });
-
-/** "2026-11-06" to "November 6, 2026". */
-const formatDate = (iso: string) => longDate.format(new Date(iso));
 
 export function LegalPage({ doc }: { doc: LegalDocument }) {
   return (

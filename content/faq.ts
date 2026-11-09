@@ -4,7 +4,7 @@ export type FaqItem = {
   answer: string;
 };
 
-export type FaqContent = { eyebrow: string; title: string; items: FaqItem[] };
+export type FaqContent = { eyebrow?: string; title: string; items: FaqItem[] };
 
 export const faq: FaqContent = {
   eyebrow: "FAQ",

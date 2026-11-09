@@ -1,10 +1,13 @@
 import type { MetadataRoute } from "next";
+import { about } from "@/content/about";
 import { calgary } from "@/content/calgary";
 import { edmonton } from "@/content/edmonton";
 import { home } from "@/content/home";
+import { lethbridge } from "@/content/lethbridge";
 import { pricing } from "@/content/pricing";
 import { privacy } from "@/content/privacy";
 import { site } from "@/content/site";
+import { strathconaCounty } from "@/content/strathcona-county";
 import { terms } from "@/content/terms";
 import { yourData } from "@/content/your-data";
 
@@ -14,7 +17,10 @@ const routes: { path: string; priority: number; lastReviewed: string }[] = [
   { path: "/", priority: 1, lastReviewed: home.lastReviewed },
   { path: "/calgary", priority: 0.9, lastReviewed: calgary.lastReviewed },
   { path: "/edmonton", priority: 0.9, lastReviewed: edmonton.lastReviewed },
+  { path: "/strathcona-county", priority: 0.9, lastReviewed: strathconaCounty.lastReviewed },
+  { path: "/lethbridge", priority: 0.9, lastReviewed: lethbridge.lastReviewed },
   { path: "/pricing", priority: 0.8, lastReviewed: pricing.lastReviewed },
+  { path: "/about", priority: 0.5, lastReviewed: about.lastReviewed },
   { path: "/your-data", priority: 0.4, lastReviewed: yourData.lastReviewed },
   { path: "/privacy", priority: 0.2, lastReviewed: privacy.lastReviewed },
   { path: "/terms", priority: 0.2, lastReviewed: terms.lastReviewed },
