@@ -7,27 +7,24 @@ import { RuleList } from "@/components/rule-list";
 import { Section, SectionHeader } from "@/components/section";
 import { Container } from "@/components/ui";
 import { reportRulesGuide as guide } from "@/content/guide-report-rules";
+import { guidesHub } from "@/content/guides-hub";
 import { reportRulesGuidePath as path, site } from "@/content/site";
 import { pageMetadata } from "@/lib/metadata";
 import { loadReportRules } from "@/lib/report-rules";
-import { breadcrumbSchema, orgId } from "@/lib/schema";
+import { articleSchema, breadcrumbSchema, orgId } from "@/lib/schema";
 
 export const metadata = pageMetadata({ ...guide.meta, path });
 
 const url = new URL(path, site.url).toString();
 const csvHref = `${path}.csv`;
 
-const article = {
-  "@context": "https://schema.org",
-  "@type": "Article",
+const article = articleSchema({
   headline: guide.title,
   description: guide.meta.description,
-  mainEntityOfPage: url,
-  author: { "@type": "Person", name: site.founder.name, url: new URL("/about", site.url).toString() },
-  publisher: { "@id": orgId },
+  path,
   datePublished: guide.datePublished,
   dateModified: guide.lastReviewed,
-};
+});
 
 const dataset = {
   "@context": "https://schema.org",
@@ -58,6 +55,7 @@ export default function ReportRulesGuidePage() {
       <JsonLd
         data={breadcrumbSchema([
           { name: "Home", path: "/" },
+          { name: guidesHub.breadcrumb, path: guidesHub.path },
           { name: guide.title, path },
         ])}
       />

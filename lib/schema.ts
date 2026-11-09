@@ -19,6 +19,32 @@ export const organizationSchema = {
   ...(site.org.sameAs.length > 0 ? { sameAs: site.org.sameAs } : {}),
 };
 
+export function articleSchema({
+  headline,
+  description,
+  path,
+  datePublished,
+  dateModified,
+}: {
+  headline: string;
+  description: string;
+  path: string;
+  datePublished: string;
+  dateModified: string;
+}) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    headline,
+    description,
+    mainEntityOfPage: new URL(path, site.url).toString(),
+    author: { "@type": "Person", name: site.founder.name, url: new URL("/about", site.url).toString() },
+    publisher: { "@id": orgId },
+    datePublished,
+    dateModified,
+  };
+}
+
 /** For city, guide and tool pages, e.g. Home › Calgary. */
 export function breadcrumbSchema(crumbs: { name: string; path: string }[]) {
   return {

@@ -96,6 +96,7 @@ export const site: SiteContent = {
     { label: "How it works", href: "/#how-it-works" },
     { label: "Cities", children: cityLinks },
     { label: "Pricing", href: "/pricing" },
+    { label: "Guides", href: "/guides" },
     { label: "FAQ", href: "/#faq" },
   ],
   footerLinks: [

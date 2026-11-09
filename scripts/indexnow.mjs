@@ -24,6 +24,7 @@ const contentRoutes = {
   "content/tools.ts": "/tools",
   "content/tool-deadline.ts": "/tools/calgary-10-day-deadline",
   "content/tool-device-template.ts": "/tools/device-list-template",
+  "content/guides-hub.ts": "/guides",
   "content/guide-report-rules.ts": "/guides/fire-alarm-report-rules-canada",
   "public/guides/fire-alarm-report-rules-canada.csv": "/guides/fire-alarm-report-rules-canada",
   "content/pricing.ts": "/pricing",

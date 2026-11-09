@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "tsx scripts/check-meta.ts && node scripts/check-copy.mjs && node scripts/write-indexnow-key.mjs && next build && node scripts/check-rendered.mjs",
+    "build": "tsx scripts/check-meta.ts && node scripts/check-copy.mjs && node scripts/write-indexnow-key.mjs && next build && node scripts/check-rendered.mjs && node scripts/check-drafts.mjs",
     "start": "next start",
     "lint": "eslint",
     "test": "tsx --test lib/*.test.ts",
