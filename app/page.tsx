@@ -13,6 +13,7 @@ import { home } from "@/content/home";
 import { JsonLd } from "@/components/json-ld";
 import { site } from "@/content/site";
 import { homeMetadata } from "@/lib/metadata";
+import { orgId } from "@/lib/schema";
 
 export const metadata = homeMetadata;
 
@@ -26,12 +27,7 @@ const structuredData = {
   applicationCategory: "BusinessApplication",
   operatingSystem: "iOS, Android, Web",
   areaServed: { "@type": "Country", name: "Canada" },
-  publisher: {
-    "@type": "Organization",
-    name: "Strobe",
-    url: site.url,
-    logo: `${site.url}/brand/png/icon-512.png`,
-  },
+  publisher: { "@id": orgId },
 };
 
 export default function HomePage() {

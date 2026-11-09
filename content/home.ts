@@ -1,5 +1,8 @@
 // Home page copy, from SITE_V2.md section 3 and STROBE_SITE_CANADA.md. Keep it plain: short sentences.
 export const home = {
+  /** The sitemap's lastmod for this page. Update it when the facts or copy change. */
+  lastReviewed: "2026-11-06",
+
   hero: {
     /** Follows the Canadian flag in the eyebrow chip. */
     eyebrow: "Made in Canada · CAN/ULC-S536",
@@ -143,8 +146,6 @@ export const home = {
     /** Shown when public/founder.jpg is missing. */
     initials: "LC",
     photoAlt: "Lucas Cummings, founder of Strobe",
-    // TODO Lucas: add your LinkedIn profile URL. The link stays hidden while this is empty.
-    linkedinUrl: "",
     linkedinLabel: "LinkedIn",
     /** Shown only when NEXT_PUBLIC_CAL_LINK is set. */
     bookLabel: "Book 20 minutes",

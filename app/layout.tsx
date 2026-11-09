@@ -2,10 +2,12 @@ import type { Metadata, Viewport } from "next";
 import localFont from "next/font/local";
 import { Analytics } from "@vercel/analytics/next";
 import { AttributionCapture } from "@/components/attribution";
+import { JsonLd } from "@/components/json-ld";
 import { RevealObserver } from "@/components/reveal-observer";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 import { site } from "@/content/site";
+import { organizationSchema } from "@/lib/schema";
 import "./globals.css";
 
 // Latin subsets of the files in fonts/ (about 27 KB each instead of 180 KB). See fonts/web/README.md.
@@ -51,6 +53,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       className={`${inter.variable} ${interDisplay.variable} antialiased`}
     >
       <body className="flex min-h-dvh flex-col">
+        <JsonLd data={organizationSchema} />
         <a
           href="#main"
           className="sr-only z-50 rounded-button bg-indigo px-4 py-2 font-medium text-white focus:not-sr-only focus:fixed focus:top-3 focus:left-3"

@@ -11,7 +11,7 @@ export const privacy: LegalDocument = {
       "How Strobe, fire alarm inspection software for Canadian shops, collects, uses and protects the information you share on strobehq.com.",
   },
   title: "Privacy policy",
-  updated: "November 4, 2026",
+  lastReviewed: "2026-11-04",
   intro: [
     `${site.legalEntityName} ("Strobe", "we" or "us") runs strobehq.com. This policy explains what we collect through this website and the early-access form, why we collect it, and the choices you have. It covers the website only. The Strobe app has its own terms.`,
     "Questions about privacy go to our privacy contact at privacy@strobehq.com.",

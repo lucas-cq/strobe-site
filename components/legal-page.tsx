@@ -13,12 +13,17 @@ function Block({ block }: { block: LegalBlock }) {
   );
 }
 
+const longDate = new Intl.DateTimeFormat("en-CA", { dateStyle: "long", timeZone: "UTC" });
+
+/** "2026-11-06" to "November 6, 2026". */
+const formatDate = (iso: string) => longDate.format(new Date(iso));
+
 export function LegalPage({ doc }: { doc: LegalDocument }) {
   return (
     <Container className="py-16 md:py-24">
       <article className="mx-auto max-w-2xl">
         <h1 className="text-4xl text-ink md:text-5xl">{doc.title}</h1>
-        <p className="mt-3 text-sm text-muted">Last updated {doc.updated}</p>
+        <p className="mt-3 text-sm text-muted">Last updated {formatDate(doc.lastReviewed)}</p>
         <div className="mt-8 space-y-4 text-lg text-ink-2">
           {doc.intro.map((p) => (
             <p key={p}>{linkify(p)}</p>

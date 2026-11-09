@@ -11,17 +11,21 @@ export function pageMetadata({
   description,
   path,
   ownImage = false,
+  noindex = false,
 }: {
   title: string;
   description: string;
   path: string;
   /** True when the route has its own opengraph-image.tsx. */
   ownImage?: boolean;
+  /** Keep the page out of search results, while still following its links. */
+  noindex?: boolean;
 }): Metadata {
   return {
     title: { absolute: title },
     description,
     alternates: { canonical: path },
+    ...(noindex ? { robots: { index: false, follow: true } } : {}),
     openGraph: {
       type: "website",
       siteName: "Strobe",

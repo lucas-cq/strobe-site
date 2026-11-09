@@ -67,17 +67,36 @@ export function MobileMenu() {
 
           <nav aria-label="Main" className="flex-1 overflow-y-auto px-4 py-4">
             <ul className="divide-y divide-line">
-              {site.nav.map((link) => (
-                <li key={link.href}>
-                  <PageLink
-                    href={link.href}
-                    onClick={close}
-                    className="flex min-h-14 items-center text-lg font-medium text-ink"
-                  >
-                    {link.label}
-                  </PageLink>
-                </li>
-              ))}
+              {site.nav.map((item) =>
+                "children" in item ? (
+                  <li key={item.label} className="py-3">
+                    <p className="text-[15px] font-medium text-muted">{item.label}</p>
+                    <ul className="mt-1">
+                      {item.children.map((link) => (
+                        <li key={link.href}>
+                          <PageLink
+                            href={link.href}
+                            onClick={close}
+                            className="flex min-h-12 items-center text-lg font-medium text-ink"
+                          >
+                            {link.label}
+                          </PageLink>
+                        </li>
+                      ))}
+                    </ul>
+                  </li>
+                ) : (
+                  <li key={item.label}>
+                    <PageLink
+                      href={item.href}
+                      onClick={close}
+                      className="flex min-h-14 items-center text-lg font-medium text-ink"
+                    >
+                      {item.label}
+                    </PageLink>
+                  </li>
+                ),
+              )}
             </ul>
           </nav>
 

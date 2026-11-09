@@ -46,8 +46,10 @@ export const plans: Plan[] = [
 ];
 
 export const pricing = {
+  /** The sitemap's lastmod for this page. */
+  lastReviewed: "2026-11-06",
   meta: {
-    title: "Pricing in CAD | Strobe",
+    title: "Fire alarm inspection software pricing (CAD) | Strobe",
     description:
       "Simple per-tech pricing in Canadian dollars. Office users free. Plans for solo techs, crews of 2 to 5, and shops with 6 or more. No sales call.",
   },

@@ -1,0 +1,27 @@
+name: IndexNow
+
+# Vercel reports each deploy as a commit status. This runs after the one for the latest
+# commit on main succeeds, so the changed pages are live before search engines are told.
+on: status
+
+permissions:
+  contents: read
+
+jobs:
+  submit:
+    if: >-
+      github.event.context == 'Vercel' &&
+      github.event.state == 'success' &&
+      github.event.sha == github.sha
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.sha }}
+          fetch-depth: 2
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: node scripts/indexnow.mjs
+        env:
+          INDEXNOW_KEY: ${{ vars.INDEXNOW_KEY }}

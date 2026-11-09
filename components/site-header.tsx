@@ -3,6 +3,7 @@ import { EarlyAccessLink } from "./early-access-link";
 import { Lockup } from "./lockup";
 import { PageLink } from "./page-link";
 import { MobileMenu } from "./mobile-menu";
+import { NavDropdown, navItemClasses } from "./nav-dropdown";
 import { Container, buttonClasses } from "./ui";
 
 export function SiteHeader() {
@@ -15,14 +16,15 @@ export function SiteHeader() {
 
         <nav aria-label="Main" className="hidden md:block">
           <ul className="flex items-center gap-1">
-            {site.nav.map((link) => (
-              <li key={link.href}>
-                <PageLink
-                  href={link.href}
-                  className="rounded-button px-3 py-2 text-[15px] font-medium text-ink-2 transition-colors hover:text-ink"
-                >
-                  {link.label}
-                </PageLink>
+            {site.nav.map((item) => (
+              <li key={item.label}>
+                {"children" in item ? (
+                  <NavDropdown label={item.label} links={item.children} />
+                ) : (
+                  <PageLink href={item.href} className={navItemClasses}>
+                    {item.label}
+                  </PageLink>
+                )}
               </li>
             ))}
           </ul>

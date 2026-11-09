@@ -2,6 +2,7 @@ import { existsSync } from "node:fs";
 import path from "node:path";
 import Image from "next/image";
 import { home } from "@/content/home";
+import { site } from "@/content/site";
 import { WalkthroughButton } from "../cal-booking";
 import { Section } from "../section";
 
@@ -44,9 +45,9 @@ export function FounderNote() {
                 <span className="font-semibold text-ink">{founder.name}</span>
                 <span className="text-sm text-muted">{founder.role}</span>
               </span>
-              {founder.linkedinUrl && (
+              {site.founder.linkedin && (
                 <a
-                  href={founder.linkedinUrl}
+                  href={site.founder.linkedin}
                   target="_blank"
                   rel="me noopener noreferrer"
                   className="text-sm font-medium text-ink-2 underline underline-offset-4 hover:text-ink"
