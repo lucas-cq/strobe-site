@@ -1,16 +1,15 @@
 import type { FaqContent } from "./faq";
 import { promises } from "./promises";
 
-/**
- * /pricing (STROBE_SITE_CANADA.md section 9). Prices stay null until Lucas sets them; the page
- * then shows "Pricing announced soon" and a "Get notified" button instead. Always CAD.
- */
+/** /pricing. Always CAD. Yearly prices and the worked examples are calculated from the monthly price. */
 export type Plan = {
   id: "solo" | "crew" | "shop";
   name: string;
   techRange: string;
-  priceCadPerTechMonthly: number | null; // null until Lucas sets it
-  priceCadPerTechAnnual: number | null; // monthly equivalent when billed yearly
+  /** Per month: for the whole plan on Solo, per tech on Crew and Shop. */
+  priceCadMonthly: number;
+  /** Crew sizes to show a worked monthly total for. */
+  exampleTechCounts: number[];
   blurb: string;
   extras: string[];
 };
@@ -20,49 +19,59 @@ export const plans: Plan[] = [
     id: "solo",
     name: "Solo",
     techRange: "1 tech",
-    priceCadPerTechMonthly: null,
-    priceCadPerTechAnnual: null,
+    priceCadMonthly: 49,
+    exampleTechCounts: [],
     blurb: "For the tech who runs the whole show. Everything Strobe does, at a price that makes sense for one person.",
-    extras: ["Includes one free office login, for whoever does the books"],
+    extras: ["Everything in Strobe", "One free office login, for whoever does the books"],
   },
   {
     id: "crew",
     name: "Crew",
     techRange: "2 to 5 techs",
-    priceCadPerTechMonthly: null,
-    priceCadPerTechAnnual: null,
+    priceCadMonthly: 109,
+    exampleTechCounts: [3, 5],
     blurb: "For small shops. Pay for techs, not for the office.",
-    extras: ["Unlimited office users"],
+    extras: ["Everything in Strobe", "Unlimited office users"],
   },
   {
     id: "shop",
     name: "Shop",
     techRange: "6+ techs",
-    priceCadPerTechMonthly: null,
-    priceCadPerTechAnnual: null,
+    priceCadMonthly: 95,
+    exampleTechCounts: [6, 10],
     blurb: "For growing shops with a full office.",
-    extras: ["Unlimited office users", "Priority support", "Onboarding for each office and crew"],
+    extras: ["Everything in Strobe", "Unlimited office users", "Priority support", "Onboarding for each office and crew"],
   },
 ];
 
 export const pricing = {
   /** The sitemap's lastmod for this page. */
-  lastReviewed: "2026-11-06",
+  lastReviewed: "2026-11-09",
   meta: {
     title: "Fire alarm inspection software pricing (CAD) | Strobe",
     description:
-      "Simple per-tech pricing in Canadian dollars. Office users free. Plans for solo techs, crews of 2 to 5, and shops with 6 or more. No sales call.",
+      "Simple pricing in Canadian dollars, from $49 a month. Office users free on Crew and Shop. No contracts, cancel anytime, no sales call.",
   },
   eyebrow: "Pricing",
   title: "Simple pricing for Canadian shops",
-  lede: "Pick a plan by how many techs you have. Office users are free on Crew and Shop. No sales call, no setup fee.",
-  currencyNote: "All prices in Canadian dollars (CAD).",
-  pricePending: "Pricing announced soon",
-  notify: "Get notified",
+  lede: "Pick a plan by how many techs you have. Office users are free on Crew and Shop. Pay yearly and get 2 months free.",
+  currencyNote: "All prices in CAD",
+  /** Shown above the plans, so they're read before the prices. */
+  terms: ["No contracts", "Cancel anytime", "No sales call", "No setup fee"],
+  /** Under each plan's button. */
+  reassurance: "No contract. Cancel anytime.",
   start: "Get early access",
+  example: (techs: number, total: string) => `${techs} techs: ${total} a month`,
   /** Solo is billed per month; Crew and Shop per tech. */
   unit: { solo: "per month", perTech: "per tech, per month" },
-  billing: { label: "Billing", monthly: "Monthly", yearly: "Yearly", yearlyNote: "billed yearly" },
+  billing: {
+    /** 2 months free. */
+    monthsPaidPerYear: 10,
+    or: "or",
+    perYear: "per year",
+    perTechYear: "per tech, per year",
+    saving: "2 months free",
+  },
   includes: {
     title: "Every plan includes:",
     items: [

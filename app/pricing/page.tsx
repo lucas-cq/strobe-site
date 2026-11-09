@@ -24,11 +24,20 @@ export default function PricingPage() {
               {pricing.title}
             </h1>
             <p className="mt-5 text-lg text-ink-2">{pricing.lede}</p>
-            <p className="mt-8 inline-flex items-center gap-2 text-[15px] font-medium text-ink-2">
+          </div>
+
+          <ul className="mt-8 flex flex-wrap items-center justify-center gap-x-5 gap-y-2 text-[15px] font-semibold text-ink">
+            <li className="inline-flex items-center gap-2">
               <CanadaFlag decorative className="h-2.5 w-5" />
               {pricing.currencyNote}
-            </p>
-          </div>
+            </li>
+            {pricing.terms.map((term) => (
+              <li key={term} className="inline-flex items-center gap-1.5">
+                <CheckIcon className="size-4 shrink-0 text-indigo" />
+                {term}
+              </li>
+            ))}
+          </ul>
 
           <Plans />
 
