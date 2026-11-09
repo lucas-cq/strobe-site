@@ -57,9 +57,9 @@ export const pricing = {
   lede: "Pick a plan by how many techs you have. Office users are free on Crew and Shop. Pay yearly and get 2 months free.",
   currencyNote: "All prices in CAD",
   /** Shown above the plans, so they're read before the prices. */
-  terms: ["No contracts", "Cancel anytime", "No sales call", "No setup fee"],
+  terms: ["30-day free trial", "No contracts", "Cancel anytime", "No sales call", "No setup fee"],
   /** Under each plan's button. */
-  reassurance: "No contract. Cancel anytime.",
+  reassurance: "30-day free trial. No card needed.",
   start: "Get early access",
   example: (techs: number, total: string) => `${techs} techs: ${total} a month`,
   /** Solo is billed per month; Crew and Shop per tech. */
@@ -75,6 +75,7 @@ export const pricing = {
   includes: {
     title: "Every plan includes:",
     items: [
+      { text: "30-day free trial, no credit card" },
       { text: "Offline inspections on iOS and Android" },
       { text: "CAN/ULC-S536 reports" },
       { text: "Quotes and owner approval by link" },
@@ -107,6 +108,19 @@ export const pricingFaq: FaqContent = {
     {
       question: "Is there a contract?",
       answer: "No. Month-to-month, cancel anytime.",
+    },
+    {
+      question: "Is there a free trial?",
+      answer: "Yes. 30 days, no credit card. When it ends, your account goes read-only and you can still export everything.",
+    },
+    {
+      question: "Can I get a refund on a yearly plan?",
+      answer:
+        "Yes, a full refund within 14 days of paying. After that, cancelling stops the renewal and you keep access until your year is up.",
+    },
+    {
+      question: "What's founding pricing?",
+      answer: "The first 25 shops get 3 months free after their trial, and their launch price is locked for as long as they stay.",
     },
     {
       question: "Is onboarding extra?",

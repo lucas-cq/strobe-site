@@ -129,7 +129,7 @@ export const home = {
     lede: "Extinguishers and sprinkler are next. Early shops decide which comes first.",
     feature: {
       title: "Help shape what we build.",
-      body: "Early-access shops get founding pricing, a direct line to me, and a real say in what gets built next.",
+      body: "The first 25 shops get founding pricing: 3 months free after the trial, and the launch price locked for as long as they stay. Plus a direct line to me and a real say in what gets built.",
       button: "Get early access",
     },
     cards: [
