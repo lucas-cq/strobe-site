@@ -9,13 +9,13 @@ import { Container, buttonClasses } from "./ui";
 export function SiteHeader() {
   return (
     <header className="sticky top-0 z-40 border-b border-line bg-white/90 backdrop-blur-md supports-[backdrop-filter]:bg-white/80">
-      <Container className="flex h-16 items-center justify-between gap-6">
+      <Container className="flex h-16 items-center justify-between gap-3 lg:gap-6">
         <PageLink href="/" aria-label="Strobe home" className="shrink-0 rounded-sm">
           <Lockup className="h-7 w-auto" label="" />
         </PageLink>
 
         <nav aria-label="Main" className="hidden md:block">
-          <ul className="flex items-center gap-1">
+          <ul className="flex items-center lg:gap-1">
             {site.nav.map((item) => (
               <li key={item.label}>
                 {"children" in item ? (

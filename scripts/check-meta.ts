@@ -19,7 +19,7 @@ function* pageFiles(dir: string): Generator<string> {
     const full = path.join(dir, name);
     if (statSync(full).isDirectory()) {
       if (!skipDirs.has(name)) yield* pageFiles(full);
-    } else if (name === "page.tsx") {
+    } else if (name === "page.tsx" || name === "page.draft.tsx") {
       yield full;
     }
   }

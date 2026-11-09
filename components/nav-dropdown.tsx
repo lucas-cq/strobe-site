@@ -5,7 +5,7 @@ import type { NavLink } from "@/content/site";
 import { PageLink } from "./page-link";
 
 export const navItemClasses =
-  "rounded-button px-3 py-2 text-[15px] font-medium text-ink-2 transition-colors hover:text-ink";
+  "rounded-button px-2 py-2 text-[15px] font-medium whitespace-nowrap text-ink-2 transition-colors hover:text-ink lg:px-3";
 
 /**
  * A desktop nav menu that opens on click. The links stay in the HTML while it's closed, so
