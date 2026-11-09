@@ -115,6 +115,8 @@ export const home = {
     links: {
       calgary: "Calgary details",
       edmonton: "Edmonton details",
+      strathcona: "Strathcona County details",
+      lethbridge: "Lethbridge details",
       elsewhere: "Request my city",
     } as Partial<Record<string, string>>,
     footnote:

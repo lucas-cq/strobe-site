@@ -1,13 +1,8 @@
-import { existsSync } from "node:fs";
-import path from "node:path";
-import Image from "next/image";
 import { home } from "@/content/home";
 import { site } from "@/content/site";
 import { WalkthroughButton } from "../cal-booking";
+import { FounderAvatar } from "../founder-avatar";
 import { Section } from "../section";
-
-// Checked at build time. Drop a photo at public/founder.jpg and redeploy to show it.
-const hasPhoto = existsSync(path.join(process.cwd(), "public", "founder.jpg"));
 
 export function FounderNote() {
   const { founder } = home;
@@ -31,16 +26,7 @@ export function FounderNote() {
           </blockquote>
           <figcaption className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-4">
             <span className="flex items-center gap-3">
-              {hasPhoto ? (
-                <Image src="/founder.jpg" alt={founder.photoAlt} width={56} height={56} className="size-14 rounded-full object-cover" />
-              ) : (
-                <span
-                  aria-hidden="true"
-                  className="bg-gradient-band flex size-14 items-center justify-center rounded-full font-display text-lg font-semibold text-white"
-                >
-                  {founder.initials}
-                </span>
-              )}
+              <FounderAvatar />
               <span className="flex flex-col leading-tight">
                 <span className="font-semibold text-ink">{founder.name}</span>
                 <span className="text-sm text-muted">{founder.role}</span>

@@ -3,9 +3,17 @@ import { linkify } from "../linkify";
 import { Section, SectionHeader } from "../section";
 
 /** Native <details> accordion: keyboard and screen-reader support with no client JavaScript. */
-export function Faq({ faq = homeFaq, id = "faq" }: { faq?: FaqContent; id?: string }) {
+export function Faq({
+  faq = homeFaq,
+  id = "faq",
+  tone = "lavender",
+}: {
+  faq?: FaqContent;
+  id?: string;
+  tone?: "lavender" | "white";
+}) {
   return (
-    <Section id={id} tone="lavender" labelledBy={`${id}-title`}>
+    <Section id={id} tone={tone} labelledBy={`${id}-title`}>
       <div className="grid gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:gap-16">
         <SectionHeader id={`${id}-title`} eyebrow={faq.eyebrow} title={faq.title} />
         <div className="reveal divide-y divide-line border-y border-line">
