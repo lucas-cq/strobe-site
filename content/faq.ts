@@ -1,3 +1,5 @@
+import { reportRulesGuidePath } from "./site";
+
 export type FaqItem = {
   question: string;
   /** Plain text. [label](/path) becomes a link to another page on the site. */
@@ -13,7 +15,7 @@ export const faq: FaqContent = {
     {
       question: "Do I have to send reports to the fire department?",
       answer:
-        "Usually not. You send the report to the building contact, and Strobe does that when you sign. Edmonton, Strathcona County and Lethbridge want reports from the contractor. And anywhere, if an owner won't fix a deficiency, you're required to tell the fire department. In those cases Strobe has it ready, and you send it.",
+        `Usually not. You send the report to the building contact, and Strobe does that when you sign. Edmonton, Strathcona County and Lethbridge want reports from the contractor. And anywhere, if an owner won't fix a deficiency, you're required to tell the fire department. In those cases Strobe has it ready, and you send it. See [our 51-city guide](${reportRulesGuidePath}).`,
     },
     {
       question: "How does Strobe know each city's rules?",

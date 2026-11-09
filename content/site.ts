@@ -56,9 +56,12 @@ export type SiteContent = {
   };
   otherCities: {
     title: string;
+    guide: string;
     pricing: string;
   };
 };
+
+export const reportRulesGuidePath = "/guides/fire-alarm-report-rules-canada";
 
 /** The cities with their own page. The nav menu and the "Other cities" row both read this. */
 export const cityLinks: NavLink[] = [
@@ -95,7 +98,10 @@ export const site: SiteContent = {
     { label: "Pricing", href: "/pricing" },
     { label: "FAQ", href: "/#faq" },
   ],
-  footerLinks: [{ label: "About", href: "/about" }],
+  footerLinks: [
+    { label: "About", href: "/about" },
+    { label: "51-city report rules", href: reportRulesGuidePath },
+  ],
   legalLinks: [
     { label: "Privacy", href: "/privacy" },
     { label: "Terms", href: "/terms" },
@@ -119,6 +125,7 @@ export const site: SiteContent = {
   },
   otherCities: {
     title: "Other cities",
+    guide: "Rules in 51 cities",
     pricing: "See pricing",
   },
 };

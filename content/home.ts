@@ -1,7 +1,7 @@
 // Home page copy, from SITE_V2.md section 3 and STROBE_SITE_CANADA.md. Keep it plain: short sentences.
 export const home = {
   /** The sitemap's lastmod for this page. Update it when the facts or copy change. */
-  lastReviewed: "2026-11-06",
+  lastReviewed: "2026-11-09",
 
   hero: {
     /** Follows the Canadian flag in the eyebrow chip. */

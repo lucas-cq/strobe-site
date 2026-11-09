@@ -2,11 +2,12 @@ import type { MetadataRoute } from "next";
 import { about } from "@/content/about";
 import { calgary } from "@/content/calgary";
 import { edmonton } from "@/content/edmonton";
+import { reportRulesGuide } from "@/content/guide-report-rules";
 import { home } from "@/content/home";
 import { lethbridge } from "@/content/lethbridge";
 import { pricing } from "@/content/pricing";
 import { privacy } from "@/content/privacy";
-import { site } from "@/content/site";
+import { reportRulesGuidePath, site } from "@/content/site";
 import { strathconaCounty } from "@/content/strathcona-county";
 import { terms } from "@/content/terms";
 import { yourData } from "@/content/your-data";
@@ -20,6 +21,7 @@ const routes: { path: string; priority: number; lastReviewed: string }[] = [
   { path: "/strathcona-county", priority: 0.9, lastReviewed: strathconaCounty.lastReviewed },
   { path: "/lethbridge", priority: 0.9, lastReviewed: lethbridge.lastReviewed },
   { path: "/pricing", priority: 0.8, lastReviewed: pricing.lastReviewed },
+  { path: reportRulesGuidePath, priority: 0.8, lastReviewed: reportRulesGuide.lastReviewed },
   { path: "/about", priority: 0.5, lastReviewed: about.lastReviewed },
   { path: "/your-data", priority: 0.4, lastReviewed: yourData.lastReviewed },
   { path: "/privacy", priority: 0.2, lastReviewed: privacy.lastReviewed },

@@ -19,7 +19,7 @@ function walk(dir) {
   }
 }
 
-for (const dir of ["app", "components", "content", "lib"]) walk(dir);
+for (const dir of ["app", "components", "content", "lib", "public/guides"]) walk(dir);
 
 if (hits.length) {
   console.error(`check-copy: em dash found in:\n${hits.join("\n")}`);
