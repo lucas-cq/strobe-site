@@ -1,14 +1,16 @@
 import type { FaqContent } from "./faq";
 import { promises } from "./promises";
 
-/** /pricing. Always CAD. Yearly prices and the worked examples are calculated from the monthly price. */
+/** /pricing. Always CAD. Everything else on the plan cards is calculated from the two stored prices. */
 export type Plan = {
   id: "solo" | "crew" | "shop";
   name: string;
   techRange: string;
   /** Per month: for the whole plan on Solo, per tech on Crew and Shop. */
   priceCadMonthly: number;
-  /** Crew sizes to show a worked monthly total for. */
+  /** Per year when billed yearly: for the whole plan on Solo, per tech on Crew and Shop. */
+  priceCadYearly: number;
+  /** Crew sizes to show a worked total for. */
   exampleTechCounts: number[];
   blurb: string;
   extras: string[];
@@ -20,6 +22,7 @@ export const plans: Plan[] = [
     name: "Solo",
     techRange: "1 tech",
     priceCadMonthly: 49,
+    priceCadYearly: 490,
     exampleTechCounts: [],
     blurb: "For the tech who runs the whole show. Everything Strobe does, at a price that makes sense for one person.",
     extras: ["Everything in Strobe", "One free office login, for whoever does the books"],
@@ -29,6 +32,7 @@ export const plans: Plan[] = [
     name: "Crew",
     techRange: "2 to 5 techs",
     priceCadMonthly: 109,
+    priceCadYearly: 1090,
     exampleTechCounts: [3, 5],
     blurb: "For small shops. Pay for techs, not for the office.",
     extras: ["Everything in Strobe", "Unlimited office users"],
@@ -38,11 +42,23 @@ export const plans: Plan[] = [
     name: "Shop",
     techRange: "6+ techs",
     priceCadMonthly: 95,
+    priceCadYearly: 950,
     exampleTechCounts: [6, 10],
     blurb: "For growing shops with a full office.",
     extras: ["Everything in Strobe", "Unlimited office users", "Priority support", "Onboarding for each office and crew"],
   },
 ];
+
+/** What a month costs when billed yearly. */
+export const monthlyEquivalent = (plan: Plan) => plan.priceCadYearly / 12;
+
+/** What a year of monthly billing would cost, less the yearly price. */
+export const yearlySaving = (plan: Plan) => plan.priceCadMonthly * 12 - plan.priceCadYearly;
+
+/** Rounded, and the lowest across the plans, so the toggle never promises more than a plan gives. */
+export const yearlySavingPercent = Math.min(
+  ...plans.map((plan) => Math.round((yearlySaving(plan) / (plan.priceCadMonthly * 12)) * 100)),
+);
 
 export const pricing = {
   /** The sitemap's lastmod for this page. */
@@ -61,16 +77,22 @@ export const pricing = {
   /** Under each plan's button. */
   reassurance: "30-day free trial. No card needed. Cancel anytime.",
   start: "Get early access",
-  example: (techs: number, total: string) => `${techs} techs: ${total} a month`,
-  /** Solo is billed per month; Crew and Shop per tech. */
-  unit: { solo: "per month", perTech: "per tech, per month" },
+  example: (techs: number, total: string, period: string) => `${techs} techs: ${total} ${period}`,
+  /** Solo is one price; Crew and Shop are per tech. */
+  unit: {
+    solo: "per month",
+    perTech: "per tech, per month",
+    soloYearly: "a month, billed yearly",
+    perTechYearly: "per tech, a month, billed yearly",
+  },
   billing: {
-    /** 2 months free. */
-    monthsPaidPerYear: 10,
-    or: "or",
-    perYear: "per year",
-    perTechYear: "per tech, per year",
-    saving: "2 months free",
+    label: "Billing period",
+    monthly: "Monthly",
+    yearly: "Yearly",
+    badge: (percent: number) => `Save ${percent}%`,
+    period: { monthly: "a month", yearly: "a year" },
+    yearlyTotal: (total: string, saving: string, perTech: boolean) =>
+      perTech ? `${total} per tech a year, save ${saving} per tech` : `${total} a year, save ${saving}`,
   },
   includes: {
     title: "Every plan includes:",

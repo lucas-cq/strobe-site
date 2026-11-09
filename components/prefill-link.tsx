@@ -42,7 +42,13 @@ export function PrefillLink({
         const form = document.getElementById(formAnchor);
         if (!form || e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
         e.preventDefault();
-        window.history.replaceState(window.history.state, "", `${window.location.pathname}${href}`);
+        // Merged with the current query, so other params (like ?billing=yearly) survive.
+        const next = new URLSearchParams(window.location.search);
+        for (const [key, value] of Object.entries(values)) {
+          if (value) next.set(key, value);
+          else next.delete(key);
+        }
+        window.history.replaceState(window.history.state, "", `${window.location.pathname}?${next}#${formAnchor}`);
         window.dispatchEvent(new CustomEvent<Prefill>(PREFILL_EVENT, { detail: values }));
         form.scrollIntoView();
       }}
