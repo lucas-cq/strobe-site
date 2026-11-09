@@ -1,6 +1,6 @@
 import type { ReactNode } from "react";
 import type { CityPageContent } from "@/content/city-types";
-import { cityLinks, formAnchor, site } from "@/content/site";
+import { cityLinks, formAnchor, reportRulesGuidePath, site } from "@/content/site";
 import { formatDate } from "@/lib/dates";
 import { breadcrumbSchema } from "@/lib/schema";
 import { Byline } from "../byline";
@@ -8,24 +8,11 @@ import { WalkthroughButton } from "../cal-booking";
 import { EarlyAccessSection } from "../early-access-section";
 import { Faq } from "../home/faq";
 import { linkify } from "../linkify";
+import { RuleList } from "../rule-list";
 import { JsonLd } from "../json-ld";
 import { GridPattern } from "../effects";
 import { ArrowLink, Eyebrow, Section, SectionHeader } from "../section";
 import { Container, buttonClasses } from "../ui";
-
-/** Cards for a list of short rules. */
-function RuleList({ items }: { items: string[] }) {
-  return (
-    <ul className="mt-10 grid gap-3 md:grid-cols-2 md:gap-4">
-      {items.map((item) => (
-        <li key={item} className="reveal flex gap-3 rounded-card-lg bg-white p-5 shadow-soft">
-          <span aria-hidden="true" className="bg-gradient-brand mt-2.5 h-0.5 w-4 shrink-0 rounded-full" />
-          <p className="text-ink">{linkify(item)}</p>
-        </li>
-      ))}
-    </ul>
-  );
-}
 
 /**
  * Layout shared by the city pages. All copy comes from content/.
@@ -209,6 +196,9 @@ export function CityPage({ content, path, visual }: { content: CityPageContent; 
                   <ArrowLink href={link.href}>{link.label}</ArrowLink>
                 </li>
               ))}
+            <li>
+              <ArrowLink href={reportRulesGuidePath}>{site.otherCities.guide}</ArrowLink>
+            </li>
             <li>
               <ArrowLink href="/pricing">{site.otherCities.pricing}</ArrowLink>
             </li>

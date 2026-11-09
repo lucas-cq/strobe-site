@@ -21,6 +21,8 @@ const contentRoutes = {
   "content/strathcona-county.ts": "/strathcona-county",
   "content/lethbridge.ts": "/lethbridge",
   "content/about.ts": "/about",
+  "content/guide-report-rules.ts": "/guides/fire-alarm-report-rules-canada",
+  "public/guides/fire-alarm-report-rules-canada.csv": "/guides/fire-alarm-report-rules-canada",
   "content/pricing.ts": "/pricing",
   "content/your-data.ts": "/your-data",
   "content/privacy.ts": "/privacy",
