@@ -55,7 +55,7 @@ export const faq: FaqContent = {
     {
       question: "What does it cost?",
       answer:
-        `Solo is ${solo} a month for one tech. Crew is ${crew} per tech, per month for 2 to 5 techs. Shop is ${shop} per tech, per month for 6 or more. All prices are in CAD, and office users are free on Crew and Shop. Early-access shops lock in founding pricing. Every plan starts with a 30-day free trial, no card needed. See [Pricing](/pricing).`,
+        `Solo is ${solo} a month for one tech. Crew is ${crew} per tech, per month for 2 to 5 techs. Shop is ${shop} per tech, per month for 6 or more. All prices are in CAD, and office users are free on Crew and Shop. The first 25 shops get founding pricing. Every plan starts with a 30-day free trial, no card needed. See [Pricing](/pricing).`,
     },
     {
       question: "Do I have to talk to sales?",

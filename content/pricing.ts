@@ -59,7 +59,7 @@ export const pricing = {
   /** Shown above the plans, so they're read before the prices. */
   terms: ["30-day free trial", "No contracts", "Cancel anytime", "No sales call", "No setup fee"],
   /** Under each plan's button. */
-  reassurance: "30-day free trial. No card needed.",
+  reassurance: "30-day free trial. No card needed. Cancel anytime.",
   start: "Get early access",
   example: (techs: number, total: string) => `${techs} techs: ${total} a month`,
   /** Solo is billed per month; Crew and Shop per tech. */

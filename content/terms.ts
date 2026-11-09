@@ -8,7 +8,7 @@ export const terms: LegalDocument = {
     description: "The terms for using strobehq.com, the website for Strobe fire alarm inspection software for Canadian shops.",
   },
   title: "Terms of use",
-  lastReviewed: "2026-11-02",
+  lastReviewed: "2026-11-09",
   intro: [
     `${site.legalEntityName} ("Strobe", "we" or "us") runs strobehq.com. By using this website, you agree to these terms. If you don't agree, please don't use the site.`,
   ],
@@ -16,7 +16,22 @@ export const terms: LegalDocument = {
     {
       heading: "Early access",
       body: [
-        "Strobe is in early access. Features described on this site may change. Joining early access or booking a walkthrough doesn't create an agreement to provide the Strobe app. Any use of the app will be covered by a separate agreement.",
+        "Strobe is in early access. Features described on this site may change. Joining early access or booking a walkthrough doesn't create an agreement to provide the Strobe app, and doesn't start a trial or a paid plan. Plans, trials and refunds are covered in the next section. Any other terms for using the app will be in a separate agreement.",
+      ],
+    },
+    {
+      heading: "Plans, trials and refunds",
+      body: [
+        {
+          list: [
+            "**Free trial:** new accounts get a 30-day free trial. No credit card is needed. When the trial ends without a paid plan, the account becomes read-only. You can still view and export your data.",
+            "**Monthly plans:** billed monthly. Cancel anytime. Access continues to the end of the paid month. No refunds for partial months.",
+            "**Yearly plans:** billed yearly at a discount. You can get a full refund within 14 days of a yearly payment. After that, cancelling stops the renewal and access continues until the end of the paid year, with no refund for the unused part. If we shut down the service, or it is unavailable for an extended period because of a problem on our side, we refund the unused months.",
+            "**Founding pricing:** the first 25 shops to start a paid plan get 3 months free after their trial, and keep their starting price for as long as their subscription stays active. If the subscription lapses, founding pricing ends.",
+            "**Prices** are in Canadian dollars, plus applicable taxes.",
+            "**Your data:** you can export your data at any time, including for 90 days after cancelling. After that it is deleted.",
+          ],
+        },
       ],
     },
     {
