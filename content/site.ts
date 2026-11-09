@@ -3,6 +3,9 @@ export type NavLink = {
   href: string;
 };
 
+/** A top-level nav entry: a link, or a menu of links. */
+export type NavItem = NavLink | { label: string; children: NavLink[] };
+
 export type SiteContent = {
   name: string;
   /** The legal party named on /privacy and /terms. */
@@ -16,7 +19,16 @@ export type SiteContent = {
   /** Footer line, after the flag. `lead` is bold. */
   location: { lead: string; rest: string };
   nonAffiliation: string;
-  nav: NavLink[];
+  founder: {
+    name: string;
+    /** LinkedIn profile URL. The link stays hidden while this is empty. */
+    linkedin: string;
+  };
+  org: {
+    /** Profile URLs for the company (LinkedIn company page, etc.), for the Organization schema. */
+    sameAs: string[];
+  };
+  nav: NavItem[];
   legalLinks: NavLink[];
   cta: {
     primary: string;
@@ -37,7 +49,17 @@ export type SiteContent = {
     body: string;
     home: string;
   };
+  otherCities: {
+    title: string;
+    pricing: string;
+  };
 };
+
+/** The cities with their own page. The nav menu and the "Other cities" row both read this. */
+export const cityLinks: NavLink[] = [
+  { label: "Calgary", href: "/calgary" },
+  { label: "Edmonton", href: "/edmonton" },
+];
 
 export const site: SiteContent = {
   name: "Strobe",
@@ -53,10 +75,16 @@ export const site: SiteContent = {
   location: { lead: "Built in Alberta, for Alberta.", rest: "Ready for shops across Canada." },
   nonAffiliation:
     "Strobe is independent software and is not affiliated with any city, county or fire department, including the City of Calgary, the City of Edmonton, Strathcona County and the City of Lethbridge.",
+  founder: {
+    name: "Lucas Cummings",
+    linkedin: "https://www.linkedin.com/in/lucas-cummings/",
+  },
+  org: {
+    sameAs: [],
+  },
   nav: [
     { label: "How it works", href: "/#how-it-works" },
-    { label: "Calgary", href: "/calgary" },
-    { label: "Edmonton", href: "/edmonton" },
+    { label: "Cities", children: cityLinks },
     { label: "Pricing", href: "/pricing" },
     { label: "FAQ", href: "/#faq" },
   ],
@@ -80,6 +108,10 @@ export const site: SiteContent = {
     title: "This page isn't on the panel.",
     body: "The link may be old, or the address may have a typo. Everything about Strobe is a click away from the home page.",
     home: "Back to the home page",
+  },
+  otherCities: {
+    title: "Other cities",
+    pricing: "See pricing",
   },
 };
 

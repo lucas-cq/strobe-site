@@ -1,0 +1,52 @@
+province,city,contractor_submits_routinely,when_fire_department_hears_about_it,method,deadline,photos,source_url,notes
+AB,Calgary,No,Deficient systems; impairments right away; in writing right away if the owner won't or can't fix,311 direct access reporting page (link from FireLegal@calgary.ca),10 business days from the inspection,Not mentioned,https://www-prd.calgary.ca/content/dam/www/csps/fire/documents/fire-marshal-bulletins/industry-fire-alarm-reporting.pdf,Full reports only; partial reports not accepted
+AB,Edmonton,Yes,Non-compliant reports required; all reports recommended (City page also says both),LIV (Life Safety Inspection Vault),After each inspection,Not mentioned,https://www.edmonton.ca/programs_services/fire_rescue/fire-inspection-report-submission,Required since Sept 8 2026
+AB,Strathcona County,Yes,Every report,SCES Contractor Portal,Upload within 14 days of the inspection; occupant gets the report within 7 days,Not mentioned,https://www.strathcona.ca/business-and-development/business/fire-inspections/,Technicians registered on the portal; critical deficiencies reported right away
+AB,Lethbridge,Yes,Every report,Email to the Fire Prevention Bureau,Clean reports within 30 days; deficient reports if no repair is arranged within 10 business days of the owner getting the report,Not mentioned,https://www.lethbridge.ca/media/1hrlio4n/2026-letter-to-fire-alarm-testing-companies.pdf,Contractor registry required
+AB,Medicine Hat,No,Deficiencies when repair approval isn't received; in writing right away if the owner won't or can't fix,Email to fire prevention,10 days from finding the deficiency,Not mentioned,https://www.medicinehat.ca/media/saqmho4a/fire-protection-reporting2.pdf,Letter dated December 2018
+AB,Grande Prairie,No,When the owner won't or can't fix a deficiency,Not specified (Fire Prevention 780-538-0400),Within 10 days,Not mentioned,https://www.cityofgp.com/sites/default/files/2023-04/Building%20Owners%20Fire%20Safety%20Maintenance%20Requirements.pdf,Owner guide is undated
+AB,Wood Buffalo (Fort McMurray),No,When the owner won't or can't fix a deficiency,In writing to the Fire Prevention Branch,Not stated,Not mentioned,https://www.rmwb.ca/media/z0foymrb/2025_10_29-rmwb-fire-alarm-systems-work-permit-application-package.pdf,Service providers apply for a work permit; customer gets the annual report within 15 business days
+AB,Fort Saskatchewan,No,On request (owner keeps records 2 years),Not specified,n/a,Not mentioned,https://www.fortsask.ca/media/12lfappu/fsfd-building-owners-afc-guide.pdf,Owner guide is undated
+AB,Red Deer,No public info found,,,,,,
+AB,St. Albert,No public info found,,,,,,
+AB,Airdrie,No public info found,,,,,,
+AB,Spruce Grove,No public info found,,,,,,
+AB,Leduc,No public info found,,,,,,
+AB,Okotoks,No public info found,,,,,https://www.okotoks.ca/sites/default/files/2025-01/Fire%20Safety%20Systems%20Guidelines%20for%20Business%20Owners%20-%202025.pdf,A 2025 owner guide exists but couldn't be read
+AB,Cochrane,No public info found,,,,,,
+AB,Camrose,No public info found,,,,,,
+AB,Lloydminster,No public info found,,,,,,
+AB,Chestermere,No public info found,,,,,,
+ON,Toronto,No public info found,,,,,https://www.toronto.ca/community-people/public-safety-alerts/fire-prevention-inspection-enforcement,Records reviewed during fire department inspections
+ON,Ottawa,No public info found,,,,,,
+ON,Mississauga,No public info found,,,,,,
+ON,Brampton,No,Not found,City of Brampton Business Portal is for permits and inspection requests only,n/a,Not mentioned,https://www.brampton.ca/EN/residents/Fire-Emergency-Services/Pages/Announcement.aspx?ItemID=11,
+ON,Hamilton,No,Through fire code orders and re-inspection,Re-inspection,Set in the order,Not mentioned,https://www.hamilton.ca/sites/default/files/2026-04/Orders-COH-Fire-1211-04162026.pdf,
+ON,London,No public info found,,,,,,
+ON,Kitchener,No public info found,,,,,,
+ON,Waterloo,No public info found,,,,,,
+ON,Markham,No,New construction only: verification and sprinkler certificates 3 days before testing,Building Standards,3 days before testing,Not mentioned,https://www.markhammuseum.ca/sites/default/files/2024-12/Builder%20Tip%20No.%2045%20-%20Inspection%20Of%20Fire%20Protection%20Systems.pdf,
+ON,Vaughan,No public info found,,,,,,
+ON,Windsor,No public info found,,,,,,
+ON,Oakville,No public info found,,,,,,
+QC,Montreal,No,Owner keeps a register; reviewed on inspection,None found,n/a,Not mentioned,https://ville.montreal.qc.ca/sim/sites/default/files/reglement.pdf,
+QC,Quebec City,No public info found,,,,,,
+QC,Laval,No,Owner discloses the alarm system type if the fire service asks in writing,Written reply,30 days from the request,Not mentioned,https://www.laval.ca/wp-content/uploads/2026/06/reglement-l-13252.pdf,
+QC,Gatineau,No,Through inspection and compliance notices,Inspection,Set in the notice,Not mentioned,https://www.gatineau.ca/docs/guichet_municipal/pompiers/rapport_annuel_2025.fr-CA.pdf,
+BC,Vancouver,No public info found,,,,,,
+BC,Surrey,No,Only if the Fire Chief orders records,On order,Set in the order,Not mentioned,https://www.surrey.ca/city-government/bylaws/22020,
+BC,Burnaby,No public info found,,,,,,
+BC,Richmond,No public info found,,,,,,
+BC,Victoria,No,Verification reports at permit final inspection only,Building permit process,n/a,Not mentioned,https://www.victoria.ca/media/file/fire-alarm-permit-staff-procedurepdf,
+BC,Kelowna,No public info found,,,,,,
+BC,Abbotsford,No,Fire inspectors check systems on site,None,n/a,Not mentioned,https://www.abbotsford.ca/node/174,
+BC,Coquitlam,No public info found,,,,,,
+SK,Saskatoon,No,Records kept for the fire department to examine,None,n/a,Not mentioned,https://www.saskatoon.ca/sites/default/files/documents/city-clerk/bylaws/7990.pdf,Technicians need a fire department permit; ID number on tags
+SK,Regina,No,Owners produce records on request,None,n/a,Not mentioned,https://openregina.ca/dataset/43b2f1fb-1496-437c-95af-87a63b136088/resource/66e182b2-40b0-4b34-8b4e-d8fcf1298636/download/2026-21.pdf,Technicians licensed; ID number on all inspection documents
+MB,Winnipeg,No,Records kept on site 2 years for the fire department,None,n/a,Not mentioned,https://legacy.winnipeg.ca/fps/FirePrevention/Regulations/NewBy-law-2017.stm,Service persons licensed; licence number on all servicing labels
+NS,Halifax,Owner (bylaw from 1996),Owner files test records with the Fire Commissioner,Not specified,Within 30 days of the test,Not mentioned,https://www.halifax.ca/sites/default/files/documents/city-hall/legislation-by-laws/By-lawF-100.pdf,Couldn't confirm it's enforced today
+NB,Moncton,No public info found,,,,,,
+NB,Saint John,No public info found,,,,,,
+NB,Fredericton,No public info found,,,,,,
+NL,St. John's,No public info found,,,,,,
+PE,Charlottetown,No,Fire department inspections and compliance orders,Inspection,Set in the order,Not mentioned,https://charlottetown.ca/resident_services/emergency_services/fire_department/fire_prevention/inspections_and_investigations,

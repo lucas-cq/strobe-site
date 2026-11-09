@@ -8,7 +8,7 @@ export const terms: LegalDocument = {
     description: "The terms for using strobehq.com, the website for Strobe fire alarm inspection software for Canadian shops.",
   },
   title: "Terms of use",
-  updated: "November 2, 2026",
+  lastReviewed: "2026-11-02",
   intro: [
     `${site.legalEntityName} ("Strobe", "we" or "us") runs strobehq.com. By using this website, you agree to these terms. If you don't agree, please don't use the site.`,
   ],

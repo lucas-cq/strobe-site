@@ -1,16 +1,17 @@
 import type { ReactNode } from "react";
 import type { CityPageContent } from "@/content/city-types";
-import { formAnchor, site } from "@/content/site";
+import { cityLinks, formAnchor, site } from "@/content/site";
+import { breadcrumbSchema } from "@/lib/schema";
 import { WalkthroughButton } from "../cal-booking";
 import { EarlyAccessSection } from "../early-access-section";
 import { JsonLd } from "../json-ld";
 import { GridPattern } from "../effects";
-import { Eyebrow, Section, SectionHeader } from "../section";
+import { ArrowLink, Eyebrow, Section, SectionHeader } from "../section";
 import { Container, buttonClasses } from "../ui";
 
 /**
  * Layout shared by /calgary and /edmonton. All copy comes from content/.
- * Rhythm: hero (white, grid) → the rule (lavender) → with Strobe (white) → sources (lavender) → form band.
+ * Rhythm: hero (white, grid) → the rule (lavender) → with Strobe (white) → sources and other cities (lavender) → form band.
  */
 export function CityPage({ content, path, visual }: { content: CityPageContent; path: string; visual: ReactNode }) {
   const { rules, withStrobe, sources } = content;
@@ -32,6 +33,12 @@ export function CityPage({ content, path, visual }: { content: CityPageContent; 
   return (
     <>
       <JsonLd data={structuredData} />
+      <JsonLd
+        data={breadcrumbSchema([
+          { name: "Home", path: "/" },
+          { name: content.eyebrow, path },
+        ])}
+      />
       {/* Hero */}
       <section aria-labelledby="city-title" className="relative overflow-hidden bg-white">
         <GridPattern />
@@ -137,6 +144,24 @@ export function CityPage({ content, path, visual }: { content: CityPageContent; 
             ))}
           </div>
         </aside>
+
+        <nav aria-labelledby="other-cities-title" className="reveal mt-5 rounded-card-lg bg-white p-6 shadow-soft md:p-8">
+          <h2 id="other-cities-title" className="font-sans text-base font-semibold tracking-normal text-ink">
+            {site.otherCities.title}
+          </h2>
+          <ul className="mt-4 flex flex-wrap gap-x-8 gap-y-3">
+            {cityLinks
+              .filter((link) => link.href !== path)
+              .map((link) => (
+                <li key={link.href}>
+                  <ArrowLink href={link.href}>{link.label}</ArrowLink>
+                </li>
+              ))}
+            <li>
+              <ArrowLink href="/pricing">{site.otherCities.pricing}</ArrowLink>
+            </li>
+          </ul>
+        </nav>
       </Section>
 
       <EarlyAccessSection />

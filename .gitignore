@@ -41,6 +41,9 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
+# written at build time from INDEXNOW_KEY
+/public/*.txt
+
 # lead exports (personal information)
 /exports
 

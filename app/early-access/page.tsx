@@ -6,6 +6,7 @@ export const metadata = pageMetadata({
   description:
     "Apply for early access to Strobe, fire alarm inspection software for Canadian shops. Free onboarding, and your data stays yours.",
   path: "/early-access",
+  noindex: true,
 });
 
 export default function EarlyAccessPage() {

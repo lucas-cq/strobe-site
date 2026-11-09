@@ -5,12 +5,12 @@ import { site } from "./site";
 /** /your-data: what happens to the data shops keep in the Strobe app. Keep it under 300 words. */
 export const yourData: LegalDocument = {
   meta: {
-    title: "Your data | Strobe",
+    title: "Your data: ownership and export | Strobe",
     description:
       "Your inspection data belongs to you. Export sites, devices, reports, photos and quotes any time as CSV and PDF, on every plan, even after you cancel.",
   },
   title: promises.data.title,
-  updated: "November 6, 2026",
+  lastReviewed: "2026-11-06",
   intro: [
     "You own your data. Strobe stores and processes it to run the service, nothing else.",
   ],

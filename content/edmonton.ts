@@ -4,6 +4,7 @@ import type { CityPageContent } from "./city-types";
 // Strobe is NOT integrated with LIV and does not upload automatically. Keep the wording that way.
 // Copy from SITE_V2.md section 5.
 export const edmonton: CityPageContent = {
+  lastReviewed: "2026-11-06",
   meta: {
     title: "Edmonton LIV fire inspection report submission | Strobe",
     description:

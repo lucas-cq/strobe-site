@@ -3,6 +3,7 @@ import type { CityPageContent } from "./city-types";
 // Every regulatory statement here must match section 6 of STROBE_SITE_BRIEF.md.
 // Copy from SITE_V2.md section 4: outcomes, not the workflow.
 export const calgary: CityPageContent = {
+  lastReviewed: "2026-11-04",
   meta: {
     title: "Calgary fire alarm deficiency reporting | Strobe",
     description:

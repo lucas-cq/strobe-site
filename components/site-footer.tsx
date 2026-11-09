@@ -12,7 +12,7 @@ async function CopyrightYear() {
 }
 
 export function SiteFooter() {
-  const links = [...site.nav, ...site.legalLinks];
+  const links = [...site.nav.flatMap((item) => ("children" in item ? item.children : [item])), ...site.legalLinks];
 
   return (
     <footer className="on-dark bg-night text-night-text">
