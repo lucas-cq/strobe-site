@@ -49,7 +49,7 @@ export const calgary: CityPageContent = {
       { title: "Send the report and the quote", body: "to the building contact the same day if you can." },
       {
         title: "Business days 1 to 10.",
-        body: "The owner approves, and repairs get done, or don't. Count business days, not calendar days.",
+        body: "The owner approves, and repairs get done, or don't. Count business days, not calendar days. [Use the deadline calculator](/tools/calgary-10-day-deadline)",
       },
       { title: "Day 10, still deficient.", body: "Submit the 311 request with the full report attached. Save the SR number." },
       { title: "Owner refuses at any point.", body: "Notify CFD and the owner in writing right away. Don't wait for day 10." },

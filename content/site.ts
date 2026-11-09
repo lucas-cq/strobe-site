@@ -101,6 +101,7 @@ export const site: SiteContent = {
   footerLinks: [
     { label: "About", href: "/about" },
     { label: "51-city report rules", href: reportRulesGuidePath },
+    { label: "Tools", href: "/tools" },
   ],
   legalLinks: [
     { label: "Privacy", href: "/privacy" },

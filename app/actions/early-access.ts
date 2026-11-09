@@ -1,8 +1,6 @@
 "use server";
 
-import { createHash } from "node:crypto";
-import { and, count, eq, gt, sql } from "drizzle-orm";
-import { headers } from "next/headers";
+import { sql } from "drizzle-orm";
 import { after } from "next/server";
 import { earlyAccessForm } from "@/content/early-access";
 import { getDb } from "@/db";
@@ -17,20 +15,14 @@ import {
   readFormValues,
 } from "@/lib/early-access";
 import { type LeadAttribution, sendLeadEmails } from "@/lib/lead-emails";
+import { hashIp, isRateLimited, requestIp } from "@/lib/lead-guard";
 import { pruneExpired } from "@/lib/retention";
 import { verifyTurnstile } from "@/lib/turnstile";
 
-const RATE_LIMIT = { max: 3, windowMinutes: 10 };
 const { errors } = earlyAccessForm;
 
 function clip(value: FormDataEntryValue | null, max: number) {
   return typeof value === "string" && value.trim() ? value.trim().slice(0, max) : null;
-}
-
-function hashIp(ip: string) {
-  return createHash("sha256")
-    .update(`${process.env.IP_HASH_SALT ?? ""}:${ip}`)
-    .digest("hex");
 }
 
 export async function submitEarlyAccess(prev: EarlyAccessState, formData: FormData): Promise<EarlyAccessState> {
@@ -50,24 +42,18 @@ export async function submitEarlyAccess(prev: EarlyAccessState, formData: FormDa
     return { status: "success", attempt, firstName, fullName: values.fullName, email: "", detailsToken: null };
   }
 
-  const h = await headers();
-  const ip = h.get("x-forwarded-for")?.split(",")[0]?.trim() || h.get("x-real-ip") || null;
+  const ip = await requestIp();
 
   // 2. Turnstile, checked server-side.
   const token = typeof formData.get(hiddenFields.turnstile) === "string" ? String(formData.get(hiddenFields.turnstile)) : "";
   if (!(await verifyTurnstile(token, ip))) return fail(errors.turnstile);
 
   const db = getDb();
-  const ipHash = hashIp(ip ?? "unknown");
+  const ipHash = hashIp(ip);
 
   try {
     // 3. Rate limit: more than 3 saved submissions from this IP hash in 10 minutes is rejected.
-    const since = new Date(Date.now() - RATE_LIMIT.windowMinutes * 60_000);
-    const [{ recent }] = await db
-      .select({ recent: count() })
-      .from(leadSubmissions)
-      .where(and(eq(leadSubmissions.ipHash, ipHash), gt(leadSubmissions.createdAt, since)));
-    if (recent >= RATE_LIMIT.max) return fail(errors.rateLimited);
+    if (await isRateLimited(db, ipHash)) return fail(errors.rateLimited);
   } catch (err) {
     console.error("[early-access] rate limit check failed", err);
     return fail(errors.server);

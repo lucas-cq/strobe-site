@@ -27,6 +27,7 @@ const columns: [string, (lead: Lead) => unknown][] = [
   ["tech_count", (l) => l.techCount],
   ["city", (l) => l.city ?? ""],
   ["plan", (l) => l.plan ?? ""],
+  ["source", (l) => l.source ?? ""],
   ["current_method", (l) => l.currentMethod],
   ["current_software", (l) => l.currentSoftware],
   ["systems", (l) => l.systems.join("; ")],

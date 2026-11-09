@@ -19,6 +19,8 @@ export const leads = pgTable("leads", {
   // Optional, step 1: typed, or prefilled from ?city= (the city selector) and ?plan= (the pricing page).
   city: text("city"),
   plan: text("plan"),
+  // Where a signup came from when it isn't the main form, e.g. "device-template".
+  source: text("source"),
   // Optional: collected in step 2 of the form.
   currentMethod: text("current_method"),
   currentSoftware: text("current_software"),
