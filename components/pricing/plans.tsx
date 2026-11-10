@@ -60,7 +60,7 @@ function BillingToggle({ billing }: { billing: Billing }) {
   const options: Billing[] = ["monthly", "yearly"];
 
   return (
-    <div className="mt-8 flex justify-center">
+    <div className="mt-6 flex justify-center">
       <div
         role="radiogroup"
         aria-label={pricing.billing.label}
@@ -133,7 +133,7 @@ const layerClasses = (active: boolean) =>
 function Price({ plan, billing }: { plan: Plan; billing: Billing }) {
   const perTech = isPerTech(plan);
   return (
-    <div className="mt-6 grid border-y border-line py-4 md:min-h-[18.5rem] lg:min-h-[14rem]">
+    <div className="mt-6 grid border-y border-line py-4 md:min-h-[22.25rem] lg:min-h-[13.75rem]">
       <div className={layerClasses(billing === "monthly")}>
         <p className="tabular font-display text-3xl font-semibold text-ink">{formatCad(plan.priceCadMonthly)}</p>
         <p className="mt-1 text-sm text-ink-2">{perTech ? pricing.unit.perTech : pricing.unit.solo}</p>
@@ -157,13 +157,14 @@ export function Plans() {
 
   return (
     <>
+      <h2 className="mt-10 text-center text-2xl text-ink sm:text-3xl">{pricing.headline}</h2>
       <BillingToggle billing={billing} />
       <ul className="mt-8 grid gap-5 md:grid-cols-3">
         {plans.map((plan) => (
           <li key={plan.id} className="reveal card-gradient flex flex-col p-6 md:p-7">
             <h2 className="text-2xl text-ink">{plan.name}</h2>
-            <p className="mt-1 text-sm font-medium text-indigo">{plan.techRange}</p>
-            <p className="mt-4 text-[15px] text-ink-2 md:min-h-[9rem] lg:min-h-[6rem] xl:min-h-[4.5rem]">{plan.blurb}</p>
+            <p className="mt-1 text-sm font-medium text-indigo md:min-h-[2.5rem] xl:min-h-0">{plan.techRange}</p>
+            <p className="mt-4 text-[15px] text-ink-2 md:min-h-[6rem] lg:min-h-[4.5rem] xl:min-h-[3rem]">{plan.blurb}</p>
 
             <Price plan={plan} billing={billing} />
 
@@ -186,6 +187,7 @@ export function Plans() {
           </li>
         ))}
       </ul>
+      <p className="mx-auto mt-6 max-w-2xl text-center text-[15px] text-ink-2">{pricing.whoPays}</p>
     </>
   );
 }

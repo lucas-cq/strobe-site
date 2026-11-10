@@ -6,9 +6,9 @@ export type Plan = {
   id: "solo" | "crew" | "shop";
   name: string;
   techRange: string;
-  /** Per month: for the whole plan on Solo, per tech on Crew and Shop. */
+  /** Per month: for the whole plan on Solo, per panel tech on Crew and Shop. */
   priceCadMonthly: number;
-  /** Per year when billed yearly: for the whole plan on Solo, per tech on Crew and Shop. */
+  /** Per year when billed yearly: for the whole plan on Solo, per panel tech on Crew and Shop. */
   priceCadYearly: number;
   /** Crew sizes to show a worked total for. */
   exampleTechCounts: number[];
@@ -20,34 +20,37 @@ export const plans: Plan[] = [
   {
     id: "solo",
     name: "Solo",
-    techRange: "1 tech",
-    priceCadMonthly: 49,
-    priceCadYearly: 490,
+    techRange: "1 panel tech, plus one office login.",
+    priceCadMonthly: 99,
+    priceCadYearly: 990,
     exampleTechCounts: [],
-    blurb: "For the tech who runs the whole show. Everything Strobe does, at a price that makes sense for one person.",
-    extras: ["Everything in Strobe", "One free office login, for whoever does the books"],
+    blurb: "For the tech who runs the whole show. Everything Strobe does, for one person.",
+    extras: ["Everything in Strobe"],
   },
   {
     id: "crew",
     name: "Crew",
-    techRange: "2 to 5 techs",
-    priceCadMonthly: 109,
-    priceCadYearly: 1090,
-    exampleTechCounts: [3, 5],
-    blurb: "For small shops. Pay for techs, not for the office.",
-    extras: ["Everything in Strobe", "Unlimited office users"],
+    techRange: "2 to 5 panel techs. Unlimited office users.",
+    priceCadMonthly: 99,
+    priceCadYearly: 990,
+    exampleTechCounts: [2, 3, 5],
+    blurb: "For small shops. Pay for panel techs, not for the office.",
+    extras: ["Everything in Strobe"],
   },
   {
     id: "shop",
     name: "Shop",
-    techRange: "6+ techs",
-    priceCadMonthly: 95,
-    priceCadYearly: 950,
-    exampleTechCounts: [6, 10],
+    techRange: "6+ panel techs. Unlimited office users.",
+    priceCadMonthly: 89,
+    priceCadYearly: 890,
+    exampleTechCounts: [6],
     blurb: "For growing shops with a full office.",
-    extras: ["Everything in Strobe", "Unlimited office users", "Priority support", "Onboarding for each office and crew"],
+    extras: ["Everything in Strobe", "Priority support", "Onboarding for each office and crew"],
   },
 ];
+
+/** The headline price: what one panel tech costs a month before the Shop discount. */
+const crewPlan = plans.find((plan) => plan.id === "crew")!;
 
 /** What a month costs when billed yearly. */
 export const monthlyEquivalent = (plan: Plan) => plan.priceCadYearly / 12;
@@ -62,28 +65,33 @@ export const yearlySavingPercent = Math.min(
 
 export const pricing = {
   /** The sitemap's lastmod for this page. */
-  lastReviewed: "2026-11-09",
+  lastReviewed: "2026-11-10",
   meta: {
     title: "Fire alarm inspection software pricing (CAD) | Strobe",
     description:
-      "Simple pricing in Canadian dollars, from $49 a month. Office users free on Crew and Shop. No contracts, cancel anytime, no sales call.",
+      `Simple pricing in Canadian dollars: $${crewPlan.priceCadMonthly} per panel tech a month, less from your 6th. Office staff are free. No contracts, cancel anytime, no sales call.`,
   },
   eyebrow: "Pricing",
   title: "Simple pricing for Canadian shops",
-  lede: "Pick a plan by how many techs you have. Office users are free on Crew and Shop. Pay yearly and get 2 months free.",
+  lede: "Pick a plan by how many panel techs you have. Office users are free on Crew and Shop. Pay yearly and get 2 months free.",
+  /** Above the plan cards. */
+  headline: `$${crewPlan.priceCadMonthly} per panel tech. Less from your 6th.`,
+  /** Under the plan cards: who counts as a panel tech. */
+  whoPays:
+    "You pay for whoever runs the panel and fills in the report. Walkers never need a login, and office staff are free.",
   currencyNote: "All prices in CAD",
   /** Shown above the plans, so they're read before the prices. */
   terms: ["30-day free trial", "No contracts", "Cancel anytime", "No sales call", "No setup fee"],
   /** Under each plan's button. */
   reassurance: "30-day free trial. No card needed. Cancel anytime.",
   start: "Get early access",
-  example: (techs: number, total: string, period: string) => `${techs} techs: ${total} ${period}`,
-  /** Solo is one price; Crew and Shop are per tech. */
+  example: (techs: number, total: string, period: string) => `${techs} panel techs: ${total} ${period}`,
+  /** Solo is one price; Crew and Shop are per panel tech. */
   unit: {
     solo: "per month",
-    perTech: "per tech, per month",
+    perTech: "per panel tech, per month",
     soloYearly: "a month, billed yearly",
-    perTechYearly: "per tech, a month, billed yearly",
+    perTechYearly: "per panel tech, a month, billed yearly",
   },
   billing: {
     label: "Billing period",
@@ -92,7 +100,7 @@ export const pricing = {
     badge: (percent: number) => `Save ${percent}%`,
     period: { monthly: "a month", yearly: "a year" },
     yearlyTotal: (total: string, saving: string, perTech: boolean) =>
-      perTech ? `${total} per tech a year, save ${saving} per tech` : `${total} a year, save ${saving}`,
+      perTech ? `${total} per panel tech a year, save ${saving} each` : `${total} a year, save ${saving}`,
   },
   includes: {
     title: "Every plan includes:",
@@ -121,7 +129,12 @@ export const pricingFaq: FaqContent = {
     },
     {
       question: "Do office users cost extra?",
-      answer: "No. On Crew and Shop you pay per tech. Office users are free.",
+      answer: "No. On Crew and Shop you pay per panel tech. Office users are free.",
+    },
+    {
+      question: "Who counts as a panel tech?",
+      answer:
+        "Whoever runs the panel and fills in the report. Walkers don't need a login, and office staff are free. A shop with 6 techs running 3 crews pays for 3.",
     },
     {
       question: "What if I hire my first tech?",

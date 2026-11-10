@@ -1,7 +1,7 @@
 // Home page copy, from SITE_V2.md section 3 and STROBE_SITE_CANADA.md. Keep it plain: short sentences.
 export const home = {
   /** The sitemap's lastmod for this page. Update it when the facts or copy change. */
-  lastReviewed: "2026-11-09",
+  lastReviewed: "2026-11-10",
 
   hero: {
     /** Follows the Canadian flag in the eyebrow chip. */
@@ -133,7 +133,7 @@ export const home = {
       button: "Get early access",
     },
     cards: [
-      { title: "Office users free", body: "Pay for the techs in the field. The office doesn't cost extra." },
+      { title: "Office users free", body: "Pay per panel tech. Walkers never need a login, and the office doesn't cost extra." },
       { title: "Any panel", body: "Notifier, Mircom, Edwards, Simplex. If you inspect it, you can report on it in Strobe." },
       { title: "Stored in Canada", body: "Your customers' inspection data stays in Canada, on Google Cloud in Toronto." },
       { title: "Works across Canada", body: "Reports, quotes and owner approvals work anywhere. City rules are mapped for Calgary, Edmonton, Strathcona County and Lethbridge, with more added as shops ask." },
