@@ -61,6 +61,33 @@
   background-image: var(--gradient-brand);
 }
 
+/* Primary buttons fade from indigo into the brand gradient on hover. A gradient can't be
+   transitioned directly, so it sits on a layer between the fill and the label and fades in.
+   The layer repeats the button's inner top highlight, which it would otherwise cover. */
+@utility btn-gradient-fade {
+  position: relative;
+  isolation: isolate;
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    border-radius: inherit;
+    background-image: var(--gradient-brand);
+    box-shadow: inset 0 1px 0 rgb(255 255 255 / 0.2);
+    opacity: 0;
+    transition: opacity 0.8s ease;
+  }
+  &:hover:not(:disabled)::before {
+    opacity: 1;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    &::before {
+      transition: none;
+    }
+  }
+}
+
 /* The brand gradient ends in a light blue that white body text fails AA on, so bands and cards
    with white text use this darker version: white text stays above 6.8:1 across all of it. */
 @utility bg-gradient-band {
