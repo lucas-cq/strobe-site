@@ -2,7 +2,7 @@
 // public/guides/fire-alarm-report-rules-canada.csv. If the CSV changes, recheck the counts in `found`.
 export const reportRulesGuide = {
   /** The sitemap's lastmod and the Article's dateModified. */
-  lastReviewed: "2026-11-09",
+  lastReviewed: "2026-11-10",
   datePublished: "2026-11-09",
   /** When the city rules themselves were checked. Shown in the byline. */
   researchChecked: "2026-11-06",

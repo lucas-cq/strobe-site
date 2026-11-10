@@ -264,7 +264,7 @@ Footer (dark): white lockup, the links again, Privacy, Terms, `hello@strobehq.co
   | Additional details, file upload | Deficiency summary + report PDFs |
 - The 7 system types as a chip row: Fire Alarm, Sprinkler System, Special Suppression System, Fire Hydrant, Kitchen Canopy Cleaning, Kitchen Suppression System, Emergency Generator.
 - Visual: the Calgary packet checklist mockup.
-- Sources box at the bottom with links: CFD Fire Marshal Bulletin 2025-001 (https://www-prd.calgary.ca/content/dam/www/csps/fire/documents/fire-marshal-bulletins/industry-fire-alarm-reporting.pdf) and City of Calgary: Fire safety systems (https://www.calgary.ca/for-business/operations/fire-safety-systems.html). Add "Rules change. Always check with Calgary Fire Department."
+- Sources box at the bottom with links: CFD Fire Marshal Bulletin 2025-001 (https://www.calgary.ca/content/dam/www/programs-services/public-and-personal-safety/fire-codes/fire-marshal-bulletins/industry-fire-alarm-reporting.pdf) and City of Calgary: Fire safety systems (https://www.calgary.ca/for-business/operations/fire-safety-systems.html). Add "Rules change. Always check with Calgary Fire Department."
 - Form at the bottom.
 
 ### /edmonton

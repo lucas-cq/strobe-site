@@ -138,7 +138,7 @@ Add `/about` to the footer and sitemap. Also add a `Person` schema for Lucas on 
 - **Does this cover sprinklers too?** The 311 form lists 7 system types, including sprinklers. Check the bulletin for the systems it applies to.
 
 **Sources** (add to the existing ones):
-- Calgary Fire Marshal letter on enforcement of reporting, which quotes Alberta Fire Code Division C, 2.2.7.2.(4) (notification when the owner won't or can't fix): https://www.calgary.ca/content/dam/www/csps/fire/documents/fa-current-fire-marshal-letter-enforcement-of-reporting-nfc.pdf
+- Calgary Fire Marshal letter on enforcement of reporting, which quotes Alberta Fire Code Division C, 2.2.7.2.(4) (notification when the owner won't or can't fix): https://www.calgary.ca/content/dam/www/programs-services/for-business/business-operations/emergency-preparedness/fa-current-fire-marshal-letter-enforcement-of-reporting-nfc.pdf
 - `lastReviewed: 2026-11-09`
 
 ### 2.3 `/edmonton` (expand; keep the current title, description, H1, hero mockup and "With Strobe" section)

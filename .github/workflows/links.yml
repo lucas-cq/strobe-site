@@ -1,0 +1,60 @@
+name: Links
+
+# Builds the site, serves it locally and checks every link on every page in the sitemap
+# with lychee. Fails on dead links (404 or 410). Sites that block bots (403, 429) are
+# reported in the run summary but don't fail it. See scripts/link-report.mjs.
+on:
+  push:
+    branches: [main]
+  schedule:
+    # Mondays, 15:00 UTC (8 or 9 am in Calgary). Catches pages that die on other sites.
+    - cron: "0 15 * * 1"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: links
+  cancel-in-progress: true
+
+jobs:
+  lychee:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+
+      - name: Install
+        run: |
+          corepack enable
+          pnpm install --frozen-lockfile
+
+      # No secrets needed: every page is static, and the forms aren't submitted.
+      - name: Build
+        run: pnpm build
+
+      - name: Serve
+        run: |
+          pnpm start -p 3000 > /tmp/next.log 2>&1 &
+          for i in $(seq 1 60); do curl -sf -o /dev/null http://localhost:3000/ && exit 0; sleep 1; done
+          cat /tmp/next.log
+          exit 1
+
+      # Every page in the sitemap, served from this build. Links back to strobehq.com are
+      # checked against this build too, so a page added in this push counts as found.
+      - name: Check links
+        run: |
+          pages=$(curl -sf http://localhost:3000/sitemap.xml | grep -oE '<loc>[^<]+' | sed 's#<loc>https://strobehq.com#http://localhost:3000#')
+          echo "$pages"
+          docker run --rm --network host -v "$PWD:/work" lycheeverse/lychee:0.24.2 \
+            --no-progress --format json --output /work/lychee.json \
+            --remap '^https://strobehq\.com http://localhost:3000' \
+            --exclude '^mailto:' \
+            --max-retries 2 --timeout 20 \
+            $pages || true
+          node scripts/link-report.mjs lychee.json

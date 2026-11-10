@@ -2,7 +2,7 @@ import type { CityPageContent } from "./city-types";
 
 // Rules, steps and questions from STROBE_SITE_SEO_BUILD.md section 2.2. Every fact has a source below.
 export const calgary: CityPageContent = {
-  lastReviewed: "2026-11-09",
+  lastReviewed: "2026-11-10",
   meta: {
     title: "Calgary fire alarm deficiency reporting | Strobe",
     description:
@@ -99,7 +99,7 @@ export const calgary: CityPageContent = {
     links: [
       {
         label: "CFD Fire Marshal Bulletin 2025-001",
-        href: "https://www-prd.calgary.ca/content/dam/www/csps/fire/documents/fire-marshal-bulletins/industry-fire-alarm-reporting.pdf",
+        href: "https://www.calgary.ca/content/dam/www/programs-services/public-and-personal-safety/fire-codes/fire-marshal-bulletins/industry-fire-alarm-reporting.pdf",
       },
       {
         label: "City of Calgary: Fire safety systems",
@@ -107,7 +107,7 @@ export const calgary: CityPageContent = {
       },
       {
         label: "Calgary Fire Marshal letter on enforcement of reporting, which quotes Alberta Fire Code Division C, 2.2.7.2.(4)",
-        href: "https://www.calgary.ca/content/dam/www/csps/fire/documents/fa-current-fire-marshal-letter-enforcement-of-reporting-nfc.pdf",
+        href: "https://www.calgary.ca/content/dam/www/programs-services/for-business/business-operations/emergency-preparedness/fa-current-fire-marshal-letter-enforcement-of-reporting-nfc.pdf",
       },
     ],
     notes: [{ text: "Rules change. Always check with Calgary Fire Department." }],

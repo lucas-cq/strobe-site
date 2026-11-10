@@ -1,6 +1,6 @@
 // /tools/calgary-10-day-deadline, from STROBE_SITE_SEO_BUILD.md section 4.1.
 export const deadlineTool = {
-  lastReviewed: "2026-11-09",
+  lastReviewed: "2026-11-10",
   path: "/tools/calgary-10-day-deadline",
   meta: {
     title: "Calgary 10 business day deadline calculator | Strobe",
@@ -26,7 +26,7 @@ export const deadlineTool = {
     links: [
       {
         label: "CFD Fire Marshal Bulletin 2025-001",
-        href: "https://www-prd.calgary.ca/content/dam/www/csps/fire/documents/fire-marshal-bulletins/industry-fire-alarm-reporting.pdf",
+        href: "https://www.calgary.ca/content/dam/www/programs-services/public-and-personal-safety/fire-codes/fire-marshal-bulletins/industry-fire-alarm-reporting.pdf",
       },
       { label: "Alberta general holidays", href: "https://www.alberta.ca/alberta-general-holidays" },
     ],
