@@ -34,12 +34,11 @@ in this repo deploys or changes DNS on its own.
 
 1. Create a Resend account and an API key with sending access. Add it to Vercel as
    `RESEND_API_KEY`.
-2. **Domains → Add domain → `strobehq.com`.** Resend gives you DKIM and SPF records. Its
-   bounce and SPF records sit on a `send.strobehq.com` subdomain, which keeps them apart
-   from your inbox provider's records. Add exactly what Resend shows at your DNS host and
-   wait for it to verify.
-   - If you'd rather verify only a subdomain (for example `send.strobehq.com`), the From
-     address has to use that subdomain. Change `RESEND_FROM` to match.
+2. **Domains → Add domain → `mail.strobehq.com`.** Only this subdomain is verified, and every
+   email goes out from `Lucas at Strobe <no-reply@mail.strobehq.com>`, set as `EMAIL_FROM` in
+   `lib/lead-emails.tsx`. Add exactly the DKIM and SPF records Resend shows at your DNS host
+   and wait for it to verify. The lead's confirmation sets reply-to to `lucas@strobehq.com`,
+   so replies still reach you.
 3. Add DMARC for `strobehq.com` as a TXT record on `_dmarc`, starting relaxed with a report
    address:
 
@@ -48,8 +47,7 @@ in this repo deploys or changes DNS on its own.
    ```
 
    Once a few weeks of mail has gone out cleanly, tighten to `p=quarantine`.
-4. In Vercel set `RESEND_FROM="Lucas at Strobe <lucas@strobehq.com>"` and
-   `LEADS_NOTIFY_TO=lucas@strobehq.com`.
+4. In Vercel set `LEADS_NOTIFY_TO=lucas@strobehq.com`.
 
 ## 4. A real inbox for lucas@ and hello@strobehq.com
 

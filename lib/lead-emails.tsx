@@ -6,6 +6,13 @@ import { ConfirmationEmail, confirmationText } from "@/emails/confirmation";
 import { LeadNotificationEmail, leadNotificationText } from "@/emails/lead-notification";
 import type { DetailsInput, EarlyAccessInput } from "./early-access";
 
+/**
+ * Every email goes out from the verified mail.strobehq.com subdomain in Resend, never the root
+ * domain. Nobody reads no-reply, so the lead's confirmation sets reply-to to Lucas, and the
+ * notifications set it to the lead.
+ */
+export const EMAIL_FROM = "Lucas at Strobe <no-reply@mail.strobehq.com>";
+
 export type LeadAttribution = {
   utmSource: string | null;
   utmMedium: string | null;
@@ -33,15 +40,13 @@ export async function sendLeadEmails(
   meta: { firstName: string; submissionCount: number },
 ) {
   const apiKey = process.env.RESEND_API_KEY;
-  const from = process.env.RESEND_FROM;
   const notifyTo = process.env.LEADS_NOTIFY_TO;
-  if (!apiKey || !from) {
-    console.warn("[email] RESEND_API_KEY or RESEND_FROM is not set; skipping emails for", lead.email);
+  if (!apiKey) {
+    console.warn("[email] RESEND_API_KEY is not set; skipping emails for", lead.email);
     return;
   }
 
   const resend = new Resend(apiKey);
-  const replyTo = from.match(/<([^>]+)>/)?.[1] ?? from;
   const cities = lead.cities.join(", ");
 
   const confirmationProps = { firstName: meta.firstName, bookingUrl: bookingUrl(), siteUrl: site.url };
@@ -66,9 +71,9 @@ export async function sendLeadEmails(
   const sends = [
     (async () =>
       resend.emails.send({
-        from,
+        from: EMAIL_FROM,
         to: lead.email,
-        replyTo,
+        replyTo: site.founderEmail,
         subject: emails.confirmation.subject(meta.firstName),
         html: await render(<ConfirmationEmail {...confirmationProps} />),
         text: confirmationText(confirmationProps),
@@ -78,7 +83,7 @@ export async function sendLeadEmails(
     sends.push(
       (async () =>
         resend.emails.send({
-          from,
+          from: EMAIL_FROM,
           to: notifyTo,
           replyTo: lead.email,
           subject: emails.notification.subject(lead.company, cities, techLabel(lead.techCount)),
@@ -106,9 +111,8 @@ export async function sendLeadDetailsEmail(
   details: DetailsInput,
 ) {
   const apiKey = process.env.RESEND_API_KEY;
-  const from = process.env.RESEND_FROM;
   const notifyTo = process.env.LEADS_NOTIFY_TO;
-  if (!apiKey || !from || !notifyTo) {
+  if (!apiKey || !notifyTo) {
     console.warn("[email] Resend or LEADS_NOTIFY_TO is not set; skipping the details email for", lead.email);
     return;
   }
@@ -127,7 +131,7 @@ export async function sendLeadDetailsEmail(
 
   try {
     const { error } = await new Resend(apiKey).emails.send({
-      from,
+      from: EMAIL_FROM,
       to: notifyTo,
       replyTo: lead.email,
       subject: emails.details.subject(lead.company),
