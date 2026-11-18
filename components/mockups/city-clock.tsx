@@ -32,7 +32,7 @@ export function CityClock({ variant = "light", className = "" }: { variant?: "li
 
   const t = dark
     ? {
-        card: "border-night-line bg-[#15132f] text-white",
+        card: "border-night-line bg-[#0f2129] text-white",
         sub: "text-night-muted",
         track: "bg-white/10",
         divide: "divide-night-line border-night-line",
