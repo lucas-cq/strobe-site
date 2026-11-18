@@ -22,7 +22,7 @@ function Block({ block }: { block: GuideBlock }) {
       return <p className="mt-4 text-lg text-ink-2">{linkify(block.text)}</p>;
     case "list":
       return (
-        <ul className="mt-4 list-disc space-y-2 pl-5 text-lg text-ink-2 marker:text-indigo">
+        <ul className="mt-4 list-disc space-y-2 pl-5 text-lg text-ink-2 marker:text-brand">
           {block.items.map((item) => (
             <li key={item}>{linkify(item)}</li>
           ))}
@@ -30,14 +30,14 @@ function Block({ block }: { block: GuideBlock }) {
       );
     case "numbered":
       return (
-        <ol className="mt-4 list-decimal space-y-2 pl-5 text-lg text-ink-2 marker:font-semibold marker:text-indigo">
+        <ol className="mt-4 list-decimal space-y-2 pl-5 text-lg text-ink-2 marker:font-semibold marker:text-brand">
           {block.items.map((item) => (
             <li key={item}>{linkify(item)}</li>
           ))}
         </ol>
       );
     case "formula":
-      return <p className="mt-4 rounded-card bg-lavender p-5 font-medium text-ink">{block.text}</p>;
+      return <p className="mt-4 rounded-card bg-tint p-5 font-medium text-ink">{block.text}</p>;
     case "quoteCalculator":
       return <QuoteCalculator />;
   }

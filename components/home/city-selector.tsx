@@ -43,7 +43,7 @@ export function CitySelector() {
     (selected === "elsewhere" ? (
       <PrefillLink
         values={{ city: address.trim() }}
-        className="group inline-flex items-center gap-1.5 font-medium whitespace-nowrap text-indigo underline-offset-4 hover:underline"
+        className="group inline-flex items-center gap-1.5 font-medium whitespace-nowrap text-brand underline-offset-4 hover:underline"
       >
         {linkLabel}
         <span aria-hidden="true" className="transition-transform duration-200 group-hover:translate-x-[3px]">
@@ -80,7 +80,7 @@ export function CitySelector() {
             {jurisdictions.map((option) => (
               <label
                 key={option.id}
-                className="inline-flex min-h-11 cursor-pointer items-center gap-1.5 rounded-full border border-field bg-white px-4 py-2 text-[15px] font-medium text-ink transition-colors select-none hover:border-muted has-[:checked]:border-indigo has-[:checked]:bg-indigo has-[:checked]:text-white has-[:focus-visible]:outline-2 has-[:focus-visible]:outline-offset-2 has-[:focus-visible]:outline-indigo"
+                className="inline-flex min-h-11 cursor-pointer items-center gap-1.5 rounded-full border border-field bg-white px-4 py-2 text-[15px] font-medium text-ink transition-colors select-none hover:border-muted has-[:checked]:border-brand has-[:checked]:bg-brand has-[:checked]:text-white has-[:focus-visible]:outline-2 has-[:focus-visible]:outline-offset-2 has-[:focus-visible]:outline-brand"
               >
                 <input
                   type="radio"

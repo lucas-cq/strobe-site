@@ -30,7 +30,7 @@ function SourceCell({ row }: { row: ReportRule }) {
           href={row.sourceUrl}
           target="_blank"
           rel="noopener noreferrer"
-          className="font-medium whitespace-nowrap text-indigo underline underline-offset-4 hover:text-violet"
+          className="font-medium whitespace-nowrap text-brand underline underline-offset-4 hover:text-deep"
         >
           {table.sourceLink}
           <span className="sr-only"> for {row.city} (opens in a new tab)</span>
@@ -153,7 +153,7 @@ export function RulesTable({ rows, csvHref }: { rows: ReportRule[]; csvHref: str
                     role="columnheader"
                     scope="rowgroup"
                     colSpan={COLUMN_COUNT}
-                    className="bg-lavender px-3 py-2.5 text-left text-[15px] font-semibold text-ink max-lg:mt-6 max-lg:block max-lg:rounded-button"
+                    className="bg-tint px-3 py-2.5 text-left text-[15px] font-semibold text-ink max-lg:mt-6 max-lg:block max-lg:rounded-button"
                   >
                     {table.provinces[p]}
                   </th>

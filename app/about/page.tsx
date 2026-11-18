@@ -40,7 +40,7 @@ export default function AboutPage() {
         </Container>
       </section>
 
-      <Section tone="lavender" labelledBy="about-why">
+      <Section tone="tint" labelledBy="about-why">
         <SectionHeader id="about-why" title={why.title} />
         <div className="reveal mt-6 max-w-3xl space-y-4 text-lg text-ink-2">
           {why.body.map((paragraph) => (
@@ -61,7 +61,7 @@ export default function AboutPage() {
         </ul>
       </Section>
 
-      <Section tone="lavender" labelledBy="about-contact">
+      <Section tone="tint" labelledBy="about-contact">
         <SectionHeader id="about-contact" title={contact.title} />
         <p className="reveal mt-6 max-w-3xl text-lg text-ink-2">{linkify(contact.body)}</p>
         <div className="reveal mt-8 flex w-fit items-center gap-4 rounded-card-lg bg-white p-5 shadow-soft">

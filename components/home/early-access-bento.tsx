@@ -5,14 +5,14 @@ import { Section, SectionHeader } from "../section";
 import { buttonClasses } from "../ui";
 
 /**
- * One large indigo card plus four small white ones. Desktop: big card on the left over two rows,
+ * One large brand card plus four small white ones. Desktop: big card on the left over two rows,
  * small cards 2 by 2 on the right. Phones: big card first, then the small cards 2 by 2.
  */
 export function EarlyAccessBento() {
   const { earlyAccess } = home;
   const { feature } = earlyAccess;
   return (
-    <Section tone="lavender" labelledBy="bento-title">
+    <Section tone="tint" labelledBy="bento-title">
       <SectionHeader id="bento-title" eyebrow={earlyAccess.eyebrow} title={earlyAccess.title} lede={earlyAccess.lede} />
       <div className="mt-10 grid grid-cols-2 gap-3 sm:gap-4 lg:grid-cols-4 lg:grid-rows-2">
         <div className="reveal bg-gradient-band relative col-span-2 flex flex-col overflow-hidden rounded-card-lg p-7 text-white sm:p-9 lg:row-span-2">

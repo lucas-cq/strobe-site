@@ -26,7 +26,7 @@ export default function EffectsPreview() {
         <div aria-hidden="true" className="bg-gradient-brand absolute top-10 right-0 size-[520px] rounded-full opacity-15 blur-3xl" />
         <BackgroundMark className="-right-24 top-1/2 w-[640px] -translate-y-1/2 opacity-5" />
         <Container className="relative py-20">
-          <p className="flex items-center gap-2 text-sm font-medium text-indigo">
+          <p className="flex items-center gap-2 text-sm font-medium text-brand">
             Fire alarm inspection software for Canadian shops
           </p>
           <h1 className="mt-4 max-w-2xl text-5xl text-ink">Effects preview</h1>
@@ -52,14 +52,14 @@ export default function EffectsPreview() {
         ]}
       />
 
-      {/* Lavender band: white cards with a 2px gradient top line */}
-      <section className="bg-lavender">
+      {/* Tint band: white cards with a 2px gradient top line */}
+      <section className="bg-tint">
         <Container className="grid gap-4 py-20 md:grid-cols-3">
           {["Typing it twice", "Quotes that show up late", "A deadline on a sticky note"].map((t) => (
             <div key={t} className="reveal relative overflow-hidden rounded-card-lg bg-white p-6 shadow-soft">
               <TopGradientLine />
               <h3 className="text-xl text-ink">{t}</h3>
-              <p className="mt-2 text-ink-2">Lavender band, white card, gradient line along the top edge.</p>
+              <p className="mt-2 text-ink-2">Tint band, white card, gradient line along the top edge.</p>
               <p className="mt-2 text-sm text-muted">Muted text on white.</p>
             </div>
           ))}
@@ -86,7 +86,7 @@ export default function EffectsPreview() {
         <BackgroundMark onDark pulse className="-left-40 top-1/2 w-[640px] -translate-y-1/2" />
         <Container className="relative grid items-center gap-10 py-20 lg:grid-cols-2">
           <div>
-            <p className="text-sm font-medium text-ice">The City deadline</p>
+            <p className="text-sm font-medium text-flash">The City deadline</p>
             <h2 className="mt-3 text-4xl text-white">Strobe pulse behind the dark band</h2>
             <p className="mt-4 text-lg text-night-text">The mark fades from 6% to 12% and back every 5 seconds.</p>
           </div>
@@ -94,13 +94,13 @@ export default function EffectsPreview() {
         </Container>
       </section>
 
-      {/* Lavender: bento big card plus small cards */}
-      <section className="bg-lavender">
+      {/* Tint: bento big card plus small cards */}
+      <section className="bg-tint">
         <Container className="grid gap-4 py-20 lg:grid-cols-4 lg:grid-rows-2">
           <div className="bg-gradient-band relative overflow-hidden rounded-card-lg p-8 text-white lg:col-span-2 lg:row-span-2">
             <BackgroundMark onDark className="-right-16 -bottom-16 w-72 opacity-10" />
             <h3 className="relative text-3xl text-white">Help shape what we build.</h3>
-            <p className="relative mt-3 max-w-md text-white/90">Indigo band gradient with white text. Body text at 90% white.</p>
+            <p className="relative mt-3 max-w-md text-white/90">Brand band gradient with white text. Body text at 90% white.</p>
             <a href="#" className={`${buttonClasses("primary-on-dark", "lg")} relative mt-8`}>Get early access</a>
           </div>
           {["One price per shop", "Any panel", "Stored in Canada", "We'll move you over"].map((t) => (

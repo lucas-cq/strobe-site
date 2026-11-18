@@ -22,7 +22,7 @@ export function CityPage({ content, path, visual }: { content: CityPageContent; 
   const { rules, process, steps, mistakes, questions, withStrobe, sources } = content;
   // Optional sections drop out, so the alternating backgrounds are worked out from what's left.
   const order = ["rules", "steps", mistakes && "mistakes", questions && "questions", "withStrobe", "sources"].filter(Boolean);
-  const toneOf = (section: string) => (order.indexOf(section) % 2 === 0 ? "lavender" : "white");
+  const toneOf = (section: string) => (order.indexOf(section) % 2 === 0 ? "tint" : "white");
   const url = new URL(path, site.url).toString();
   const structuredData = {
     "@context": "https://schema.org",
@@ -89,7 +89,7 @@ export function CityPage({ content, path, visual }: { content: CityPageContent; 
             <h3 className="reveal mt-10 font-sans text-base font-semibold tracking-normal text-ink">{rules.systems.title}</h3>
             <ul className="reveal mt-4 flex flex-wrap gap-2">
               {rules.systems.items.map((s) => (
-                <li key={s} className="rounded-full bg-white px-3.5 py-1.5 text-[15px] font-medium text-ink-2 ring-1 ring-indigo-100">
+                <li key={s} className="rounded-full bg-white px-3.5 py-1.5 text-[15px] font-medium text-ink-2 ring-1 ring-brand-100">
                   {s}
                 </li>
               ))}
@@ -110,7 +110,7 @@ export function CityPage({ content, path, visual }: { content: CityPageContent; 
         <ol className="mt-10 max-w-3xl divide-y divide-line border-y border-line">
           {steps.items.map((step, index) => (
             <li key={step.title} className="reveal flex gap-5 py-5">
-              <span aria-hidden="true" className="tabular w-6 shrink-0 font-display text-2xl leading-7 font-semibold text-indigo">
+              <span aria-hidden="true" className="tabular w-6 shrink-0 font-display text-2xl leading-7 font-semibold text-brand">
                 {index + 1}
               </span>
               <p className="text-ink-2">
@@ -157,7 +157,7 @@ export function CityPage({ content, path, visual }: { content: CityPageContent; 
                   href={link.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="font-medium text-indigo underline underline-offset-4 hover:text-violet"
+                  className="font-medium text-brand underline underline-offset-4 hover:text-deep"
                 >
                   {link.label}
                   <span className="sr-only"> (opens in a new tab)</span>
@@ -174,7 +174,7 @@ export function CityPage({ content, path, visual }: { content: CityPageContent; 
                 {note.email && (
                   <>
                     {" "}
-                    <a href={`mailto:${note.email}`} className="font-medium text-indigo underline underline-offset-4">
+                    <a href={`mailto:${note.email}`} className="font-medium text-brand underline underline-offset-4">
                       {note.email}
                     </a>
                   </>

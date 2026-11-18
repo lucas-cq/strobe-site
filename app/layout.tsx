@@ -10,24 +10,27 @@ import { site } from "@/content/site";
 import { organizationSchema } from "@/lib/schema";
 import "./globals.css";
 
-// Latin subsets of the files in fonts/ (about 27 KB each instead of 180 KB). See fonts/web/README.md.
-const inter = localFont({
+// Latin subsets of IBM Plex Sans and Plex Mono. See fonts/web/README.md.
+const plex = localFont({
   src: [
-    { path: "../fonts/web/Inter-Regular.latin.woff2", weight: "400", style: "normal" },
-    { path: "../fonts/web/Inter-Medium.latin.woff2", weight: "500", style: "normal" },
-    { path: "../fonts/web/Inter-SemiBold.latin.woff2", weight: "600", style: "normal" },
+    { path: "../fonts/web/IBMPlexSans-Regular.latin.woff2", weight: "400", style: "normal" },
+    { path: "../fonts/web/IBMPlexSans-Medium.latin.woff2", weight: "500", style: "normal" },
+    { path: "../fonts/web/IBMPlexSans-SemiBold.latin.woff2", weight: "600", style: "normal" },
   ],
-  variable: "--font-inter",
+  variable: "--font-plex",
   display: "swap",
   adjustFontFallback: "Arial",
 });
 
-// Headings only use SemiBold. InterDisplay-Medium and -Bold stay in fonts/ but aren't loaded.
-const interDisplay = localFont({
-  src: [{ path: "../fonts/web/InterDisplay-SemiBold.latin.woff2", weight: "600", style: "normal" }],
-  variable: "--font-inter-display",
+// Device numbers and panel addresses in the product mockups.
+const plexMono = localFont({
+  src: [
+    { path: "../fonts/web/IBMPlexMono-Regular.latin.woff2", weight: "400", style: "normal" },
+    { path: "../fonts/web/IBMPlexMono-Medium.latin.woff2", weight: "500", style: "normal" },
+  ],
+  variable: "--font-plex-mono",
   display: "swap",
-  adjustFontFallback: "Arial",
+  adjustFontFallback: false,
 });
 
 export const metadata: Metadata = {
@@ -40,7 +43,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#4B3BE6",
+  themeColor: "#00708F",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
@@ -50,13 +53,13 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
     <html
       lang="en-CA"
       data-scroll-behavior="smooth"
-      className={`${inter.variable} ${interDisplay.variable} antialiased`}
+      className={`${plex.variable} ${plexMono.variable} antialiased`}
     >
       <body className="flex min-h-dvh flex-col">
         <JsonLd data={organizationSchema} />
         <a
           href="#main"
-          className="sr-only z-50 rounded-button bg-indigo px-4 py-2 font-medium text-white focus:not-sr-only focus:fixed focus:top-3 focus:left-3"
+          className="sr-only z-50 rounded-button bg-brand px-4 py-2 font-medium text-white focus:not-sr-only focus:fixed focus:top-3 focus:left-3"
         >
           {site.skipLink}
         </a>

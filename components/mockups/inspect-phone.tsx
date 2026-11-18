@@ -25,7 +25,7 @@ const devices: Device[] = [
 export function InspectPhone({ className = "" }: { className?: string }) {
   return (
     <div aria-hidden="true" className={`w-[256px] select-none ${className}`}>
-      <div className="rounded-[40px] bg-night p-[7px] shadow-[0_24px_60px_-20px_rgb(20_17_46/0.45)]">
+      <div className="rounded-[40px] bg-night p-[7px] shadow-[0_24px_60px_-20px_rgb(14_27_33/0.45)]">
         <div className="flex h-[548px] flex-col overflow-hidden rounded-[33px] bg-white text-ink">
           {/* Status bar */}
           <div className="flex items-center justify-between px-6 pt-3 pb-1 text-[11px] font-semibold">
@@ -49,7 +49,7 @@ export function InspectPhone({ className = "" }: { className?: string }) {
             <p className="mt-0.5 text-[11px] text-ink-2">Fire Alarm · Annual</p>
             <div className="mt-2.5 flex items-center gap-2">
               <div className="h-1.5 flex-1 overflow-hidden rounded-full bg-surface">
-                <div className="h-full w-[63%] rounded-full bg-indigo" />
+                <div className="h-full w-[63%] rounded-full bg-brand" />
               </div>
               <span className="tabular text-[10px] font-medium text-ink-2">24 of 38</span>
             </div>

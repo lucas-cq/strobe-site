@@ -26,7 +26,7 @@ function Toggle({ left, right, on, tones }: { left: string; right: string; on: "
   );
 }
 
-const approveDecline: [string, string] = ["bg-indigo text-white", "bg-ink-2 text-white"];
+const approveDecline: [string, string] = ["bg-brand text-white", "bg-ink-2 text-white"];
 
 /** A 3x3 grid of keys: the Jump button's number pad icon. */
 function KeypadIcon({ className = "" }: { className?: string }) {
@@ -55,14 +55,14 @@ export function StepInspect() {
           </div>
           <div className="mt-2.5 flex items-center gap-2">
             <div className="h-1.5 flex-1 overflow-hidden rounded-full bg-surface">
-              <div className="h-full w-[74%] rounded-full bg-indigo" />
+              <div className="h-full w-[74%] rounded-full bg-brand" />
             </div>
             <span className="tabular text-[10px] font-medium text-ink-2">31 of 42</span>
           </div>
         </div>
 
         <div className="flex flex-1 flex-col justify-center px-5 text-center">
-          <p className="tabular text-[12px] font-semibold tracking-[0.06em] text-indigo">L2-14</p>
+          <p className="tabular font-mono text-[12px] font-semibold tracking-[0.06em] text-brand">L2-14</p>
           <p className="mt-1 font-display text-[28px] leading-tight font-semibold tracking-[-0.02em]">Pull station</p>
           <p className="mt-1 text-[13px] text-ink-2">Level 2 east stair</p>
           <p className="mt-4 text-[11px] text-muted">
@@ -71,7 +71,7 @@ export function StepInspect() {
         </div>
 
         <p className="truncate px-4 pb-3 text-center text-[11px] text-muted">
-          Up next: Smoke detector · <span className="tabular">L2-15</span>
+          Up next: Smoke detector · <span className="tabular font-mono">L2-15</span>
         </p>
 
         <div className="flex justify-center px-4 pb-3">
@@ -122,7 +122,7 @@ export function StepReport() {
           </div>
         </div>
         <div className="mt-auto px-4">
-          <div className="flex h-9 items-center justify-center rounded-button bg-indigo text-[13px] font-medium text-white">
+          <div className="flex h-9 items-center justify-center rounded-button bg-brand text-[13px] font-medium text-white">
             Finish report
           </div>
         </div>
@@ -199,7 +199,7 @@ export function StepQuote() {
         </div>
       </dl>
       <div className="border-t border-line px-5 py-3">
-        <div className="flex h-9 items-center justify-center rounded-button bg-indigo text-[13px] font-medium text-white">
+        <div className="flex h-9 items-center justify-center rounded-button bg-brand text-[13px] font-medium text-white">
           Send quote to owner
         </div>
       </div>
@@ -239,7 +239,7 @@ export function StepApprove() {
           </div>
         </div>
         <div className="mt-auto px-4">
-          <div className="tabular flex h-9 items-center justify-center rounded-button bg-indigo text-[13px] font-medium text-white">
+          <div className="tabular flex h-9 items-center justify-center rounded-button bg-brand text-[13px] font-medium text-white">
             {`Approve ${approved.length} of ${deficiencies.length} and sign`}
           </div>
         </div>

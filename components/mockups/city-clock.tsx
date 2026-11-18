@@ -36,7 +36,7 @@ export function CityClock({ variant = "light", className = "" }: { variant?: "li
         sub: "text-night-muted",
         track: "bg-white/10",
         divide: "divide-night-line border-night-line",
-        ok: "bg-ice",
+        ok: "bg-flash",
         warnText: "text-warn",
         nowText: "text-[#ff8a8d]",
       }
@@ -45,13 +45,13 @@ export function CityClock({ variant = "light", className = "" }: { variant?: "li
         sub: "text-ink-2",
         track: "bg-surface",
         divide: "divide-line border-line",
-        ok: "bg-indigo",
+        ok: "bg-brand",
         warnText: "text-warn-ink",
         nowText: "text-fail-ink",
       };
 
   const button: Record<Urgency, string> = {
-    ok: dark ? "bg-white/10 text-white" : "bg-indigo text-white",
+    ok: dark ? "bg-white/10 text-white" : "bg-brand text-white",
     warn: "bg-warn text-night",
     now: "bg-fail-ink text-white",
   };

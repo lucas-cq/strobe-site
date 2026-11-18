@@ -66,7 +66,7 @@ grep -rn "—" content components app emails
 | `lib/` | Validation, email sending, Turnstile, retention, metadata and OG helpers |
 | `scripts/` | `leads:export` and `leads:prune` |
 | `public/brand/` | Logo files, referenced by path. Swap them for new exports at the same paths |
-| `fonts/` | The Inter files from the brand kit. `fonts/web/` holds the subsets the site actually loads |
+| `fonts/` | IBM Plex Sans and Plex Mono. `fonts/web/` holds the subsets the site loads, `fonts/og/` the TTFs for OG images |
 
 ## Scripts
 

@@ -5,9 +5,9 @@ import { GridPattern } from "./effects";
 import { Container } from "./ui";
 
 /**
- * The indigo form band used at the bottom of Home, Calgary and Edmonton, and as the whole
+ * The brand form band used at the bottom of Home, Calgary and Edmonton, and as the whole
  * of /early-access (where the title becomes the page H1 and the band fills the page).
- * The band uses the darker indigo gradient so white text stays above AA contrast.
+ * The band uses the darker brand gradient so white text stays above AA contrast.
  */
 export function EarlyAccessSection({ asPageTitle = false }: { asPageTitle?: boolean }) {
   const { title, sub } = home.earlyAccessForm;
@@ -30,7 +30,7 @@ export function EarlyAccessSection({ asPageTitle = false }: { asPageTitle?: bool
             </Heading>
             <p className="mt-4 text-lg text-white/85">{sub}</p>
           </div>
-          <div className="mt-10 rounded-card-lg bg-white p-5 shadow-[0_24px_60px_-24px_rgb(11_10_31/0.5)] sm:p-8">
+          <div className="mt-10 rounded-card-lg bg-white p-5 shadow-[0_24px_60px_-24px_rgb(7_20_26/0.5)] sm:p-8">
             <EarlyAccessForm />
           </div>
         </div>

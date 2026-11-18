@@ -1,31 +1,32 @@
 @import "tailwindcss";
 
 @theme {
-  /* Brand ramp, taken from the logo gradient */
-  --color-violet: #2b1a8c; /* deepest, where beams start */
-  --color-indigo: #4b3be6; /* primary brand colour: buttons, links, focus */
-  --color-blue: #2e8bff; /* secondary accent */
-  --color-sky: #5ccbff; /* decoration only on white, fails contrast as text */
-  --color-ice: #8fe6ff; /* only on dark backgrounds */
+  /* Brand ramp: Xenon Cyan, taken from the logo gradient */
+  --color-deep: #002b3d; /* deepest, where beams start */
+  --color-brand: #00708f; /* primary brand colour: buttons, links, focus. White text 5.6:1 */
+  --color-brand-dark: #005a73; /* hover and pressed. White text 7.8:1 */
+  --color-bright: #00b8d9; /* secondary accent, decoration only on white: fails contrast as text */
+  --color-tip: #6ee7f7; /* decoration only on white */
+  --color-flash: #9ff3ff; /* only on dark backgrounds */
 
-  /* Neutrals */
-  --color-night: #0b0a1f; /* dark sections, footer */
-  --color-ink: #14112e; /* headings and body text on white */
-  --color-ink-2: #3b3858; /* secondary text */
-  --color-muted: #6b6880; /* captions, labels */
-  --color-line: #e6e5ef; /* borders, dividers */
-  --color-surface: #f7f7fb; /* alternate section background */
-  --color-lavender: #f5f3ff; /* tinted section background */
-  --color-indigo-50: #eeedfd; /* proof strip, pills */
-  --color-indigo-100: #dedbfb; /* decorative quote marks, hover fills */
-  --color-field: #8f8ca8; /* form control borders: 3.2:1 on white, meets non-text contrast */
+  /* Neutrals, cooled toward the brand cyan */
+  --color-night: #07141a; /* dark sections, footer */
+  --color-ink: #0e1b21; /* headings and body text on white */
+  --color-ink-2: #34444c; /* secondary text */
+  --color-muted: #5e6d75; /* captions, labels. 5.4:1 on white */
+  --color-line: #dfe6e9; /* borders, dividers */
+  --color-surface: #f5f8f9; /* alternate section background */
+  --color-tint: #edf7f9; /* tinted section background */
+  --color-brand-50: #e6f4f7; /* proof strip, pills */
+  --color-brand-100: #c4e6ee; /* decorative quote marks, hover fills */
+  --color-field: #84959d; /* form control borders: 3.1:1 on white, meets non-text contrast */
 
   /* Text on night. Both pass AA against --color-night. */
-  --color-night-text: #d9d8e6;
-  --color-night-muted: #a9a7bf;
-  --color-night-line: #26243f;
+  --color-night-text: #d5e0e4;
+  --color-night-muted: #9fb0b7;
+  --color-night-line: #1c2b31;
 
-  /* Status, used only inside product mockups */
+  /* Status, used only inside product mockups. Unchanged: cyan doesn't compete with them. */
   --color-fail: #e5484d;
   --color-warn: #f5a524;
   --color-pass: #16a34a;
@@ -35,20 +36,22 @@
   --color-warn-ink: #92400e;
   --color-pass-ink: #166534;
 
-  --radius-card: 12px;
-  --radius-card-lg: 16px; /* gradient-border and bento cards */
-  --radius-button: 10px;
+  /* Tighter corners. IBM Plex is squared off and the old 12 to 16px radius read as template. */
+  --radius-card: 8px;
+  --radius-card-lg: 10px; /* gradient-border and bento cards */
+  --radius-button: 6px;
 
-  --shadow-soft: 0 1px 2px rgb(20 17 46 / 0.04), 0 8px 24px rgb(20 17 46 / 0.06);
+  --shadow-soft: 0 1px 2px rgb(14 27 33 / 0.05), 0 8px 24px rgb(14 27 33 / 0.06);
 }
 
 @theme inline {
-  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
-  --font-display: var(--font-inter-display), var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-sans: var(--font-plex), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-plex), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-plex-mono), ui-monospace, SFMono-Regular, Menlo, monospace;
 }
 
 @utility bg-brand-gradient {
-  background-image: linear-gradient(135deg, #2b1a8c 0%, #4b3be6 30%, #2e8bff 65%, #8fe6ff 100%);
+  background-image: linear-gradient(135deg, #002b3d 0%, #00708f 30%, #00b8d9 65%, #9ff3ff 100%);
 }
 
 @utility tabular {
@@ -61,9 +64,9 @@
   background-image: var(--gradient-brand);
 }
 
-/* Primary buttons fade from indigo into the brand gradient on hover. A gradient can't be
-   transitioned directly, so it sits on a layer between the fill and the label and fades in.
-   The layer repeats the button's inner top highlight, which it would otherwise cover. */
+/* Primary buttons darken to brand-dark on hover. The colour sits on a layer between the fill and
+   the label and fades in. It used to fade into the brand gradient, but the cyan end of the new
+   gradient fails contrast under white text. The layer repeats the button's inner top highlight. */
 @utility btn-gradient-fade {
   position: relative;
   isolation: isolate;
@@ -73,7 +76,7 @@
     inset: 0;
     z-index: -1;
     border-radius: inherit;
-    background-image: var(--gradient-brand);
+    background-color: var(--color-brand-dark);
     box-shadow: inset 0 1px 0 rgb(255 255 255 / 0.2);
     opacity: 0;
     transition: opacity 0.8s ease;
@@ -88,8 +91,8 @@
   }
 }
 
-/* The brand gradient ends in a light blue that white body text fails AA on, so bands and cards
-   with white text use this darker version: white text stays above 6.8:1 across all of it. */
+/* The brand gradient ends in a bright cyan that white body text fails AA on, so bands and cards
+   with white text use this darker version: white text stays above 7.7:1 across all of it. */
 @utility bg-gradient-band {
   background-image: var(--gradient-band);
 }
@@ -97,13 +100,13 @@
 /* Faint 32px grid that fades out toward the edges. Hero and form band only. */
 @utility bg-grid {
   background-image:
-    linear-gradient(to right, rgb(20 17 46 / 0.04) 1px, transparent 1px),
-    linear-gradient(to bottom, rgb(20 17 46 / 0.04) 1px, transparent 1px);
+    linear-gradient(to right, rgb(14 27 33 / 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgb(14 27 33 / 0.04) 1px, transparent 1px);
   background-size: 32px 32px;
   mask-image: radial-gradient(ellipse 70% 65% at 50% 40%, black 30%, transparent 75%);
 }
 
-/* Same grid in white, for the indigo band */
+/* Same grid in white, for the brand band */
 @utility bg-grid-light {
   background-image:
     linear-gradient(to right, rgb(255 255 255 / 0.08) 1px, transparent 1px),
@@ -112,14 +115,14 @@
   mask-image: radial-gradient(ellipse 70% 65% at 50% 40%, black 30%, transparent 75%);
 }
 
-/* White card with a thin indigo-to-blue gradient border. The gradient is written out rather than
+/* White card with a thin brand-to-bright gradient border. The gradient is written out rather than
    var(--gradient-hairline) so browser night modes (Dark Reader) can parse and darken the card. */
 @utility card-gradient {
   border: 1px solid transparent;
   border-radius: var(--radius-card-lg);
   background:
     linear-gradient(#fff, #fff) padding-box,
-    linear-gradient(135deg, rgb(75 59 230 / 0.45), rgb(46 139 255 / 0.15)) border-box;
+    linear-gradient(135deg, rgb(0 112 143 / 0.45), rgb(0 184 217 / 0.15)) border-box;
 }
 
 /* Cards only, never text blocks */
@@ -129,7 +132,7 @@
     box-shadow 200ms ease;
   &:hover {
     transform: translateY(-3px);
-    box-shadow: 0 16px 40px -16px rgb(75 59 230 / 0.35);
+    box-shadow: 0 16px 40px -16px rgb(0 112 143 / 0.3);
   }
 }
 
@@ -139,7 +142,7 @@
   font-size: 48px;
   font-weight: 600;
   line-height: 1;
-  letter-spacing: -0.03em;
+  letter-spacing: -0.02em;
   background-image: var(--gradient-brand);
   background-clip: text;
   -webkit-background-clip: text;
@@ -225,10 +228,10 @@
 
 @layer base {
   :root {
-    --focus-ring: var(--color-indigo);
-    --gradient-brand: linear-gradient(135deg, #2b1a8c 0%, #4b3be6 45%, #2e8bff 100%);
-    --gradient-hairline: linear-gradient(135deg, rgb(75 59 230 / 0.45), rgb(46 139 255 / 0.15));
-    --gradient-band: linear-gradient(135deg, #2b1a8c 0%, #4b3be6 100%);
+    --focus-ring: var(--color-brand);
+    --gradient-brand: linear-gradient(135deg, #002b3d 0%, #00708f 45%, #00b8d9 100%);
+    --gradient-hairline: linear-gradient(135deg, rgb(0 112 143 / 0.45), rgb(0 184 217 / 0.15));
+    --gradient-band: linear-gradient(135deg, #002b3d 0%, #005a73 100%);
     color-scheme: light;
   }
 
@@ -264,7 +267,7 @@
   h4 {
     font-family: var(--font-display);
     font-weight: 600;
-    letter-spacing: -0.02em;
+    letter-spacing: -0.01em;
     line-height: 1.15;
     text-wrap: balance;
   }
@@ -283,19 +286,19 @@
     outline-offset: 2px;
   }
 
-  /* Dark surfaces swap the ring to ice so it stays visible against night */
+  /* Dark surfaces swap the ring to flash so it stays visible against night */
   .on-dark {
-    --focus-ring: var(--color-ice);
+    --focus-ring: var(--color-flash);
   }
 }
 
 /* Browser night modes. The site has no dark theme, but Firefox's Night Mode, Brave and the Dark
    Reader extension repaint it and set this attribute on <html>. They darken every gradient
-   and leave images alone, so the numerals drop to plain indigo (which they lighten) and the logo
+   and leave images alone, so the numerals drop to plain brand cyan (which they lighten) and the logo
    swaps to its white file. */
 html[data-darkreader-scheme="dark"] .gradient-numeral {
   background-image: none;
-  color: var(--color-indigo);
+  color: var(--color-brand);
 }
 
 .lockup-night {

@@ -17,9 +17,9 @@ const number = (i: number) => String(i + 1).padStart(2, "0");
 
 function RoleLabel({ step, i }: { step: Step; i: number }) {
   return (
-    <p className="flex items-center gap-2 text-[13px] font-medium tracking-wide text-ice">
+    <p className="flex items-center gap-2 text-[13px] font-medium tracking-wide text-flash">
       <span className="tabular">{number(i)}</span>
-      <span aria-hidden="true" className="h-px w-4 bg-ice/50" />
+      <span aria-hidden="true" className="h-px w-4 bg-flash/50" />
       {step.role}
     </p>
   );

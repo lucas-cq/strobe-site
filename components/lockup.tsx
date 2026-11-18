@@ -7,8 +7,8 @@
  * LOCKUP_CROP only. The artwork itself is never redrawn or recoloured.
  */
 export const LOCKUP_CANVAS = { width: 1180, height: 512 };
-// Measured artwork bounds are x 50 to 1064, y 137 to 364. Two units of slack each side.
-export const LOCKUP_CROP = { x: 48, y: 135, width: 1018, height: 231 };
+// Measured artwork bounds are x 50 to 1076, y 137 to 364. Two units of slack each side.
+export const LOCKUP_CROP = { x: 48, y: 135, width: 1030, height: 231 };
 
 const sources = {
   ink: "/brand/strobe-lockup-transparent-ink.svg",

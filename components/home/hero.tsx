@@ -17,7 +17,7 @@ export function Hero() {
 
       <Container className="relative grid items-center gap-14 pt-12 pb-20 md:pt-20 md:pb-24 lg:grid-cols-[1.05fr_1fr] lg:gap-8">
         <div>
-          <p className="inline-flex items-center gap-2 rounded-full bg-white px-3 py-1.5 text-sm font-medium tracking-wide text-ink-2 ring-1 ring-indigo-100">
+          <p className="inline-flex items-center gap-2 rounded-full bg-white px-3 py-1.5 text-sm font-medium tracking-wide text-ink-2 ring-1 ring-brand-100">
             <CanadaFlag decorative className="h-2.5 w-5" />
             {hero.eyebrow}
           </p>

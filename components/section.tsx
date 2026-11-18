@@ -1,12 +1,12 @@
 import type { ReactNode } from "react";
 import { Container } from "./ui";
 
-type Tone = "white" | "surface" | "lavender" | "night";
+type Tone = "white" | "surface" | "tint" | "night";
 
 const tones: Record<Tone, string> = {
   white: "bg-white",
   surface: "bg-surface",
-  lavender: "bg-lavender",
+  tint: "bg-tint",
   night: "on-dark bg-night text-white",
 };
 
@@ -35,7 +35,7 @@ export function Section({
 
 export function Eyebrow({ children, dark = false }: { children: ReactNode; dark?: boolean }) {
   return (
-    <p className={`text-sm font-medium tracking-wide ${dark ? "text-ice" : "text-indigo"}`}>{children}</p>
+    <p className={`text-sm font-medium tracking-wide ${dark ? "text-flash" : "text-brand"}`}>{children}</p>
   );
 }
 
@@ -79,7 +79,7 @@ export function ArrowLink({
     <a
       href={href}
       className={`group inline-flex items-center gap-1.5 font-medium whitespace-nowrap underline-offset-4 hover:underline ${
-        dark ? "text-ice" : "text-indigo"
+        dark ? "text-flash" : "text-brand"
       }`}
     >
       {children}

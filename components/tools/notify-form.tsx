@@ -44,7 +44,7 @@ export function NotifyForm() {
       </div>
 
       <label className="flex items-start gap-3">
-        <input type="checkbox" name="consent" defaultChecked={error?.consent ?? false} className="mt-0.5 size-[18px] shrink-0 accent-indigo" />
+        <input type="checkbox" name="consent" defaultChecked={error?.consent ?? false} className="mt-0.5 size-[18px] shrink-0 accent-brand" />
         <span className="text-[15px] text-ink-2">{earlyAccessForm.fields.consent.label}</span>
       </label>
 

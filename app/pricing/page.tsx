@@ -33,7 +33,7 @@ export default function PricingPage() {
             </li>
             {pricing.terms.map((term) => (
               <li key={term} className="inline-flex items-center gap-1.5">
-                <CheckIcon className="size-4 shrink-0 text-indigo" />
+                <CheckIcon className="size-4 shrink-0 text-brand" />
                 {term}
               </li>
             ))}
@@ -41,12 +41,12 @@ export default function PricingPage() {
 
           <Plans />
 
-          <div className="reveal mt-10 rounded-card-lg bg-lavender p-6 md:p-8">
+          <div className="reveal mt-10 rounded-card-lg bg-tint p-6 md:p-8">
             <h2 className="font-sans text-lg font-semibold tracking-normal text-ink">{includes.title}</h2>
             <ul className="mt-5 grid gap-x-8 gap-y-3 text-[15px] text-ink sm:grid-cols-2">
               {includes.items.map((item) => (
                 <li key={item.text} className="flex gap-2.5">
-                  <CheckIcon className="mt-1 size-4 shrink-0 text-indigo" />
+                  <CheckIcon className="mt-1 size-4 shrink-0 text-brand" />
                   <span>
                     {item.lead && <strong className="font-semibold">{item.lead}:</strong>} {item.text}
                   </span>

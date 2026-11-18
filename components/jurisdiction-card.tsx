@@ -43,8 +43,8 @@ export function JurisdictionCard({
             <dd className="text-[15px]">{value}</dd>
           </div>
         ))}
-        <div className="grid gap-1 bg-lavender px-5 py-4 sm:grid-cols-[9.5rem_1fr] sm:gap-4">
-          <dt className="flex items-center gap-1.5 text-sm font-semibold text-indigo">
+        <div className="grid gap-1 bg-tint px-5 py-4 sm:grid-cols-[9.5rem_1fr] sm:gap-4">
+          <dt className="flex items-center gap-1.5 text-sm font-semibold text-brand">
             <CheckIcon className="size-3.5 shrink-0" />
             Strobe gets ready
           </dt>

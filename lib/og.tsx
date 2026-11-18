@@ -9,8 +9,8 @@ export const ogContentType = "image/png";
 // next/og can't read woff2, so fonts/og holds TTF copies of the two weights used here.
 // Read synchronously at module load: async file reads would stop the images being prerendered.
 const fontFile = (name: string) => readFileSync(path.join(process.cwd(), "fonts", "og", name));
-const display = fontFile("InterDisplay-SemiBold.ttf");
-const text = fontFile("Inter-Medium.ttf");
+const semibold = fontFile("IBMPlexSans-SemiBold.ttf");
+const medium = fontFile("IBMPlexSans-Medium.ttf");
 const lockupSrc = `data:image/svg+xml;base64,${readFileSync(
   path.join(process.cwd(), "public", "brand", "strobe-lockup-transparent-ink.svg"),
 ).toString("base64")}`;
@@ -33,7 +33,7 @@ export function renderOgImage({ title, eyebrow }: { title: string; eyebrow: stri
           flexDirection: "column",
           justifyContent: "space-between",
           background: "#ffffff",
-          fontFamily: "Inter",
+          fontFamily: "IBM Plex Sans",
         }}
       >
         <div style={{ display: "flex", flexDirection: "column", padding: "72px 80px 0" }}>
@@ -55,7 +55,7 @@ export function renderOgImage({ title, eyebrow }: { title: string; eyebrow: stri
               style={{ position: "absolute", left: -LOCKUP_CROP.x * scale, top: -LOCKUP_CROP.y * scale }}
             />
           </div>
-          <div style={{ display: "flex", marginTop: 88, fontSize: 28, color: "#4B3BE6", fontWeight: 500 }}>
+          <div style={{ display: "flex", marginTop: 88, fontSize: 28, color: "#00708F", fontWeight: 500 }}>
             {eyebrow}
           </div>
           <div
@@ -63,13 +63,13 @@ export function renderOgImage({ title, eyebrow }: { title: string; eyebrow: stri
               display: "flex",
               marginTop: 20,
               maxWidth: 1000,
-              fontFamily: "Inter Display",
+              fontFamily: "IBM Plex Sans",
               fontSize: 76,
               textWrap: "balance",
               fontWeight: 600,
               lineHeight: 1.08,
-              letterSpacing: "-0.02em",
-              color: "#14112E",
+              letterSpacing: "-0.01em",
+              color: "#0E1B21",
             }}
           >
             {title}
@@ -79,7 +79,7 @@ export function renderOgImage({ title, eyebrow }: { title: string; eyebrow: stri
           style={{
             display: "flex",
             height: 10,
-            backgroundImage: "linear-gradient(90deg, #2B1A8C 0%, #4B3BE6 30%, #2E8BFF 65%, #8FE6FF 100%)",
+            backgroundImage: "linear-gradient(90deg, #002B3D 0%, #00708F 30%, #00B8D9 65%, #9FF3FF 100%)",
           }}
         />
       </div>
@@ -87,8 +87,8 @@ export function renderOgImage({ title, eyebrow }: { title: string; eyebrow: stri
     {
       ...ogSize,
       fonts: [
-        { name: "Inter Display", data: display, weight: 600, style: "normal" },
-        { name: "Inter", data: text, weight: 500, style: "normal" },
+        { name: "IBM Plex Sans", data: semibold, weight: 600, style: "normal" },
+        { name: "IBM Plex Sans", data: medium, weight: 500, style: "normal" },
       ],
     },
   );

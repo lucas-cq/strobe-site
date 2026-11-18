@@ -15,7 +15,7 @@ const chipTones: Record<Tone, string> = {
   pass: "bg-pass/10 text-pass-ink",
   fail: "bg-fail/10 text-fail-ink",
   warn: "bg-warn/15 text-warn-ink",
-  info: "bg-indigo/10 text-indigo",
+  info: "bg-brand/10 text-brand",
   neutral: "bg-surface text-ink-2 ring-1 ring-line",
   alert: "bg-fail-ink text-white",
 };
@@ -70,7 +70,7 @@ export const cad = (n: number) =>
 export function PhoneFrame({ children, className = "" }: { children: ReactNode; className?: string }) {
   return (
     <div className={`w-[256px] ${className}`}>
-      <div className="rounded-[40px] bg-night p-[7px] shadow-[0_24px_60px_-20px_rgb(20_17_46/0.45)]">
+      <div className="rounded-[40px] bg-night p-[7px] shadow-[0_24px_60px_-20px_rgb(14_27_33/0.45)]">
         <div className="flex h-[520px] flex-col overflow-hidden rounded-[33px] bg-white text-ink">
           <div className="flex items-center justify-between px-6 pt-3 pb-1 text-[11px] font-semibold">
             <span className="tabular">9:41</span>

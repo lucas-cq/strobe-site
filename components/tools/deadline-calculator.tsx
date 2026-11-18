@@ -65,7 +65,7 @@ export function DeadlineCalculator() {
                   onChange={(e) =>
                     setOptional((current) => (e.target.checked ? [...current, holiday.id] : current.filter((id) => id !== holiday.id)))
                   }
-                  className="mt-0.5 size-[18px] shrink-0 accent-indigo"
+                  className="mt-0.5 size-[18px] shrink-0 accent-brand"
                 />
                 <span className="text-[15px] text-ink-2">{holiday.name}</span>
               </label>
@@ -91,7 +91,7 @@ export function DeadlineCalculator() {
           {copy.addToCalendar}
         </button>
 
-        <p className="mt-5 rounded-button bg-lavender p-4 text-[15px] text-ink">{copy.note}</p>
+        <p className="mt-5 rounded-button bg-tint p-4 text-[15px] text-ink">{copy.note}</p>
 
         <div className="mt-6 grid gap-6 sm:grid-cols-2">
           <div>

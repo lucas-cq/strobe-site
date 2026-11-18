@@ -73,7 +73,7 @@ export default function ReportRulesGuidePage() {
         </Container>
       </section>
 
-      <Section tone="lavender" labelledBy="found-title">
+      <Section tone="tint" labelledBy="found-title">
         <SectionHeader id="found-title" title={found.title} />
         <RuleList items={found.items} />
       </Section>
@@ -83,7 +83,7 @@ export default function ReportRulesGuidePage() {
         <RulesTable rows={loadReportRules()} csvHref={csvHref} />
       </Section>
 
-      <Section tone="lavender" labelledBy="edition-title">
+      <Section tone="tint" labelledBy="edition-title">
         <SectionHeader id="edition-title" title={edition.title} />
         <p className="reveal mt-6 max-w-3xl text-lg text-ink-2">{edition.body}</p>
       </Section>

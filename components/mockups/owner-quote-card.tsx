@@ -38,7 +38,7 @@ export function OwnerQuoteCard({ className = "" }: { className?: string }) {
             <span className="tabular text-[12px] font-medium">{cad(l.price)}</span>
             <span
               className={`flex size-[18px] shrink-0 items-center justify-center rounded ${
-                l.approved ? "bg-indigo text-white" : "border border-muted bg-white"
+                l.approved ? "bg-brand text-white" : "border border-muted bg-white"
               }`}
             >
               {l.approved && <CheckIcon />}
@@ -77,7 +77,7 @@ export function OwnerQuoteCard({ className = "" }: { className?: string }) {
             </div>
           </div>
         </div>
-        <div className="tabular flex h-9 items-center justify-center rounded-button bg-indigo text-[13px] font-medium text-white">
+        <div className="tabular flex h-9 items-center justify-center rounded-button bg-brand text-[13px] font-medium text-white">
           {`Approve ${approved.length} of ${lines.length} lines`}
         </div>
       </div>

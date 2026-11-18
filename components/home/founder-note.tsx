@@ -12,12 +12,12 @@ export function FounderNote() {
         {/* Big decorative quotation mark behind the text */}
         <span
           aria-hidden="true"
-          className="pointer-events-none absolute -top-14 -left-4 font-display text-[200px] leading-none text-indigo-100 select-none md:-top-20 md:-left-12 md:text-[260px]"
+          className="pointer-events-none absolute -top-14 -left-4 font-display text-[200px] leading-none text-brand-100 select-none md:-top-20 md:-left-12 md:text-[260px]"
         >
           &ldquo;
         </span>
         <div className="relative">
-          <h2 id="founder-title" className="font-sans text-sm font-medium tracking-wide text-indigo">
+          <h2 id="founder-title" className="font-sans text-sm font-medium tracking-wide text-brand">
             {founder.eyebrow}
           </h2>
           {/* Body font at a smaller size on phones, so the note isn't a heavy block of text */}
@@ -44,7 +44,7 @@ export function FounderNote() {
               )}
             </span>
             <WalkthroughButton
-              className="group inline-flex items-center gap-1.5 font-medium text-indigo underline-offset-4 hover:underline"
+              className="group inline-flex items-center gap-1.5 font-medium text-brand underline-offset-4 hover:underline"
               label={founder.bookLabel}
               fallbackLabel={founder.bookFallback}
             >

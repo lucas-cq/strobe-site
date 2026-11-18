@@ -32,7 +32,7 @@ export default function DeadlineToolPage() {
         </Container>
       </section>
 
-      <Section tone="lavender" labelledBy="tool-title">
+      <Section tone="tint" labelledBy="tool-title">
         <DeadlineCalculator />
         <h2 className="mt-12 font-sans text-base font-semibold tracking-normal text-ink">{tool.sources.title}</h2>
         <ul className="mt-3 space-y-2">
@@ -42,7 +42,7 @@ export default function DeadlineToolPage() {
                 href={link.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="font-medium text-indigo underline underline-offset-4 hover:text-violet"
+                className="font-medium text-brand underline underline-offset-4 hover:text-deep"
               >
                 {link.label}
                 <span className="sr-only"> (opens in a new tab)</span>

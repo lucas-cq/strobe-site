@@ -10,7 +10,7 @@ type ConfirmationEmailProps = {
 
 const copy = emails.confirmation;
 
-const text = { fontSize: "15px", lineHeight: "24px", color: "#14112E", margin: "0 0 16px" };
+const text = { fontSize: "15px", lineHeight: "24px", color: "#0E1B21", margin: "0 0 16px" };
 
 /** Deliberately plain: it should read like a note from a person, not a newsletter. */
 export function ConfirmationEmail({ firstName, bookingUrl, siteUrl }: ConfirmationEmailProps) {
@@ -28,7 +28,7 @@ export function ConfirmationEmail({ firstName, bookingUrl, siteUrl }: Confirmati
             {bookingUrl ? (
               <>
                 {copy.book.before}
-                <Link href={bookingUrl} style={{ color: "#4B3BE6" }}>
+                <Link href={bookingUrl} style={{ color: "#00708F" }}>
                   {bookingUrl}
                 </Link>
                 {copy.book.after}
@@ -38,10 +38,10 @@ export function ConfirmationEmail({ firstName, bookingUrl, siteUrl }: Confirmati
             )}
           </Text>
           <Text style={{ ...text, margin: "24px 0 0" }}>{copy.signOff}</Text>
-          <Hr style={{ borderColor: "#E6E5EF", margin: "32px 0 16px" }} />
-          <Text style={{ fontSize: "12px", lineHeight: "18px", color: "#6B6880", margin: 0 }}>
+          <Hr style={{ borderColor: "#DFE6E9", margin: "32px 0 16px" }} />
+          <Text style={{ fontSize: "12px", lineHeight: "18px", color: "#5E6D75", margin: 0 }}>
             {copy.footer} ·{" "}
-            <Link href={siteUrl} style={{ color: "#6B6880" }}>
+            <Link href={siteUrl} style={{ color: "#5E6D75" }}>
               {siteHost}
             </Link>
           </Text>

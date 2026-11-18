@@ -161,7 +161,7 @@ function StepOne({
           type="checkbox"
           name="consent"
           defaultChecked={values.consent ?? false}
-          className="mt-0.5 size-[18px] shrink-0 accent-indigo"
+          className="mt-0.5 size-[18px] shrink-0 accent-brand"
         />
         <span className="text-[15px] text-ink-2">{f.consent.label}</span>
       </label>
@@ -535,7 +535,7 @@ function ChipGroup({
         {options.map((o, i) => (
           <label
             key={o.value}
-            className={`group inline-flex min-h-11 cursor-pointer items-center gap-1.5 border bg-white px-4 py-2 text-[15px] font-medium text-ink transition-colors select-none has-[:checked]:border-indigo has-[:checked]:bg-indigo has-[:checked]:text-white has-[:focus-visible]:outline-2 has-[:focus-visible]:outline-offset-2 has-[:focus-visible]:outline-indigo ${
+            className={`group inline-flex min-h-11 cursor-pointer items-center gap-1.5 border bg-white px-4 py-2 text-[15px] font-medium text-ink transition-colors select-none has-[:checked]:border-brand has-[:checked]:bg-brand has-[:checked]:text-white has-[:focus-visible]:outline-2 has-[:focus-visible]:outline-offset-2 has-[:focus-visible]:outline-brand ${
               columns ? "rounded-button" : "rounded-full"
             } ${error ? "border-fail-ink" : "border-field hover:border-muted"}`}
           >

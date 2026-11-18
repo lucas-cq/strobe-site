@@ -75,7 +75,7 @@ function BillingToggle({ billing }: { billing: Billing }) {
       >
         <span
           aria-hidden="true"
-          className={`absolute top-1 bottom-1 left-1 w-[calc(50%-0.25rem)] rounded-full bg-indigo transition-transform duration-200 ease-out motion-reduce:transition-none ${
+          className={`absolute top-1 bottom-1 left-1 w-[calc(50%-0.25rem)] rounded-full bg-brand transition-transform duration-200 ease-out motion-reduce:transition-none ${
             billing === "yearly" ? "translate-x-full" : ""
           }`}
         />
@@ -92,14 +92,14 @@ function BillingToggle({ billing }: { billing: Billing }) {
               aria-checked={selected}
               tabIndex={selected ? 0 : -1}
               onClick={() => writeBilling(option)}
-              className={`relative flex min-h-11 items-center justify-center gap-1.5 rounded-full px-3 text-[15px] whitespace-nowrap focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo sm:px-5 ${
+              className={`relative flex min-h-11 items-center justify-center gap-1.5 rounded-full px-3 text-[15px] whitespace-nowrap focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand sm:px-5 ${
                 selected ? "font-semibold text-white" : "font-medium text-muted"
               }`}
             >
               {pricing.billing[option]}
               {option === "yearly" && (
                 <span
-                  className={`rounded-full px-2 py-0.5 text-xs font-semibold ${selected ? "bg-white text-indigo" : "bg-indigo/10 text-indigo"}`}
+                  className={`rounded-full px-2 py-0.5 text-xs font-semibold ${selected ? "bg-white text-brand" : "bg-brand/10 text-brand"}`}
                 >
                   {pricing.billing.badge(yearlySavingPercent)}
                 </span>
@@ -163,7 +163,7 @@ export function Plans() {
         {plans.map((plan) => (
           <li key={plan.id} className="reveal card-gradient flex flex-col p-6 md:p-7">
             <h2 className="text-2xl text-ink">{plan.name}</h2>
-            <p className="mt-1 text-sm font-medium text-indigo md:min-h-[2.5rem] xl:min-h-0">{plan.techRange}</p>
+            <p className="mt-1 text-sm font-medium text-brand md:min-h-[2.5rem] xl:min-h-0">{plan.techRange}</p>
             <p className="mt-4 text-[15px] text-ink-2 md:min-h-[6rem] lg:min-h-[4.5rem] xl:min-h-[3rem]">{plan.blurb}</p>
 
             <Price plan={plan} billing={billing} />
@@ -171,7 +171,7 @@ export function Plans() {
             <ul className="mt-5 space-y-2.5 text-[15px] text-ink">
               {plan.extras.map((extra) => (
                 <li key={extra} className="flex gap-2.5">
-                  <CheckIcon className="mt-1 size-4 shrink-0 text-indigo" />
+                  <CheckIcon className="mt-1 size-4 shrink-0 text-brand" />
                   {extra}
                 </li>
               ))}

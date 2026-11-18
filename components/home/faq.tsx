@@ -6,11 +6,11 @@ import { Section, SectionHeader } from "../section";
 export function Faq({
   faq = homeFaq,
   id = "faq",
-  tone = "lavender",
+  tone = "tint",
 }: {
   faq?: FaqContent;
   id?: string;
-  tone?: "lavender" | "white";
+  tone?: "tint" | "white";
 }) {
   return (
     <Section id={id} tone={tone} labelledBy={`${id}-title`}>
@@ -23,7 +23,7 @@ export function Faq({
                 <span>{item.question}</span>
                 <span
                   aria-hidden="true"
-                  className="relative mt-1.5 size-3.5 shrink-0 text-indigo before:absolute before:top-1/2 before:left-0 before:h-[1.5px] before:w-full before:-translate-y-1/2 before:bg-current after:absolute after:top-0 after:left-1/2 after:h-full after:w-[1.5px] after:-translate-x-1/2 after:bg-current after:transition-transform group-open:after:scale-y-0"
+                  className="relative mt-1.5 size-3.5 shrink-0 text-brand before:absolute before:top-1/2 before:left-0 before:h-[1.5px] before:w-full before:-translate-y-1/2 before:bg-current after:absolute after:top-0 after:left-1/2 after:h-full after:w-[1.5px] after:-translate-x-1/2 after:bg-current after:transition-transform group-open:after:scale-y-0"
                 />
               </summary>
               <p className="pr-8 pb-6 text-ink-2">{linkify(item.answer)}</p>

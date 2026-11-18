@@ -13,7 +13,7 @@ export function linkify(text: string): ReactNode {
     const label = internal ? internal[1] : part;
     const href = internal ? internal[2] : part.includes("@") && !part.startsWith("http") ? `mailto:${part}` : part;
     return (
-      <a key={i} href={href} className="font-medium text-indigo underline underline-offset-4 hover:text-violet">
+      <a key={i} href={href} className="font-medium text-brand underline underline-offset-4 hover:text-deep">
         {label}
       </a>
     );

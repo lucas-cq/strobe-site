@@ -10,7 +10,7 @@ export const hasCalLink = Boolean(calLink);
 export const calUi = {
   hideEventTypeDetails: false,
   layout: "month_view",
-  cssVarsPerTheme: { light: { "cal-brand": "#4B3BE6" }, dark: { "cal-brand": "#8FE6FF" } },
+  cssVarsPerTheme: { light: { "cal-brand": "#00708F" }, dark: { "cal-brand": "#9FF3FF" } },
 } as const;
 
 /** Loads Cal.com's embed on demand and applies the brand styling. */

@@ -5,12 +5,12 @@ import { TopGradientLine } from "../effects";
 import { Eyebrow } from "../section";
 import { Container } from "../ui";
 
-/** "Switching is on us": a compact lavender band with the two promises (STROBE_SITE_CANADA.md 7b). */
+/** "Switching is on us": a compact tint band with the two promises (STROBE_SITE_CANADA.md 7b). */
 export function Switching() {
   const { switching } = home;
   const cards = [promises.onboarding, promises.data];
   return (
-    <section id="switching" aria-labelledby="switching-title" className="bg-lavender">
+    <section id="switching" aria-labelledby="switching-title" className="bg-tint">
       <Container className="grid gap-8 py-12 md:py-16 lg:grid-cols-[minmax(0,0.75fr)_minmax(0,1.25fr)] lg:items-center lg:gap-12">
         <div className="reveal">
           <Eyebrow>{switching.eyebrow}</Eyebrow>
@@ -20,7 +20,7 @@ export function Switching() {
           <p className="mt-5 text-ink-2">
             {switching.question}{" "}
             <WalkthroughButton
-              className="font-medium text-indigo underline underline-offset-4 hover:text-violet"
+              className="font-medium text-brand underline underline-offset-4 hover:text-deep"
               label={switching.bookLabel}
               fallbackLabel={switching.bookFallback}
             />

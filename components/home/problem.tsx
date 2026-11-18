@@ -5,7 +5,7 @@ import { Section, SectionHeader } from "../section";
 export function Problem() {
   const { problem } = home;
   return (
-    <Section tone="lavender" labelledBy="problem-title">
+    <Section tone="tint" labelledBy="problem-title">
       <SectionHeader id="problem-title" eyebrow={problem.eyebrow} title={problem.title} />
       <ul className="mt-10 grid gap-4 md:grid-cols-3 md:gap-6">
         {problem.cards.map((card) => (
