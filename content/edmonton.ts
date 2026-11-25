@@ -3,23 +3,25 @@ import type { CityPageContent } from "./city-types";
 // Rules, steps and questions from STROBE_SITE_SEO_BUILD.md section 2.3. Every fact has a source below.
 // Strobe is NOT integrated with LIV and does not upload automatically. Keep the wording that way.
 export const edmonton: CityPageContent = {
-  lastReviewed: "2026-11-09",
+  lastReviewed: "2026-11-24",
   meta: {
     title: "Edmonton LIV fire inspection report submission | Strobe",
     description:
-      "Edmonton requires third-party fire system reports in LIV since Sept 8, 2026. Strobe prepares an upload-ready LIV package from every inspection.",
+      "Since Sept 8, 2026, Edmonton wants unrepaired fire system deficiencies in LIV after 14 days, and urgent defects in 24 hours. Strobe gets the upload ready.",
   },
   eyebrow: "Edmonton",
   title: "Edmonton LIV uploads without the retyping",
   intro:
-    "Since September 8, 2026, the City of Edmonton requires third-party fire system inspection, testing and maintenance reports to go through LIV, the Life Safety Inspection Vault. It's required for non-compliant reports and recommended for all of them.",
+    "Since September 8, 2026, the City of Edmonton takes third-party fire system inspection, testing and maintenance reports through LIV, the Life Safety Inspection Vault. Unrepaired deficiencies are required after 14 days, urgent defects within 24 hours, and every other report is recommended.",
   visualAlt: "Sample LIV upload marked ready to upload, with the report PDF and deficiency list ticked.",
 
   rules: {
     title: "What the City requires",
     items: [
       "Since **September 8, 2026**, third-party fire system inspection, testing and maintenance reports go through **LIV, the Life Safety Inspection Vault**.",
-      "**The City's page says two things.** One section says non-compliant reports are required and recommends uploading all of them. The FAQ says both compliant and non-compliant reports. **Until the City clears that up, upload every report.**",
+      "**Required: unrepaired deficiencies.** If a defect isn't fixed, and the owner hasn't said they'll fix it, **within 14 days of the initial inspection**, upload the report to LIV.",
+      "**Urgent: within 24 hours.** A defect that affects how a system works or what it covers has to be reported right away. It may need emergency repairs or a fire watch.",
+      "**Recommended: every other report.** The City recommends uploading all fire protection system reports.",
       "**Systems covered:** fire alarm, fire pumps, range hood cleaning, emergency lights, standpipes, fire sprinklers and fixed fire suppression. The FAQ also mentions kitchen suppression and generators.",
     ],
   },
@@ -40,10 +42,12 @@ export const edmonton: CityPageContent = {
     title: "Step by step",
     items: [
       { title: "Register your company in LIV", body: "and add your inspectors and techs." },
+      { title: "Urgent defect?", body: "Report it within 24 hours." },
       {
-        title: "After each inspection,",
-        body: "upload the report as a PDF or a digital report, linked to the premises and system type.",
+        title: "Still not fixed, and no plan to fix it, 14 days after the inspection?",
+        body: "Upload the report as a PDF or a digital report, linked to the premises and system type.",
       },
+      { title: "Every other report:", body: "upload it too. The City recommends it." },
       { title: "Log each deficiency", body: "and keep it open until it's fixed." },
       {
         title: "After the repair,",
@@ -92,6 +96,10 @@ export const edmonton: CityPageContent = {
       {
         label: "City of Edmonton: Fire Inspection Report Submission",
         href: "https://www.edmonton.ca/programs_services/fire_rescue/fire-inspection-report-submission",
+      },
+      {
+        label: "Fire Marshal Bulletin: Fire Alarm Reporting and Inspection Form Requirements (revised October 2026)",
+        href: "https://www.edmonton.ca/sites/default/files/public-files/documents/firemarshalbulletin-firealarmreporting-inspection-formrequirements.pdf",
       },
     ],
     notes: [

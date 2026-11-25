@@ -10,7 +10,7 @@ export const s536ChecklistGuide: Guide = {
   meta: {
     title: "CAN/ULC-S536 annual inspection checklist | Strobe",
     description:
-      "What a CAN/ULC-S536 annual fire alarm inspection covers, section by section: control unit, power and batteries, field devices, annunciators, fault tests and the device record.",
+      "What a CAN/ULC-S536 annual fire alarm inspection covers, section by section: control unit, power, field devices, annunciators, fault tests and the record.",
   },
   title: "The CAN/ULC-S536 annual inspection, section by section",
   intro:
@@ -158,13 +158,13 @@ export const s536ChecklistGuide: Guide = {
       blocks: [
         {
           kind: "paragraph",
-          text: "If an owner won't or can't fix a deficiency, Alberta's fire code says to tell the fire department in writing. Some cities add their own deadline or method:",
+          text: "If an owner won't or can't fix a deficiency, Alberta's fire code says to tell the fire department and the owner, in writing, right away. Some cities add their own deadline or method:",
         },
         {
           kind: "list",
           items: [
             "[Calgary](/calgary): 10 business days from the inspection.",
-            "[Edmonton](/edmonton): upload to LIV after 14 days. See [the LIV upload, step by step](/guides/edmonton-liv-upload).",
+            "[Edmonton](/edmonton): unrepaired deficiencies go into LIV 14 days after the initial inspection, and urgent defects within 24 hours. See [the LIV upload, step by step](/guides/edmonton-liv-upload).",
             "[Strathcona County](/strathcona-county) and [Lethbridge](/lethbridge): they want every report, not just deficient ones.",
             "[Medicine Hat](/medicine-hat) and [Grande Prairie](/grande-prairie): 10 days.",
           ],

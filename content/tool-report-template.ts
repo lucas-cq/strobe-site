@@ -9,7 +9,7 @@ export const reportTemplate = {
   meta: {
     title: "Free S536 annual inspection report template (Excel) | Strobe",
     description:
-      "A free, printable Excel template for a CAN/ULC-S536 annual fire alarm inspection: control unit, power and batteries, devices, annunciators, fault tests and deficiencies.",
+      "A free, printable Excel template for a CAN/ULC-S536 annual fire alarm inspection: control unit, power, devices, annunciators, fault tests and deficiencies.",
   },
   title: "Free S536 annual inspection report template",
   breadcrumb: "S536 report template",

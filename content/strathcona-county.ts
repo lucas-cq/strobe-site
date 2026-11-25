@@ -2,7 +2,7 @@ import type { CityPageContent } from "./city-types";
 
 // Facts from STROBE_SITE_SEO_BUILD.md section 2.4. Strobe isn't connected to the portal.
 export const strathconaCounty: CityPageContent = {
-  lastReviewed: "2026-11-09",
+  lastReviewed: "2026-11-24",
   meta: {
     title: "Strathcona County fire inspection report submission | Strobe",
     description:
@@ -24,6 +24,8 @@ export const strathconaCounty: CityPageContent = {
       "**Each technician is registered** on the portal with their credentials.",
       "**If repair approval doesn't come within 14 days** of finding a deficiency, notify the County through the portal.",
       "**Critical deficiencies** get reported right away.",
+      "**Impairments:** report them right away, so the County can discuss a fire watch or other measures with the occupant.",
+      "**Occupant won't repair?** The tech notifies the County in writing, under the National Fire Code, 2023 Alberta Edition.",
       "**Reports need** the standard and its year, the technician's name, signature and certification number, and the deficiencies.",
       "The County **doesn't act on recommendations or comments**, only on deficiencies.",
     ],
@@ -32,10 +34,11 @@ export const strathconaCounty: CityPageContent = {
   steps: {
     title: "Step by step",
     items: [
-      { title: "Inspection day.", body: "Finish the report. Report anything critical right away." },
+      { title: "Inspection day.", body: "Finish the report. Report impairments and anything critical right away." },
       { title: "Within 7 days,", body: "the occupant has the report." },
       { title: "Within 14 days,", body: "the report is uploaded to the portal." },
       { title: "Day 14, no repair approval?", body: "Notify the County through the portal." },
+      { title: "Occupant won't repair?", body: "Notify the County in writing." },
     ],
   },
 
@@ -61,6 +64,9 @@ export const strathconaCounty: CityPageContent = {
         href: "https://www.strathcona.ca/files/files/sces-contractor_portal_introduction_letter1.pdf",
       },
     ],
-    notes: [{ text: "Rules change. Always check with Strathcona County Emergency Services." }],
+    notes: [
+      { text: "Confirmed by email with Strathcona County Emergency Services, November 18, 2026." },
+      { text: "Rules change. Always check with Strathcona County Emergency Services." },
+    ],
   },
 };

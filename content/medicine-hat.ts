@@ -23,7 +23,7 @@ export const medicineHat: CityPageContent = {
       "**No approval to start the repair within 10 days of finding a deficiency?** Notify the Fire Prevention Branch.",
       "**Send it by email** to fireprevention@medicinehat.ca.",
       "**If the owner won't or can't fix it,** tell the fire department and the owner in writing **right away**. You don't wait for day 10.",
-      "The letter is from **December 2018** and quotes the 2014 Alberta Fire Code, which has since been replaced. Confirm the details with the Fire Prevention Branch.",
+      "Medicine Hat Fire Service confirmed by email on November 16, 2026 that this requirement hasn't changed.",
     ],
   },
 
@@ -55,6 +55,7 @@ export const medicineHat: CityPageContent = {
       },
     ],
     notes: [
+      { text: "Medicine Hat Fire Service confirmed by email on November 16, 2026 that this requirement hasn't changed." },
       { text: "Questions:", email: "fireprevention@medicinehat.ca" },
       { text: "Rules change. Always check with Medicine Hat Fire Service." },
     ],

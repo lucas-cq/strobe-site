@@ -1,14 +1,15 @@
 import { SampleLabel } from "./parts";
 
 
-type SystemRow = {
+export type SystemRow = {
   system: string;
   site: string;
   day: number;
   impairment?: boolean;
 };
 
-const rows: SystemRow[] = [
+/** Calgary-style sample rows: quadrant addresses and one impairment. */
+const calgaryRows: SystemRow[] = [
   { system: "Fire Alarm", site: "88 Elm St SE", day: 1, impairment: true },
   { system: "Fire Alarm", site: "1200 Sample Ave SW", day: 9 },
   { system: "Fire Alarm", site: "455 Oak St NE", day: 6 },
@@ -25,6 +26,7 @@ export function CityClock({
   city = "Calgary",
   unit = "business days since inspection",
   limit = 10,
+  rows = calgaryRows,
 }: {
   variant?: "light" | "dark";
   className?: string;
@@ -33,6 +35,8 @@ export function CityClock({
   unit?: string;
   /** The deadline, in the same units. Calgary's is 10 business days from the initial inspection. */
   limit?: number;
+  /** Sample systems. Use addresses that fit the city: not every city has quadrants. */
+  rows?: SystemRow[];
 }) {
   const dark = variant === "dark";
   const LIMIT = limit;

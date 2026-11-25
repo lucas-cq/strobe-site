@@ -9,7 +9,7 @@ export const toolsIndex = {
   meta: {
     title: "Free tools for fire alarm contractors | Strobe",
     description:
-      "Free tools for Canadian fire alarm contractors: a Calgary deadline calculator, an Excel device list template and a printable S536 report template. No signup needed.",
+      "Free tools for Canadian fire alarm contractors: a Calgary deadline calculator, an Excel device list template and a printable S536 report template.",
   },
   title: "Free tools for fire alarm contractors",
   breadcrumb: "Tools",

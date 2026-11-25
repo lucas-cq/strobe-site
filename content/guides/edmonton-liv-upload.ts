@@ -22,7 +22,7 @@ export const livUploadGuide: Guide = {
   meta: {
     title: "How to upload a fire report to Edmonton's LIV (2026) | Strobe",
     description:
-      "Uploading fire system reports to Edmonton's LIV, step by step: the account, what to have ready, the 14-day and 24-hour timelines, and what gets a report turned away.",
+      "Uploading fire system reports to Edmonton's LIV, step by step: the account, what to have ready, the 14-day and 24-hour rules, and what gets turned away.",
   },
   title: "Uploading reports to Edmonton's LIV, step by step",
   intro:

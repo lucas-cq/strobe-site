@@ -11,7 +11,7 @@ export const compareSpreadsheet = {
   meta: {
     title: "Strobe vs a spreadsheet for fire alarm inspections | Strobe",
     description:
-      "The same fire alarm inspection done two ways: a spreadsheet for every building, and Strobe. Device lists, the report, quotes and city deadlines, side by side.",
+      "The same fire alarm inspection done two ways: a spreadsheet per building, and Strobe. Device lists, the report, quotes and city deadlines, side by side.",
   },
   eyebrow: "Compare",
   breadcrumb: "Strobe vs a spreadsheet",
@@ -47,7 +47,7 @@ export const compareSpreadsheet = {
     },
     {
       stage: "The city's deadline",
-      spreadsheet: "A deadline on a sticky note, or in someone's head. Calgary gives you 10 business days from the inspection.",
+      spreadsheet: "A deadline on a sticky note, or in someone's head. In Calgary, a deficiency still open on business day 10 has to be reported.",
       strobe: "The clock starts at the inspection. Strobe counts down for every site and warns you well before it's late.",
     },
     {

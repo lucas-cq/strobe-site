@@ -2,7 +2,7 @@ import type { CityPageContent } from "./city-types";
 
 // Facts from STROBE_SITE_SEO_BUILD.md section 2.5. Strobe drafts the email. A person sends it.
 export const lethbridge: CityPageContent = {
-  lastReviewed: "2026-11-09",
+  lastReviewed: "2026-11-24",
   meta: {
     title: "Lethbridge fire alarm report submission rules | Strobe",
     description:
@@ -18,7 +18,8 @@ export const lethbridge: CityPageContent = {
     eyebrow: "What Lethbridge expects",
     title: "The rule, in plain English",
     items: [
-      "**Every testing company must be on the City's contractor registry.** Contact fireprevention@lethbridge.ca.",
+      "**Every testing company must be on the City's contractor registry,** and it **renews every year**. Contact fireprevention@lethbridge.ca.",
+      "**The City's letter to testing companies comes out in November** and covers the following year.",
       "**The customer gets the report within 15 business days** of the inspection.",
       "**Clean reports,** with no deficiencies, go to the Fire Prevention Bureau **within 30 days**.",
       "**Deficient reports:** if the owner hasn't fixed it or arranged a repair **within 10 business days of getting the report**, send the report to **deficientreports@lethbridge.ca**.",
@@ -29,7 +30,7 @@ export const lethbridge: CityPageContent = {
   steps: {
     title: "Step by step",
     items: [
-      { title: "Get on the registry", body: "before you test in Lethbridge." },
+      { title: "Get on the registry", body: "before you test in Lethbridge, and renew it every year." },
       { title: "Inspection day.", body: "Finish the report." },
       { title: "Within 15 business days,", body: "the customer has it." },
       { title: "Clean report?", body: "Send it to the Fire Prevention Bureau within 30 days." },
