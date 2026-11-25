@@ -99,4 +99,6 @@ export const edmonton: CityPageContent = {
       { text: "Rules change. Always check with the City of Edmonton." },
     ],
   },
+
+  relatedGuides: [{ label: "LIV upload, step by step", href: "/guides/edmonton-liv-upload" }],
 };

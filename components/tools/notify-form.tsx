@@ -12,7 +12,8 @@ import { buttonClasses } from "../ui";
 const turnstileSiteKey = process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY;
 const { notify } = deviceTemplate;
 
-export function NotifyForm() {
+/** `source` is saved on the lead. The server only accepts the tool pages' own values. */
+export function NotifyForm({ source = deviceTemplate.leadSource }: { source?: string }) {
   const [state, formAction, pending] = useActionState(submitNotifyMe, initialNotifyState);
 
   if (state.status === "success") {
@@ -47,6 +48,8 @@ export function NotifyForm() {
         <input type="checkbox" name="consent" defaultChecked={error?.consent ?? false} className="mt-0.5 size-[18px] shrink-0 accent-brand" />
         <span className="text-[15px] text-ink-2">{earlyAccessForm.fields.consent.label}</span>
       </label>
+
+      <input type="hidden" name="source" value={source} />
 
       {/* Honeypot: hidden from people and screen readers, irresistible to bots. */}
       <div aria-hidden="true" className="absolute -left-[9999px] size-px overflow-hidden">

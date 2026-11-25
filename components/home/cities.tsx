@@ -1,5 +1,5 @@
 import { home } from "@/content/home";
-import { Section, SectionHeader } from "../section";
+import { ArrowLink, Section, SectionHeader } from "../section";
 import { CitySelector } from "./city-selector";
 
 /** "Every city files differently": the interactive city selector (STROBE_SITE_CANADA.md section 7). */
@@ -9,6 +9,9 @@ export function Cities() {
     <Section id="cities" labelledBy="cities-title">
       <SectionHeader id="cities-title" eyebrow={cities.eyebrow} title={cities.title} lede={cities.lede} />
       <CitySelector />
+      <p className="reveal mt-8">
+        <ArrowLink href={cities.guideLink.href}>{cities.guideLink.label}</ArrowLink>
+      </p>
     </Section>
   );
 }

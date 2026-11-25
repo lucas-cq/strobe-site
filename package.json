@@ -8,7 +8,7 @@
     "start": "next start",
     "lint": "eslint",
     "test": "tsx --test lib/*.test.ts",
-    "template:generate": "tsx scripts/generate-device-template.ts",
+    "template:generate": "tsx scripts/generate-device-template.ts && tsx scripts/generate-report-template.ts",
     "db:generate": "drizzle-kit generate",
     "db:migrate": "drizzle-kit migrate",
     "db:studio": "drizzle-kit studio",

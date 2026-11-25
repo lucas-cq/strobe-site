@@ -1,11 +1,17 @@
 import type { MetadataRoute } from "next";
 import { about } from "@/content/about";
 import { calgary } from "@/content/calgary";
+import { compareSpreadsheet } from "@/content/compare-spreadsheet";
 import { edmonton } from "@/content/edmonton";
+import { fortMcMurray } from "@/content/fort-mcmurray";
+import { grandePrairie } from "@/content/grande-prairie";
+import { livUploadGuide } from "@/content/guides/edmonton-liv-upload";
+import { s536ChecklistGuide } from "@/content/guides/s536-annual-inspection-checklist";
 import { reportRulesGuide } from "@/content/guide-report-rules";
 import { guidesHub } from "@/content/guides-hub";
 import { home } from "@/content/home";
 import { lethbridge } from "@/content/lethbridge";
+import { medicineHat } from "@/content/medicine-hat";
 import { pricing } from "@/content/pricing";
 import { privacy } from "@/content/privacy";
 import { reportRulesGuidePath, site } from "@/content/site";
@@ -13,6 +19,7 @@ import { strathconaCounty } from "@/content/strathcona-county";
 import { terms } from "@/content/terms";
 import { deadlineTool } from "@/content/tool-deadline";
 import { deviceTemplate } from "@/content/tool-device-template";
+import { reportTemplate } from "@/content/tool-report-template";
 import { toolsIndex } from "@/content/tools";
 import { yourData } from "@/content/your-data";
 
@@ -24,12 +31,19 @@ const routes: { path: string; priority: number; lastReviewed: string }[] = [
   { path: "/edmonton", priority: 0.9, lastReviewed: edmonton.lastReviewed },
   { path: "/strathcona-county", priority: 0.9, lastReviewed: strathconaCounty.lastReviewed },
   { path: "/lethbridge", priority: 0.9, lastReviewed: lethbridge.lastReviewed },
+  { path: "/medicine-hat", priority: 0.8, lastReviewed: medicineHat.lastReviewed },
+  { path: "/grande-prairie", priority: 0.8, lastReviewed: grandePrairie.lastReviewed },
+  { path: "/fort-mcmurray", priority: 0.8, lastReviewed: fortMcMurray.lastReviewed },
   { path: "/pricing", priority: 0.8, lastReviewed: pricing.lastReviewed },
   { path: guidesHub.path, priority: 0.7, lastReviewed: guidesHub.lastReviewed },
   { path: reportRulesGuidePath, priority: 0.8, lastReviewed: reportRulesGuide.lastReviewed },
+  { path: `/guides/${s536ChecklistGuide.slug}`, priority: 0.8, lastReviewed: s536ChecklistGuide.lastReviewed },
+  { path: `/guides/${livUploadGuide.slug}`, priority: 0.8, lastReviewed: livUploadGuide.lastReviewed },
   { path: toolsIndex.path, priority: 0.6, lastReviewed: toolsIndex.lastReviewed },
   { path: deadlineTool.path, priority: 0.8, lastReviewed: deadlineTool.lastReviewed },
   { path: deviceTemplate.path, priority: 0.7, lastReviewed: deviceTemplate.lastReviewed },
+  { path: reportTemplate.path, priority: 0.7, lastReviewed: reportTemplate.lastReviewed },
+  { path: compareSpreadsheet.path, priority: 0.7, lastReviewed: compareSpreadsheet.lastReviewed },
   { path: "/about", priority: 0.5, lastReviewed: about.lastReviewed },
   { path: "/your-data", priority: 0.4, lastReviewed: yourData.lastReviewed },
   { path: "/privacy", priority: 0.2, lastReviewed: privacy.lastReviewed },

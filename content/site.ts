@@ -58,6 +58,8 @@ export type SiteContent = {
     title: string;
     guide: string;
     pricing: string;
+    /** The S536 checklist guide, linked from every city page. */
+    checklist: NavLink;
   };
 };
 
@@ -69,6 +71,9 @@ export const cityLinks: NavLink[] = [
   { label: "Edmonton", href: "/edmonton" },
   { label: "Strathcona County", href: "/strathcona-county" },
   { label: "Lethbridge", href: "/lethbridge" },
+  { label: "Medicine Hat", href: "/medicine-hat" },
+  { label: "Grande Prairie", href: "/grande-prairie" },
+  { label: "Fort McMurray", href: "/fort-mcmurray" },
 ];
 
 export const site: SiteContent = {
@@ -76,7 +81,7 @@ export const site: SiteContent = {
   // TODO Lucas: confirm, and update once Strobe is incorporated.
   legalEntityName: "Lucas Cummings, operating as Strobe",
   url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://strobehq.com",
-  defaultTitle: "Strobe | Fire alarm inspection software for Canadian shops",
+  defaultTitle: "Fire alarm inspection software for Canada | Strobe",
   defaultDescription:
     "Fire alarm inspection software for Canadian shops. Run the panel from your phone, even offline. S536 reports, same-day quotes, each city's rules built in.",
   email: "hello@strobehq.com",
@@ -103,6 +108,7 @@ export const site: SiteContent = {
     { label: "About", href: "/about" },
     { label: "51-city report rules", href: reportRulesGuidePath },
     { label: "Tools", href: "/tools" },
+    { label: "Strobe vs a spreadsheet", href: "/compare/spreadsheet" },
   ],
   legalLinks: [
     { label: "Privacy", href: "/privacy" },
@@ -129,10 +135,23 @@ export const site: SiteContent = {
     title: "Other cities",
     guide: "Rules in 51 cities",
     pricing: "See pricing",
+    checklist: { label: "S536 annual inspection checklist", href: "/guides/s536-annual-inspection-checklist" },
   },
 };
 
 /** Routes that embed the early-access form, so the CTA can scroll instead of navigate. */
-export const formRoutes = ["/", "/calgary", "/edmonton", "/strathcona-county", "/lethbridge", "/pricing", "/early-access"];
+export const formRoutes = [
+  "/",
+  "/calgary",
+  "/edmonton",
+  "/strathcona-county",
+  "/lethbridge",
+  "/medicine-hat",
+  "/grande-prairie",
+  "/fort-mcmurray",
+  "/compare/spreadsheet",
+  "/pricing",
+  "/early-access",
+];
 
 export const formAnchor = "early-access";

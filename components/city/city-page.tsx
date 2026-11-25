@@ -56,6 +56,11 @@ export function CityPage({ content, path, visual }: { content: CityPageContent; 
         />
         <Container className="relative grid items-center gap-12 pt-12 pb-16 md:pt-20 md:pb-20 lg:grid-cols-[1.1fr_1fr] lg:gap-14">
           <div className="min-w-0">
+            {content.notice && (
+              <p className="mb-6 max-w-xl rounded-card border border-brand-100 bg-brand-50 px-4 py-3 font-medium text-ink">
+                {content.notice}
+              </p>
+            )}
             <Eyebrow>{content.eyebrow}</Eyebrow>
             <h1 id="city-title" className="mt-4 text-[2.25rem] leading-[1.08] text-ink sm:text-5xl lg:text-[3.5rem]">
               {content.title}
@@ -199,6 +204,11 @@ export function CityPage({ content, path, visual }: { content: CityPageContent; 
             <li>
               <ArrowLink href={reportRulesGuidePath}>{site.otherCities.guide}</ArrowLink>
             </li>
+            {[...(content.relatedGuides ?? []), site.otherCities.checklist].map((guide) => (
+              <li key={guide.href}>
+                <ArrowLink href={guide.href}>{guide.label}</ArrowLink>
+              </li>
+            ))}
             <li>
               <ArrowLink href="/pricing">{site.otherCities.pricing}</ArrowLink>
             </li>

@@ -1,13 +1,15 @@
 // Home page copy, from SITE_V2.md section 3 and STROBE_SITE_CANADA.md. Keep it plain: short sentences.
+import { reportRulesGuidePath } from "./site";
+
 export const home = {
   /** The sitemap's lastmod for this page. Update it when the facts or copy change. */
-  lastReviewed: "2026-11-10",
+  lastReviewed: "2026-11-24",
 
   hero: {
     /** Follows the Canadian flag in the eyebrow chip. */
     eyebrow: "Made in Canada · CAN/ULC-S536",
     title: "Inspect it. Quote it. File it. Same day.",
-    sub: "Fire alarm inspection software for Canadian shops. Run the panel from your phone, even with no signal. Strobe builds the S536 report, sends it to the building, quotes what's left to fix, and knows each city's rules for when the fire department needs it.",
+    sub: "Fire alarm inspection software that builds your CAN/ULC-S536 reports, made for Canadian shops. Run the panel from your phone, even with no signal. Strobe sends the report to the building, quotes what's left to fix, and knows each city's rules for when the fire department needs it.",
     secondaryCta: "See how it works",
     visualAlt:
       "Sample screens: a tech's phone showing a fire alarm device list with one failed smoke detector and its deficiency note, next to the repair quote the building owner receives.",
@@ -119,6 +121,8 @@ export const home = {
       lethbridge: "Lethbridge details",
       elsewhere: "Request my city",
     } as Partial<Record<string, string>>,
+    /** Under the city selector. The guide was only linked from the footer before. */
+    guideLink: { label: "Report rules in 51 Canadian cities", href: reportRulesGuidePath },
     footnote:
       "Demo only: the app uses the full site address. Rules checked November 2026, so always confirm with your fire department. More cities are added as shops ask for them.",
   },
@@ -133,7 +137,7 @@ export const home = {
       button: "Get early access",
     },
     cards: [
-      { title: "Office users free", body: "Pay per panel tech. Walkers never need a login, and the office doesn't cost extra." },
+      { title: "Office logins included", body: "Pay per panel tech. Solo includes one office login, and Crew and Shop include unlimited office users. Walkers never need a login." },
       { title: "Any panel", body: "Notifier, Mircom, Edwards, Simplex. If you inspect it, you can report on it in Strobe." },
       { title: "Stored in Canada", body: "Your customers' inspection data stays in Canada, on Google Cloud in Toronto." },
       { title: "Works across Canada", body: "Reports, quotes and owner approvals work anywhere. City rules are mapped for Calgary, Edmonton, Strathcona County and Lethbridge, with more added as shops ask." },

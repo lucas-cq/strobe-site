@@ -17,6 +17,11 @@ export type CityPageContent = {
     description: string;
   };
   eyebrow: string;
+  /**
+   * Shown at the top of the page, above the title. For a city whose filing Strobe doesn't handle yet:
+   * "Strobe tracks the deadline. Filing for this city is done by you."
+   */
+  notice?: string;
   title: string;
   intro: string;
   /** Read by screen readers in place of the decorative mockup. */
@@ -49,4 +54,6 @@ export type CityPageContent = {
     links: NavLink[];
     notes: { text: string; email?: string }[];
   };
+  /** Guides for this city, listed before the S536 checklist that every city page links to. */
+  relatedGuides?: NavLink[];
 };

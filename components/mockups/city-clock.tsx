@@ -1,7 +1,5 @@
 import { SampleLabel } from "./parts";
 
-const LIMIT = 10; // Calgary: business days from the initial inspection
-const WARN_FROM = 8;
 
 type SystemRow = {
   system: string;
@@ -18,16 +16,28 @@ const rows: SystemRow[] = [
 
 type Urgency = "ok" | "warn" | "now";
 
-function urgencyOf(row: SystemRow): Urgency {
-  if (row.impairment) return "now";
-  return row.day >= WARN_FROM ? "warn" : "ok";
-}
-
 const rank: Record<Urgency, number> = { ok: 0, warn: 1, now: 2 };
 
 /** Business-day countdown per system. Decorative: pair it with a text alternative. */
-export function CityClock({ variant = "light", className = "" }: { variant?: "light" | "dark"; className?: string }) {
+export function CityClock({
+  variant = "light",
+  className = "",
+  city = "Calgary",
+  unit = "business days since inspection",
+  limit = 10,
+}: {
+  variant?: "light" | "dark";
+  className?: string;
+  city?: string;
+  /** What's being counted, after the city name. */
+  unit?: string;
+  /** The deadline, in the same units. Calgary's is 10 business days from the initial inspection. */
+  limit?: number;
+}) {
   const dark = variant === "dark";
+  const LIMIT = limit;
+  const WARN_FROM = Math.max(1, limit - 2);
+  const urgencyOf = (row: SystemRow): Urgency => (row.impairment ? "now" : row.day >= WARN_FROM ? "warn" : "ok");
   const mostUrgent = rows.map(urgencyOf).reduce((a, b) => (rank[b] > rank[a] ? b : a), "ok" as Urgency);
 
   const t = dark
@@ -61,7 +71,9 @@ export function CityClock({ variant = "light", className = "" }: { variant?: "li
       <div className={`flex items-center justify-between gap-3 border-b px-4 py-3 ${t.divide}`}>
         <div>
           <p className="font-display text-[15px] font-semibold tracking-[-0.01em]">City clock</p>
-          <p className={`text-[11px] ${t.sub}`}>Calgary · business days since inspection</p>
+          <p className={`text-[11px] ${t.sub}`}>
+            {city} · {unit}
+          </p>
         </div>
         <SampleLabel dark={dark} className="text-[10px]" />
       </div>
