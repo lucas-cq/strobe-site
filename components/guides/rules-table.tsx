@@ -25,18 +25,22 @@ const searchable = (r: ReportRule) =>
 function SourceCell({ row }: { row: ReportRule }) {
   return (
     <td role="cell" className={cellClasses}>
-      {row.sourceUrl && (
-        <a
-          href={row.sourceUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="font-medium whitespace-nowrap text-brand underline underline-offset-4 hover:text-deep"
-        >
-          {table.sourceLink}
-          <span className="sr-only"> for {row.city} (opens in a new tab)</span>
-          <span aria-hidden="true"> ↗</span>
-        </a>
-      )}
+      {row.sourceUrls.map((url, i) => {
+        const label = i === 0 ? table.sourceLink : `${table.sourceLink} ${i + 1}`;
+        return (
+          <a
+            key={url}
+            href={url}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="block font-medium whitespace-nowrap text-brand underline underline-offset-4 hover:text-deep"
+          >
+            {label}
+            <span className="sr-only"> for {row.city} (opens in a new tab)</span>
+            <span aria-hidden="true"> ↗</span>
+          </a>
+        );
+      })}
     </td>
   );
 }

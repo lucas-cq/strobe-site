@@ -9,7 +9,8 @@ export type ReportRule = {
   method: string;
   deadline: string;
   photos: string;
-  sourceUrl: string;
+  /** The source_url column may hold several URLs, separated by spaces. */
+  sourceUrls: string[];
   notes: string;
   /** We searched and found nothing public for this city. */
   noRuleFound: boolean;
@@ -61,7 +62,7 @@ export function loadReportRules(): ReportRule[] {
         method,
         deadline,
         photos,
-        sourceUrl,
+        sourceUrls: sourceUrl.split(/\s+/).filter(Boolean),
         notes,
         noRuleFound: contractorSubmits === NO_RULE,
       };
