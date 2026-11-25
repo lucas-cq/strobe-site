@@ -12,7 +12,7 @@ const fontFile = (name: string) => readFileSync(path.join(process.cwd(), "fonts"
 const semibold = fontFile("IBMPlexSans-SemiBold.ttf");
 const medium = fontFile("IBMPlexSans-Medium.ttf");
 const lockupSrc = `data:image/svg+xml;base64,${readFileSync(
-  path.join(process.cwd(), "public", "brand", "strobe-lockup-transparent-ink.svg"),
+  path.join(process.cwd(), "public", "brand", "strobe-lockup-transparent-ink-v2.svg"),
 ).toString("base64")}`;
 
 /**

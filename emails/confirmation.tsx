@@ -21,7 +21,7 @@ export function ConfirmationEmail({ firstName, bookingUrl, siteUrl }: Confirmati
       <Preview>{copy.preview}</Preview>
       <Body style={{ backgroundColor: "#ffffff", fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif", margin: 0 }}>
         <Container style={{ maxWidth: "520px", padding: "32px 20px" }}>
-          <Img src={`${siteUrl}/brand/png/icon-192.png`} width="32" height="32" alt="Strobe" style={{ marginBottom: "24px" }} />
+          <Img src={`${siteUrl}/brand/png/icon-192-v2.png`} width="32" height="32" alt="Strobe" style={{ marginBottom: "24px" }} />
           <Text style={text}>{copy.greeting(firstName)}</Text>
           <Text style={text}>
             {copy.body}{" "}

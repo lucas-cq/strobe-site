@@ -11,8 +11,8 @@ export const LOCKUP_CANVAS = { width: 1180, height: 512 };
 export const LOCKUP_CROP = { x: 48, y: 135, width: 1030, height: 231 };
 
 const sources = {
-  ink: "/brand/strobe-lockup-transparent-ink.svg",
-  white: "/brand/strobe-lockup-transparent-white.svg",
+  ink: "/brand/strobe-lockup-transparent-ink-v2.svg",
+  white: "/brand/strobe-lockup-transparent-white-v2.svg",
 } as const;
 
 type LockupProps = {

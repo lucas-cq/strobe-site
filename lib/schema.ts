@@ -11,7 +11,7 @@ export const organizationSchema = {
   "@id": orgId,
   name: site.name,
   url: home,
-  logo: new URL("/brand/png/icon-512.png", site.url).toString(),
+  logo: new URL("/brand/png/icon-512-v2.png", site.url).toString(),
   email: site.email,
   foundingLocation: { "@type": "Place", name: "Calgary, Alberta, Canada" },
   areaServed: { "@type": "Country", name: "Canada" },

@@ -26,7 +26,7 @@ export function BackgroundMark({
   return (
     // eslint-disable-next-line @next/next/no-img-element -- brand SVG, referenced by path
     <img
-      src={onDark ? "/brand/strobe-mark-on-dark.svg" : "/brand/strobe-mark.svg"}
+      src={onDark ? "/brand/strobe-mark-on-dark-v2.svg" : "/brand/strobe-mark-v2.svg"}
       alt=""
       aria-hidden="true"
       width={512}

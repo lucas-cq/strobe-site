@@ -16,7 +16,7 @@ export default function NotFound() {
       <Container className="relative py-24 md:py-32">
         <div className="mx-auto max-w-xl text-center">
           {/* eslint-disable-next-line @next/next/no-img-element -- brand SVG, referenced by path */}
-          <img src="/brand/strobe-mark.svg" alt="" width={64} height={64} className="mx-auto size-16" />
+          <img src="/brand/strobe-mark-v2.svg" alt="" width={64} height={64} className="mx-auto size-16" />
           <p className="tabular mt-8 font-display text-sm font-semibold text-brand">404</p>
           <h1 className="mt-3 text-4xl text-ink md:text-5xl">{site.notFound.title}</h1>
           <p className="mt-4 text-lg text-ink-2">{site.notFound.body}</p>
