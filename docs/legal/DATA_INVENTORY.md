@@ -80,9 +80,13 @@ Not used, so not in the policy: Google Analytics, ad pixels, PowerSync Cloud, an
 
 The policy says: "We track whether our emails, and the report and quote emails our customers send through Strobe, are opened and whether links in them are clicked." Tracking is a per-domain setting in Resend, not in the code, so open and click tracking must be on for mail.strobehq.com and app.strobehq.com for that sentence to be accurate.
 
-## 6. Still to do outside the code
+## 6. Open items
 
-- **Product-update emails:** the site has no sender for these. Whatever tool sends them (Resend Broadcasts, for example) needs an unsubscribe link, Strobe Labs Inc.'s name and the mailing address in every email, and unsubscribes honoured within 10 business days.
+1. **Resend open and click tracking:** turn both on for mail.strobehq.com and app.strobehq.com, so the email engagement sentence in `/privacy` is accurate (section 5).
+2. **Product-update emails:** none are sent today. Before the first one goes out, whatever tool sends it (Resend Broadcasts, for example) needs an unsubscribe link, Strobe Labs Inc.'s name and the mailing address in every email, and unsubscribes honoured within 10 business days. `/privacy` section 6 already promises this.
+
+## 7. Decided
+
 - **Mailing address:** decided: Strobe Labs Inc., 514-1528 16 Ave NW, Calgary, AB T2M 5A3. Set in `site.mailingAddress` (`content/site.ts`) and shown in email footers, the About contact section, Terms and Privacy.
 - **Quebec:** decided: Strobe is not offered to businesses based in Quebec at this time (Terms section 23). No Law 25 or French versions for now.
 - **Privacy Officer:** Lucas Cummings, privacy@strobehq.com.
