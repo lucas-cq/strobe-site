@@ -99,7 +99,7 @@ export const terms: LegalDocument = {
           list: [
             "**You own your data.** You give us a limited right to host, process, copy and display it, only to provide Strobe to you.",
             "**Export any time,** as CSV and PDF, on every plan, and for 90 days after your account goes read-only. See [Your data](/your-data).",
-            "**Deletion:** 90 days after an account goes read-only, we delete its data. We email a final warning 14 days before. Deleted data and files are removed from backups and recovery storage within 7 days. We keep invoices and payment records as tax law requires.",
+            "**Deletion:** 90 days after an account goes read-only, we delete its data. We email a final warning 14 days before. Deleted data is removed from backups within 14 days. We keep invoices and payment records as tax law requires.",
             "We may use aggregate, de-identified information to improve Strobe. It never identifies you, your clients or a building.",
           ],
         },

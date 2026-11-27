@@ -56,7 +56,7 @@ Not used, so not in the policy: Google Analytics, ad pixels, PowerSync Cloud, an
 | Feedback | App users | In-app feedback | Improving the product | Cloud SQL, Toronto (`feedback`) | As above | None |
 | Rate-limit records | Anyone using the API | The request | Abuse prevention | Cloud SQL, Toronto (`rate_limits`) | 30 days (spam records) | None |
 | Request logs: IP, user agent, path, time | Anyone using the app or API | Load balancer and Cloud Run | Security and debugging | Cloud Logging, Toronto | Up to 30 days (Cloud Logging's `_Default` bucket) | None |
-| Error reports (scrubbed) | App users | Crashes and errors | Fixing bugs | Sentry, United States | Up to 30 days (logs) | None |
+| Error reports (scrubbed) | App users | Crashes and errors | Fixing bugs | Sentry, United States | Up to 90 days (Sentry Team plan) | None |
 | Support emails | Anyone who writes in | Email | Support | Our support inbox | While the account is active, plus 2 years | None |
 
 ## 4. Retention (approved)
@@ -64,17 +64,17 @@ Not used, so not in the policy: Google Analytics, ad pixels, PowerSync Cloud, an
 | Data | Kept |
 | --- | --- |
 | Account and customer data | While the account is active. Deleted 90 days after the account goes read-only, with a final warning email 14 days before. |
-| Backups and deleted files | Removed from backups and recovery storage within 7 days of deletion: Google Cloud Storage soft delete (7 days), Cloud SQL automated backups and point-in-time recovery (7 days) and Neon history. |
-| Logs | Up to 30 days |
+| Backups | Deleted data is removed from backups within 14 days. Cloud SQL keeps 14 daily backups plus 7 days of point-in-time recovery. Google Cloud Storage soft delete keeps deleted files 7 days. Neon is on the Free plan, whose history window is at most 6 hours. |
+| Logs | Up to 30 days (Google Cloud Logging) |
+| Error reports | Kept up to 90 days (Sentry Team plan) |
 | Invoices and payment records | 6 years (CRA) |
 | Early access submissions | 24 months |
 | Spam records | 30 days |
 | Support email | While the account is active, plus 2 years |
 
 - **Deletion:** day 76 of read-only, a final warning email. Day 90, the company is marked, and the daily job deletes it (`apps/api/src/jobs/billing.ts`, `ops/deletion-schedule.sh`).
-- **Cloud SQL backups must match:** `infra/gcloud/setup/4-database.sh` in the app repo still sets `--retained-backups-count 14`. For the 7-day promise, the instance needs `--retained-backups-count 7` (and the script updated in the billing PR).
-- **Neon history** must be 7 days or less (Neon project settings, history retention).
-- **Sentry** data retention must be 30 days or less to fit "Logs: up to 30 days".
+- **The policy follows the config, not the other way round.** Nothing in Google Cloud, Neon or Sentry was changed for it. Cloud SQL backups come from `infra/gcloud/setup/4-database.sh` (`--retained-backups-count 14`, `--retained-transaction-log-days 7`).
+- **If a setting changes, change the policy:** a longer Cloud SQL backup count or a paid Neon plan with a history window over 14 days (Launch allows up to 7 days, Scale up to 30) needs a new backup line. A Sentry plan change needs a new error report line.
 
 ## 5. Email engagement
 
