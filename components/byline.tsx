@@ -16,7 +16,7 @@ export function Byline({
   return (
     <div className={`text-[15px] text-muted ${className}`}>
       <p>
-        Written by {site.author.name} · {dateLabel} {formatDate(lastReviewed)}
+        Written by {site.founder.name} · {dateLabel} {formatDate(lastReviewed)}
       </p>
       {reviewer && (
         <p className="mt-0.5">

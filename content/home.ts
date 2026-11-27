@@ -142,14 +142,14 @@ export const home = {
     ],
   },
 
-  note: {
-    eyebrow: "A note from Lucas",
+  founder: {
+    eyebrow: "From the founder",
     body: "I'm Lucas, a software engineer in Calgary. I'm building Strobe with local fire alarm techs. Most shops I talk to still run inspections through Word templates and spreadsheets. If that's you, give me 20 minutes. I'll show you what we've built, and you tell me what's missing.",
     name: "Lucas Cummings",
-    role: "Strobe, Calgary",
-    /** Shown when public/lucas-cummings.jpg is missing. */
+    role: "Founder, Strobe",
+    /** Shown when public/founder.jpg is missing. */
     initials: "LC",
-    photoAlt: "Lucas Cummings",
+    photoAlt: "Lucas Cummings, founder of Strobe",
     linkedinLabel: "LinkedIn",
     /** Goes to the early access form. */
     talkLabel: "Talk to Lucas",

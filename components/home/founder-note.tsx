@@ -1,12 +1,12 @@
 import { home } from "@/content/home";
 import { formAnchor, site } from "@/content/site";
-import { AuthorAvatar } from "../author-avatar";
+import { FounderAvatar } from "../founder-avatar";
 import { Section } from "../section";
 
-export function PersonalNote() {
-  const { note } = home;
+export function FounderNote() {
+  const { founder } = home;
   return (
-    <Section labelledBy="note-title">
+    <Section labelledBy="founder-title">
       <figure className="reveal relative mx-auto max-w-3xl">
         {/* Big decorative quotation mark behind the text */}
         <span
@@ -16,28 +16,28 @@ export function PersonalNote() {
           &ldquo;
         </span>
         <div className="relative">
-          <h2 id="note-title" className="font-sans text-sm font-medium tracking-wide text-brand">
-            {note.eyebrow}
+          <h2 id="founder-title" className="font-sans text-sm font-medium tracking-wide text-brand">
+            {founder.eyebrow}
           </h2>
           {/* Body font at a smaller size on phones, so the note isn't a heavy block of text */}
           <blockquote className="mt-4 font-sans text-lg leading-relaxed text-ink md:font-display md:text-2xl md:tracking-[-0.01em]">
-            <p>&ldquo;{note.body}&rdquo;</p>
+            <p>&ldquo;{founder.body}&rdquo;</p>
           </blockquote>
           <figcaption className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-4">
             <span className="flex items-center gap-3">
-              <AuthorAvatar />
+              <FounderAvatar />
               <span className="flex flex-col leading-tight">
-                <span className="font-semibold text-ink">{note.name}</span>
-                <span className="text-sm text-muted">{note.role}</span>
+                <span className="font-semibold text-ink">{founder.name}</span>
+                <span className="text-sm text-muted">{founder.role}</span>
               </span>
-              {site.author.linkedin && (
+              {site.founder.linkedin && (
                 <a
-                  href={site.author.linkedin}
+                  href={site.founder.linkedin}
                   target="_blank"
                   rel="me noopener noreferrer"
                   className="text-sm font-medium text-ink-2 underline underline-offset-4 hover:text-ink"
                 >
-                  {note.linkedinLabel}
+                  {founder.linkedinLabel}
                   <span className="sr-only"> (opens in a new tab)</span>
                 </a>
               )}
@@ -46,7 +46,7 @@ export function PersonalNote() {
               href={`#${formAnchor}`}
               className="group inline-flex items-center gap-1.5 font-medium text-brand underline-offset-4 hover:underline"
             >
-              {note.talkLabel}
+              {founder.talkLabel}
               <span aria-hidden="true" className="transition-transform duration-200 group-hover:translate-x-[3px]">
                 →
               </span>

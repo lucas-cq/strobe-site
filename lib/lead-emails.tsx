@@ -68,7 +68,7 @@ export async function sendLeadEmails(
       resend.emails.send({
         from: EMAIL_FROM,
         to: lead.email,
-        replyTo: site.replyToEmail,
+        replyTo: site.founderEmail,
         subject: emails.confirmation.subject(meta.firstName),
         html: await render(<ConfirmationEmail {...confirmationProps} />),
         text: confirmationText(confirmationProps),

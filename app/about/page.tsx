@@ -1,5 +1,5 @@
-import { AuthorAvatar } from "@/components/author-avatar";
 import { GridPattern } from "@/components/effects";
+import { FounderAvatar } from "@/components/founder-avatar";
 import { JsonLd } from "@/components/json-ld";
 import { linkify } from "@/components/linkify";
 import { Section, SectionHeader } from "@/components/section";
@@ -16,10 +16,11 @@ export const metadata = pageMetadata({ ...about.meta, path });
 const person = {
   "@context": "https://schema.org",
   "@type": "Person",
-  name: site.author.name,
+  name: site.founder.name,
+  jobTitle: "Founder",
   url: new URL(path, site.url).toString(),
   worksFor: { "@id": orgId },
-  ...(site.author.linkedin ? { sameAs: [site.author.linkedin] } : {}),
+  ...(site.founder.linkedin ? { sameAs: [site.founder.linkedin] } : {}),
 };
 
 export default function AboutPage() {
@@ -65,12 +66,12 @@ export default function AboutPage() {
         <p className="reveal mt-6 max-w-3xl text-lg text-ink-2">{linkify(contact.body)}</p>
         <p className="reveal mt-2 max-w-3xl text-ink-2">{contact.mail}</p>
         <div className="reveal mt-8 flex w-fit items-center gap-4 rounded-card-lg bg-white p-5 shadow-soft">
-          <AuthorAvatar />
+          <FounderAvatar />
           <div>
-            <p className="font-semibold text-ink">{contact.signature}</p>
-            {site.author.linkedin && (
+            <p className="font-semibold text-ink">{contact.founderLine}</p>
+            {site.founder.linkedin && (
               <a
-                href={site.author.linkedin}
+                href={site.founder.linkedin}
                 target="_blank"
                 rel="me noopener noreferrer"
                 className="text-sm font-medium text-ink-2 underline underline-offset-4 hover:text-ink"

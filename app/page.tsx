@@ -3,7 +3,7 @@ import { Cities } from "@/components/home/cities";
 import { CityDeadline } from "@/components/home/city-deadline";
 import { EarlyAccessBento } from "@/components/home/early-access-bento";
 import { Faq } from "@/components/home/faq";
-import { PersonalNote } from "@/components/home/personal-note";
+import { FounderNote } from "@/components/home/founder-note";
 import { Hero } from "@/components/home/hero";
 import { HowItWorks } from "@/components/home/how-it-works";
 import { Problem } from "@/components/home/problem";
@@ -75,7 +75,7 @@ export default function HomePage() {
       <Switching />
       <CityDeadline />
       <EarlyAccessBento />
-      <PersonalNote />
+      <FounderNote />
       <Faq />
       <EarlyAccessSection />
     </>

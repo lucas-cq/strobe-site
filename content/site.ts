@@ -28,13 +28,12 @@ export type SiteContent = {
   defaultTitle: string;
   defaultDescription: string;
   email: string;
-  replyToEmail: string;
+  founderEmail: string;
   privacyEmail: string;
   /** Footer line, after the flag. `lead` is bold. */
   location: { lead: string; rest: string };
   nonAffiliation: string;
-  /** Bylines, the About page and Article schema. */
-  author: {
+  founder: {
     name: string;
     /** LinkedIn profile URL. The link stays hidden while this is empty. */
     linkedin: string;
@@ -99,12 +98,12 @@ export const site: SiteContent = {
   defaultDescription:
     "Fire alarm inspection software for Canadian shops. Run the panel from your phone, even offline. S536 reports, same-day quotes, each city's rules built in.",
   email: "hello@strobehq.com",
-  replyToEmail: "lucas@strobehq.com",
+  founderEmail: "lucas@strobehq.com",
   privacyEmail: "privacy@strobehq.com",
   location: { lead: "Built in Alberta, for Alberta.", rest: "Ready for shops across Canada." },
   nonAffiliation:
     "Strobe is independent software and is not affiliated with any city, county or fire department, including the City of Calgary, the City of Edmonton, Strathcona County and the City of Lethbridge.",
-  author: {
+  founder: {
     name: "Lucas Cummings",
     linkedin: "https://www.linkedin.com/in/lucas-cummings/",
   },
