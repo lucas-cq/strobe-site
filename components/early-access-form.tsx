@@ -1,6 +1,5 @@
 "use client";
 
-import dynamic from "next/dynamic";
 import Link from "next/link";
 import { type ReactNode, useActionState, useEffect, useRef, useState } from "react";
 import { submitEarlyAccess } from "@/app/actions/early-access";
@@ -17,18 +16,11 @@ import {
   initialEarlyAccessState,
 } from "@/lib/early-access-shared";
 import { type Attribution, readAttribution } from "./attribution";
-import { hasCalLink } from "./cal-booking";
 import { PREFILL_EVENT, type Prefill, readPrefill } from "./prefill-link";
 import { Turnstile } from "./turnstile";
 import { buttonClasses } from "./ui";
 
 const turnstileSiteKey = process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY;
-
-// Cal.com's embed is only needed after a successful submission, so it loads then.
-const CalInline = dynamic(() => import("./cal-inline").then((m) => m.CalInline), {
-  ssr: false,
-  loading: () => <div className="h-[640px] w-full animate-pulse bg-surface" />,
-});
 
 const f = copy.fields;
 
@@ -51,8 +43,6 @@ export function EarlyAccessForm() {
     return (
       <SuccessState
         firstName={state.firstName}
-        fullName={state.fullName}
-        email={state.email}
         detailsToken={state.detailsToken}
       />
     );
@@ -213,13 +203,9 @@ function StepOne({
 
 function SuccessState({
   firstName,
-  fullName,
-  email,
   detailsToken,
 }: {
   firstName: string;
-  fullName: string;
-  email: string;
   detailsToken: string | null;
 }) {
   const headingRef = useRef<HTMLHeadingElement>(null);
@@ -246,14 +232,6 @@ function SuccessState({
 
       {detailsToken && <StepTwo token={detailsToken} />}
 
-      {hasCalLink && (
-        <div className="mt-10 text-center">
-          <p className="font-medium text-ink">{copy.success.bookPrompt}</p>
-          <div className="mt-4 overflow-hidden rounded-card border border-line text-left">
-            <CalInline name={fullName} email={email} />
-          </div>
-        </div>
-      )}
     </div>
   );
 }

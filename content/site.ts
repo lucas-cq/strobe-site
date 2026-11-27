@@ -11,18 +11,30 @@ export type NavItem = NavLink | { label: string; children: NavLink[] };
 
 export type SiteContent = {
   name: string;
-  /** The legal party named on /privacy and /terms. */
+  /** The legal name: on /privacy, /terms, the footer, the Organization schema and every email. */
   legalEntityName: string;
+  /** How the Terms describe it. */
+  legalEntityKind: string;
+  /** "Calgary, Alberta": the footer line and emails. */
+  legalLocation: string;
+  /**
+   * The mailing address CASL requires in every commercial email, and the Terms and Privacy contact
+   * sections. Empty until Lucas decides on it (SITE_LEGAL M3): pages and emails leave it out while empty.
+   */
+  mailingAddress: string;
+  /** The Privacy Officer named on /privacy (PIPA and PIPEDA want a named person). */
+  privacyOfficer: string;
   url: string;
   defaultTitle: string;
   defaultDescription: string;
   email: string;
-  founderEmail: string;
+  replyToEmail: string;
   privacyEmail: string;
   /** Footer line, after the flag. `lead` is bold. */
   location: { lead: string; rest: string };
   nonAffiliation: string;
-  founder: {
+  /** Bylines, the About page and Article schema. */
+  author: {
     name: string;
     /** LinkedIn profile URL. The link stays hidden while this is empty. */
     linkedin: string;
@@ -39,10 +51,8 @@ export type SiteContent = {
     primary: string;
     /** The compact version in the mobile header. */
     primaryShort: string;
-    /** Shown only when NEXT_PUBLIC_CAL_LINK is set and the button opens a real booking. */
-    walkthrough: string;
-    /** Shown when there's no booking link. The button then goes to the form, so it mustn't say "book". */
-    walkthroughFallback: string;
+    /** The secondary button. It goes to the form, so it mustn't say "book". */
+    talk: string;
   };
   skipLink: string;
   menu: {
@@ -78,19 +88,23 @@ export const cityLinks: NavLink[] = [
 
 export const site: SiteContent = {
   name: "Strobe",
-  // TODO Lucas: confirm, and update once Strobe is incorporated.
-  legalEntityName: "Lucas Cummings, operating as Strobe",
+  legalEntityName: "Strobe Labs Inc.",
+  legalEntityKind: "an Alberta corporation",
+  legalLocation: "Calgary, Alberta",
+  // Shown in email footers, the About contact section, Terms and Privacy.
+  mailingAddress: "514-1528 16 Ave NW, Calgary, AB T2M 5A3",
+  privacyOfficer: "Lucas Cummings",
   url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://strobehq.com",
   defaultTitle: "Fire alarm inspection software for Canada | Strobe",
   defaultDescription:
     "Fire alarm inspection software for Canadian shops. Run the panel from your phone, even offline. S536 reports, same-day quotes, each city's rules built in.",
   email: "hello@strobehq.com",
-  founderEmail: "lucas@strobehq.com",
+  replyToEmail: "lucas@strobehq.com",
   privacyEmail: "privacy@strobehq.com",
   location: { lead: "Built in Alberta, for Alberta.", rest: "Ready for shops across Canada." },
   nonAffiliation:
     "Strobe is independent software and is not affiliated with any city, county or fire department, including the City of Calgary, the City of Edmonton, Strathcona County and the City of Lethbridge.",
-  founder: {
+  author: {
     name: "Lucas Cummings",
     linkedin: "https://www.linkedin.com/in/lucas-cummings/",
   },
@@ -109,17 +123,18 @@ export const site: SiteContent = {
     { label: "51-city report rules", href: reportRulesGuidePath },
     { label: "Tools", href: "/tools" },
     { label: "Strobe vs a spreadsheet", href: "/compare/spreadsheet" },
-  ],
-  legalLinks: [
-    { label: "Privacy", href: "/privacy" },
-    { label: "Terms", href: "/terms" },
     { label: "Your data", href: "/your-data" },
+  ],
+  /** The footer's bottom line, after the copyright. */
+  legalLinks: [
+    { label: "Terms", href: "/terms" },
+    { label: "Privacy", href: "/privacy" },
+    { label: "Contact", href: "mailto:hello@strobehq.com" },
   ],
   cta: {
     primary: "Get early access",
     primaryShort: "Get access",
-    walkthrough: "Book a 20-minute call",
-    walkthroughFallback: "Talk to Lucas",
+    talk: "Talk to Lucas",
   },
   skipLink: "Skip to content",
   menu: {

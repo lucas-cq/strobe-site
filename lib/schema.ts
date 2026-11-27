@@ -10,12 +10,12 @@ export const organizationSchema = {
   "@type": "Organization",
   "@id": orgId,
   name: site.name,
+  legalName: site.legalEntityName,
   url: home,
   logo: new URL("/brand/png/icon-512-v2.png", site.url).toString(),
   email: site.email,
-  foundingLocation: { "@type": "Place", name: "Calgary, Alberta, Canada" },
+  address: { "@type": "PostalAddress", addressLocality: "Calgary", addressRegion: "AB", addressCountry: "CA" },
   areaServed: { "@type": "Country", name: "Canada" },
-  founder: { "@type": "Person", name: site.founder.name },
   ...(site.org.sameAs.length > 0 ? { sameAs: site.org.sameAs } : {}),
 };
 
@@ -38,7 +38,7 @@ export function articleSchema({
     headline,
     description,
     mainEntityOfPage: new URL(path, site.url).toString(),
-    author: { "@type": "Person", name: site.founder.name, url: new URL("/about", site.url).toString() },
+    author: { "@type": "Person", name: site.author.name, url: new URL("/about", site.url).toString() },
     publisher: { "@id": orgId },
     datePublished,
     dateModified,

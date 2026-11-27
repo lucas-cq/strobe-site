@@ -54,7 +54,7 @@ export const earlyAccessForm = {
 
   submit: "Get early access",
   submitting: "Sending…",
-  privacyNote: { before: "We only use this to talk to you about Strobe. ", link: "Privacy policy", after: "." },
+  privacyNote: { before: "We only use this to talk to you about Strobe. ", link: "Privacy Policy", after: "." },
 
   errors: {
     required: "This is required.",
@@ -75,7 +75,6 @@ export const earlyAccessForm = {
     title: (firstName: string) => `You're on the list, ${firstName}.`,
     body: "I'll email you from lucas@strobehq.com within one business day.",
     nextStep: "Next step: we'll book your free onboarding session.",
-    bookPrompt: "Want to skip the wait? Pick a time below.",
   },
 
   /** Step 2, shown on the success screen. Every field is optional. */

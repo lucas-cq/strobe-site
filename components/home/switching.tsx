@@ -1,6 +1,6 @@
 import { home } from "@/content/home";
+import { formAnchor } from "@/content/site";
 import { promises } from "@/content/promises";
-import { WalkthroughButton } from "../cal-booking";
 import { TopGradientLine } from "../effects";
 import { Eyebrow } from "../section";
 import { Container } from "../ui";
@@ -19,11 +19,9 @@ export function Switching() {
           </h2>
           <p className="mt-5 text-ink-2">
             {switching.question}{" "}
-            <WalkthroughButton
-              className="font-medium text-brand underline underline-offset-4 hover:text-deep"
-              label={switching.bookLabel}
-              fallbackLabel={switching.bookFallback}
-            />
+            <a href={`#${formAnchor}`} className="font-medium text-brand underline underline-offset-4 hover:text-deep">
+              {switching.talkLabel}
+            </a>
             .
           </p>
         </div>

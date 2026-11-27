@@ -10,7 +10,7 @@ export const yourData: LegalDocument = {
       "Your inspection data belongs to you. Export sites, devices, reports, photos and quotes any time as CSV and PDF, on every plan, even after you cancel.",
   },
   title: promises.data.title,
-  lastReviewed: "2026-11-06",
+  lastReviewed: "2026-11-27",
   intro: [
     "You own your data. Strobe stores and processes it to run the service, nothing else.",
   ],
@@ -32,7 +32,7 @@ export const yourData: LegalDocument = {
     {
       heading: "On every plan, even after you cancel",
       body: [
-        "Export works on every plan, Solo included. If you cancel, your account stays read-only for 90 days and you can still export everything. After 90 days, your data is deleted.",
+        "Export works on every plan, Solo included. If you cancel, your account stays read-only for 90 days and you can still export everything. We email a final warning 14 days before, and after 90 days your data is deleted.",
       ],
     },
     {

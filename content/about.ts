@@ -1,6 +1,8 @@
-// /about, from STROBE_SITE_SEO_BUILD.md section 2.1. First person is the founder's own voice.
+import { site } from "./site";
+
+// /about, from STROBE_SITE_SEO_BUILD.md section 2.1. Written in Lucas's own voice.
 export const about = {
-  lastReviewed: "2026-11-09",
+  lastReviewed: "2026-11-27",
   meta: {
     title: "About Strobe | Fire alarm inspection software from Calgary",
     description:
@@ -31,6 +33,7 @@ export const about = {
   contact: {
     title: "Get in touch",
     body: "Email hello@strobehq.com. I read every message.",
-    founderLine: "Lucas Cummings, Founder",
+    mail: `By mail: ${site.legalEntityName}, ${site.mailingAddress}`,
+    signature: `Lucas Cummings, ${site.legalEntityName}`,
   },
 };

@@ -90,9 +90,7 @@ export const home = {
     title: "We set you up. You keep your data.",
     // The two cards come from content/promises.ts.
     question: "Questions about switching?",
-    /** Shown only when NEXT_PUBLIC_CAL_LINK is set. */
-    bookLabel: "Book 20 minutes",
-    bookFallback: "Talk to Lucas",
+    talkLabel: "Talk to Lucas",
   },
 
   deadline: {
@@ -133,7 +131,7 @@ export const home = {
     lede: "Extinguishers and sprinkler are next. Early shops decide which comes first.",
     feature: {
       title: "Help shape what we build.",
-      body: "The first 25 shops get founding pricing: 3 months free after the trial, and the launch price locked for as long as they stay. Plus a direct line to me and a real say in what gets built.",
+      body: "Early shops get a direct line to me and a real say in what gets built.",
       button: "Get early access",
     },
     cards: [
@@ -144,19 +142,17 @@ export const home = {
     ],
   },
 
-  founder: {
-    eyebrow: "From the founder",
+  note: {
+    eyebrow: "A note from Lucas",
     body: "I'm Lucas, a software engineer in Calgary. I'm building Strobe with local fire alarm techs. Most shops I talk to still run inspections through Word templates and spreadsheets. If that's you, give me 20 minutes. I'll show you what we've built, and you tell me what's missing.",
     name: "Lucas Cummings",
-    role: "Founder, Strobe",
-    /** Shown when public/founder.jpg is missing. */
+    role: "Strobe, Calgary",
+    /** Shown when public/lucas-cummings.jpg is missing. */
     initials: "LC",
-    photoAlt: "Lucas Cummings, founder of Strobe",
+    photoAlt: "Lucas Cummings",
     linkedinLabel: "LinkedIn",
-    /** Shown only when NEXT_PUBLIC_CAL_LINK is set. */
-    bookLabel: "Book 20 minutes",
-    /** Shown when there's no booking link; the link then goes to the form. */
-    bookFallback: "Talk to Lucas",
+    /** Goes to the early access form. */
+    talkLabel: "Talk to Lucas",
   },
 
   earlyAccessForm: {

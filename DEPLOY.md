@@ -77,22 +77,11 @@ Without the secret key, production rejects every submission on purpose.
 | `NEXT_PUBLIC_SITE_URL` | `https://strobehq.com` |
 | `IP_HASH_SALT` | A long random string: `openssl rand -hex 32`. Set once and don't change it. |
 | `LEAD_TOKEN_SECRET` | Optional. Another long random string for the success screen's optional details form. Falls back to `IP_HASH_SALT`. |
-| `NEXT_PUBLIC_CAL_LINK` | See step 7 |
 
 Variables starting with `NEXT_PUBLIC_` are baked in at build time, so **redeploy** after
 changing them.
 
-## 7. Booking (Cal.com)
-
-1. Create the event type **Strobe walkthrough (20 min)** with Google Meet and a phone
-   option.
-2. Its link looks like `cal.com/your-name/strobe-walkthrough`. Set
-   `NEXT_PUBLIC_CAL_LINK=your-name/strobe-walkthrough` (no `cal.com/`) and redeploy.
-
-Without it, the walkthrough buttons scroll to the form and the success message shows
-without the booking calendar.
-
-## 8. Domains
+## 7. Domains
 
 In Vercel → **Settings → Domains**:
 
@@ -103,19 +92,18 @@ In Vercel → **Settings → Domains**:
 
 Add the DNS records Vercel shows for each domain at your DNS host.
 
-## 9. Analytics
+## 8. Analytics
 
 Vercel project → **Analytics → Enable** (Web Analytics). It's cookieless, so there's no
 cookie banner. The component only renders on Vercel builds, so local builds stay clean.
 
-## 10. Before you announce it
+## 9. Before you announce it
 
 - [ ] Confirm `legalEntityName` in `content/site.ts` (used on `/privacy` and `/terms`), and
       have both legal drafts reviewed.
 - [ ] Confirm the FAQ import answer in `content/faq.ts` (marked TODO).
 - [ ] Submit the form on strobehq.com with your own address. Check: the row in Neon, the
-      confirmation email (and that replying reaches you), the notification email, and the
-      booking calendar on the success screen.
+      confirmation email (and that replying reaches you), and the notification email.
 - [ ] Run Lighthouse (mobile) on the live site.
 - [ ] Share a link in Slack or iMessage to check the preview image.
 - [ ] In Google Search Console, add `strobehq.com` and submit `/sitemap.xml`.

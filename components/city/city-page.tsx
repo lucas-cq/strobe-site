@@ -4,7 +4,6 @@ import { cityLinks, formAnchor, reportRulesGuidePath, site } from "@/content/sit
 import { formatDate } from "@/lib/dates";
 import { breadcrumbSchema } from "@/lib/schema";
 import { Byline } from "../byline";
-import { WalkthroughButton } from "../cal-booking";
 import { EarlyAccessSection } from "../early-access-section";
 import { Faq } from "../home/faq";
 import { linkify } from "../linkify";
@@ -71,11 +70,9 @@ export function CityPage({ content, path, visual }: { content: CityPageContent; 
               <a href={`#${formAnchor}`} className={buttonClasses("primary", "lg")}>
                 {site.cta.primary}
               </a>
-              <WalkthroughButton
-                className={buttonClasses("secondary", "lg")}
-                label={site.cta.walkthrough}
-                fallbackLabel={site.cta.walkthroughFallback}
-              />
+              <a href={`#${formAnchor}`} className={buttonClasses("secondary", "lg")}>
+                {site.cta.talk}
+              </a>
             </div>
           </div>
           <div className="hero-enter min-w-0">

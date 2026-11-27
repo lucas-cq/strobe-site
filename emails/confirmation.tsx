@@ -3,8 +3,6 @@ import { emails } from "../content/emails";
 
 type ConfirmationEmailProps = {
   firstName: string;
-  /** Full booking URL, or null to leave the booking sentence out. */
-  bookingUrl: string | null;
   siteUrl: string;
 };
 
@@ -13,7 +11,7 @@ const copy = emails.confirmation;
 const text = { fontSize: "15px", lineHeight: "24px", color: "#0E1B21", margin: "0 0 16px" };
 
 /** Deliberately plain: it should read like a note from a person, not a newsletter. */
-export function ConfirmationEmail({ firstName, bookingUrl, siteUrl }: ConfirmationEmailProps) {
+export function ConfirmationEmail({ firstName, siteUrl }: ConfirmationEmailProps) {
   const siteHost = new URL(siteUrl).host;
   return (
     <Html lang="en">
@@ -24,18 +22,7 @@ export function ConfirmationEmail({ firstName, bookingUrl, siteUrl }: Confirmati
           <Img src={`${siteUrl}/brand/png/icon-192-v2.png`} width="32" height="32" alt="Strobe" style={{ marginBottom: "24px" }} />
           <Text style={text}>{copy.greeting(firstName)}</Text>
           <Text style={text}>
-            {copy.body}{" "}
-            {bookingUrl ? (
-              <>
-                {copy.book.before}
-                <Link href={bookingUrl} style={{ color: "#00708F" }}>
-                  {bookingUrl}
-                </Link>
-                {copy.book.after}
-              </>
-            ) : (
-              copy.replyOnly
-            )}
+            {copy.body} {copy.reply}
           </Text>
           <Text style={{ ...text, margin: "24px 0 0" }}>{copy.signOff}</Text>
           <Hr style={{ borderColor: "#DFE6E9", margin: "32px 0 16px" }} />
@@ -43,6 +30,10 @@ export function ConfirmationEmail({ firstName, bookingUrl, siteUrl }: Confirmati
             {copy.footer} ·{" "}
             <Link href={siteUrl} style={{ color: "#5E6D75" }}>
               {siteHost}
+            </Link>{" "}
+            ·{" "}
+            <Link href={new URL("/privacy", siteUrl).toString()} style={{ color: "#5E6D75" }}>
+              {copy.privacy}
             </Link>
           </Text>
         </Container>
@@ -52,14 +43,12 @@ export function ConfirmationEmail({ firstName, bookingUrl, siteUrl }: Confirmati
 }
 
 /** Plain-text version, written out so it reads like a normal email in text-only clients. */
-export function confirmationText({ firstName, bookingUrl, siteUrl }: ConfirmationEmailProps) {
-  const booking = bookingUrl ? `${copy.book.before}${bookingUrl}${copy.book.after}` : copy.replyOnly;
-  return [copy.greeting(firstName), `${copy.body} ${booking}`, copy.signOff, "--", `${copy.footer} · ${siteUrl}`].join("\n\n");
+export function confirmationText({ firstName, siteUrl }: ConfirmationEmailProps) {
+  return [copy.greeting(firstName), `${copy.body} ${copy.reply}`, copy.signOff, "--", `${copy.footer} · ${siteUrl}\n${copy.privacy}: ${new URL("/privacy", siteUrl)}`].join("\n\n");
 }
 
 ConfirmationEmail.PreviewProps = {
   firstName: "Jordan",
-  bookingUrl: "https://cal.com/strobe/walkthrough",
   siteUrl: "https://strobehq.com",
 } satisfies ConfirmationEmailProps;
 

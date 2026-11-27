@@ -15,7 +15,6 @@ export function SiteFooter() {
   const links = [
     ...site.nav.flatMap((item) => ("children" in item ? item.children : [item])),
     ...site.footerLinks,
-    ...site.legalLinks,
   ];
 
   return (
@@ -55,9 +54,26 @@ export function SiteFooter() {
 
         <div className="mt-12 border-t border-night-line pt-6 text-sm text-night-muted">
           <p className="max-w-3xl">{site.nonAffiliation}</p>
-          <p className="mt-3">
-            © <CopyrightYear /> Strobe
-          </p>
+          <div className="mt-3 flex flex-wrap items-center gap-x-5 gap-y-2">
+            <p>
+              © <CopyrightYear /> {site.legalEntityName} · {site.legalLocation}
+            </p>
+            <ul className="flex flex-wrap gap-x-5 gap-y-2">
+              {site.legalLinks.map((link) => (
+                <li key={link.href}>
+                  {link.href.startsWith("mailto:") ? (
+                    <a href={link.href} className="text-night-text underline-offset-4 hover:text-white hover:underline">
+                      {link.label}
+                    </a>
+                  ) : (
+                    <PageLink href={link.href} className="text-night-text underline-offset-4 hover:text-white hover:underline">
+                      {link.label}
+                    </PageLink>
+                  )}
+                </li>
+              ))}
+            </ul>
+          </div>
         </div>
       </Container>
     </footer>

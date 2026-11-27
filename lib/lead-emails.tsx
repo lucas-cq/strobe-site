@@ -21,11 +21,6 @@ export type LeadAttribution = {
   landingPath: string | null;
 };
 
-export function bookingUrl() {
-  const link = process.env.NEXT_PUBLIC_CAL_LINK;
-  return link ? `https://cal.com/${link}` : null;
-}
-
 function techLabel(techCount: string) {
   return techCount === "Just me" ? "1 tech" : `${techCount} techs`;
 }
@@ -49,7 +44,7 @@ export async function sendLeadEmails(
   const resend = new Resend(apiKey);
   const cities = lead.cities.join(", ");
 
-  const confirmationProps = { firstName: meta.firstName, bookingUrl: bookingUrl(), siteUrl: site.url };
+  const confirmationProps = { firstName: meta.firstName, siteUrl: site.url };
   const rows: [string, string][] = [
     ["Full name", lead.fullName],
     ["Work email", lead.email],
@@ -73,7 +68,7 @@ export async function sendLeadEmails(
       resend.emails.send({
         from: EMAIL_FROM,
         to: lead.email,
-        replyTo: site.founderEmail,
+        replyTo: site.replyToEmail,
         subject: emails.confirmation.subject(meta.firstName),
         html: await render(<ConfirmationEmail {...confirmationProps} />),
         text: confirmationText(confirmationProps),

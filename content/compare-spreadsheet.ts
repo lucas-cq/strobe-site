@@ -2,8 +2,9 @@ import { plans } from "./pricing";
 
 // /compare/spreadsheet, from the November 2026 SEO brief, S6. Same claims as the home page's problem
 // and how-it-works sections. No named competitors: if pages like that are added, every fact needs a source.
-// The pricing page's headline price: Solo and Crew. Shop is less from the 6th panel tech.
+// The pricing page's headline price: Solo and Crew. At 6 or more panel techs, every tech is on the Shop price.
 const perTech = plans.find((plan) => plan.id === "crew")!.priceCadMonthly;
+const shopPerTech = plans.find((plan) => plan.id === "shop")!.priceCadMonthly;
 
 export const compareSpreadsheet = {
   lastReviewed: "2026-11-24",
@@ -58,7 +59,7 @@ export const compareSpreadsheet = {
     {
       stage: "Cost",
       spreadsheet: "Free, apart from the hours.",
-      strobe: `$${perTech} a month per panel tech, less from your 6th, after a 30-day free trial. Office logins are included.`,
+      strobe: `$${perTech} a month per panel tech, or $${shopPerTech} for every tech once you have 6 or more, after a 30-day free trial. Office logins are included.`,
     },
   ],
   fine: {

@@ -1,10 +1,10 @@
 # strobe-site
 
 Pre-launch marketing site for Strobe, fire and life safety inspection software for Alberta
-contractors. Its job is to get shops to join early access or book a 20-minute walkthrough.
+contractors. Its job is to get shops to join early access.
 
 Next.js 16 (App Router, Cache Components), Tailwind CSS 4, Drizzle + Postgres (Neon),
-Resend + React Email, Cloudflare Turnstile, Cal.com, Vercel Web Analytics.
+Resend + React Email, Cloudflare Turnstile, Vercel Web Analytics.
 
 The original build brief is in `STROBE_SITE_BRIEF.md`. Deployment steps are in `DEPLOY.md`.
 
@@ -27,7 +27,6 @@ For local testing you can use:
 - **Turnstile:** Cloudflare's always-pass test keys, listed in `.env.example`.
 - **Email:** leave `RESEND_API_KEY` empty. Leads still save, and the log says the emails
   were skipped.
-- **Cal.com:** leave `NEXT_PUBLIC_CAL_LINK` empty to hide booking.
 
 ## Editing copy
 

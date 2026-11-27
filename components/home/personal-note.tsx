@@ -1,13 +1,12 @@
 import { home } from "@/content/home";
-import { site } from "@/content/site";
-import { WalkthroughButton } from "../cal-booking";
-import { FounderAvatar } from "../founder-avatar";
+import { formAnchor, site } from "@/content/site";
+import { AuthorAvatar } from "../author-avatar";
 import { Section } from "../section";
 
-export function FounderNote() {
-  const { founder } = home;
+export function PersonalNote() {
+  const { note } = home;
   return (
-    <Section labelledBy="founder-title">
+    <Section labelledBy="note-title">
       <figure className="reveal relative mx-auto max-w-3xl">
         {/* Big decorative quotation mark behind the text */}
         <span
@@ -17,41 +16,41 @@ export function FounderNote() {
           &ldquo;
         </span>
         <div className="relative">
-          <h2 id="founder-title" className="font-sans text-sm font-medium tracking-wide text-brand">
-            {founder.eyebrow}
+          <h2 id="note-title" className="font-sans text-sm font-medium tracking-wide text-brand">
+            {note.eyebrow}
           </h2>
           {/* Body font at a smaller size on phones, so the note isn't a heavy block of text */}
           <blockquote className="mt-4 font-sans text-lg leading-relaxed text-ink md:font-display md:text-2xl md:tracking-[-0.01em]">
-            <p>&ldquo;{founder.body}&rdquo;</p>
+            <p>&ldquo;{note.body}&rdquo;</p>
           </blockquote>
           <figcaption className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-4">
             <span className="flex items-center gap-3">
-              <FounderAvatar />
+              <AuthorAvatar />
               <span className="flex flex-col leading-tight">
-                <span className="font-semibold text-ink">{founder.name}</span>
-                <span className="text-sm text-muted">{founder.role}</span>
+                <span className="font-semibold text-ink">{note.name}</span>
+                <span className="text-sm text-muted">{note.role}</span>
               </span>
-              {site.founder.linkedin && (
+              {site.author.linkedin && (
                 <a
-                  href={site.founder.linkedin}
+                  href={site.author.linkedin}
                   target="_blank"
                   rel="me noopener noreferrer"
                   className="text-sm font-medium text-ink-2 underline underline-offset-4 hover:text-ink"
                 >
-                  {founder.linkedinLabel}
+                  {note.linkedinLabel}
                   <span className="sr-only"> (opens in a new tab)</span>
                 </a>
               )}
             </span>
-            <WalkthroughButton
+            <a
+              href={`#${formAnchor}`}
               className="group inline-flex items-center gap-1.5 font-medium text-brand underline-offset-4 hover:underline"
-              label={founder.bookLabel}
-              fallbackLabel={founder.bookFallback}
             >
+              {note.talkLabel}
               <span aria-hidden="true" className="transition-transform duration-200 group-hover:translate-x-[3px]">
                 →
               </span>
-            </WalkthroughButton>
+            </a>
           </figcaption>
         </div>
       </figure>

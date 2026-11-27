@@ -20,7 +20,7 @@ export const plans: Plan[] = [
   {
     id: "solo",
     name: "Solo",
-    techRange: "1 panel tech, plus one office login.",
+    techRange: "1 panel tech and 1 office login.",
     priceCadMonthly: 99,
     priceCadYearly: 990,
     exampleTechCounts: [],
@@ -40,10 +40,10 @@ export const plans: Plan[] = [
   {
     id: "shop",
     name: "Shop",
-    techRange: "6+ panel techs. Unlimited office users.",
+    techRange: "6 or more panel techs: $89 per panel tech, per month, for every tech. Unlimited office users.",
     priceCadMonthly: 89,
     priceCadYearly: 890,
-    exampleTechCounts: [6],
+    exampleTechCounts: [6, 7],
     blurb: "For growing shops with a full office.",
     extras: ["Everything in Strobe", "Priority support", "Onboarding for each office and crew"],
   },
@@ -51,6 +51,12 @@ export const plans: Plan[] = [
 
 /** The headline price: what one panel tech costs a month before the Shop discount. */
 const crewPlan = plans.find((plan) => plan.id === "crew")!;
+/** Volume pricing, as in Stripe: at 6 or more panel techs, every tech is on the Shop price, not just the 6th on. */
+const shopPlan = plans.find((plan) => plan.id === "shop")!;
+const SHOP_FROM = 6;
+const cad = (n: number) => `$${n.toLocaleString("en-CA")}`;
+const shopTotals = (techs: number) =>
+  `${techs} techs is ${cad(techs * shopPlan.priceCadMonthly)} a month (${cad(techs * shopPlan.priceCadYearly)} a year)`;
 
 /** What a month costs when billed yearly. */
 export const monthlyEquivalent = (plan: Plan) => plan.priceCadYearly / 12;
@@ -69,13 +75,13 @@ export const pricing = {
   meta: {
     title: "Fire alarm inspection software pricing (CAD) | Strobe",
     description:
-      `Simple pricing in Canadian dollars: $${crewPlan.priceCadMonthly} per panel tech a month, less from your 6th. Office staff are free. No contracts, cancel anytime, no sales call.`,
+      `Pricing in Canadian dollars: $${crewPlan.priceCadMonthly} per panel tech a month, or $${shopPlan.priceCadMonthly} for every tech once you have ${SHOP_FROM}. Office staff are free. Cancel anytime.`,
   },
   eyebrow: "Pricing",
   title: "Simple pricing for Canadian shops",
   lede: "Pick a plan by how many panel techs you have. Office users are free on Crew and Shop. Pay yearly and get 2 months free.",
   /** Above the plan cards. */
-  headline: `$${crewPlan.priceCadMonthly} per panel tech. Less from your 6th.`,
+  headline: `$${crewPlan.priceCadMonthly} per panel tech. $${shopPlan.priceCadMonthly} for every tech once you have ${SHOP_FROM}.`,
   /** Under the plan cards: who counts as a panel tech. */
   whoPays:
     "You pay for whoever runs the panel and fills in the report. Walkers never need a login, and office staff are free.",
@@ -138,7 +144,12 @@ export const pricingFaq: FaqContent = {
     },
     {
       question: "What if I hire my first tech?",
-      answer: "Move from Solo to Crew in the app. No new contract.",
+      answer:
+        "Add them as a panel tech and you move from Solo to Crew, which has unlimited office users. No new contract. Solo is 1 panel tech and 1 office login, so it can't add a second office user.",
+    },
+    {
+      question: "How does the price work at 6 or more panel techs?",
+      answer: `Once you have ${SHOP_FROM} or more panel techs, all of them are $${shopPlan.priceCadMonthly}, not just the ${SHOP_FROM}th. ${shopTotals(6)}. ${shopTotals(7)}.`,
     },
     {
       question: "Is there a contract?",
@@ -152,10 +163,6 @@ export const pricingFaq: FaqContent = {
       question: "Can I get a refund on a yearly plan?",
       answer:
         "Yes, a full refund within 14 days of paying. After that, cancelling stops the renewal and you keep access until your year is up.",
-    },
-    {
-      question: "What's founding pricing?",
-      answer: "The first 25 shops get 3 months free after their trial, and their launch price is locked for as long as they stay.",
     },
     {
       question: "Is onboarding extra?",
