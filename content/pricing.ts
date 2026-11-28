@@ -40,7 +40,7 @@ export const plans: Plan[] = [
   {
     id: "shop",
     name: "Shop",
-    techRange: "6 or more panel techs: $89 per panel tech, per month, for every tech. Unlimited office users.",
+    techRange: "6 or more panel techs: $89 per panel tech. Unlimited office users.",
     priceCadMonthly: 89,
     priceCadYearly: 890,
     exampleTechCounts: [6, 7],
