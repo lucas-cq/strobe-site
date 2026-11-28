@@ -76,16 +76,12 @@ Not used, so not in the policy: Google Analytics, ad pixels, PowerSync Cloud, an
 - **The policy follows the config, not the other way round.** Nothing in Google Cloud, Neon or Sentry was changed for it. Cloud SQL backups come from `infra/gcloud/setup/4-database.sh` (`--retained-backups-count 14`, `--retained-transaction-log-days 7`).
 - **If a setting changes, change the policy:** a longer Cloud SQL backup count or a paid Neon plan with a history window over 14 days (Launch allows up to 7 days, Scale up to 30) needs a new backup line. A Sentry plan change needs a new error report line.
 
-## 5. Email engagement
+## 5. Email
 
-The policy says: "We track whether our emails, and the report and quote emails our customers send through Strobe, are opened and whether links in them are clicked." Tracking is a per-domain setting in Resend, not in the code, so open and click tracking must be on for mail.strobehq.com and app.strobehq.com for that sentence to be accurate.
+- **Engagement:** we track whether our emails, and the report and quote emails our customers send through Strobe, are opened and whether links in them are clicked (Resend open and click tracking, mail.strobehq.com and app.strobehq.com).
+- **Product-update emails:** only to people who consented. Every one has an unsubscribe link, Strobe Labs Inc.'s name and the mailing address, and unsubscribes are honoured within 10 business days.
 
-## 6. Open items
-
-1. **Resend open and click tracking:** turn both on for mail.strobehq.com and app.strobehq.com, so the email engagement sentence in `/privacy` is accurate (section 5).
-2. **Product-update emails:** none are sent today. Before the first one goes out, whatever tool sends it (Resend Broadcasts, for example) needs an unsubscribe link, Strobe Labs Inc.'s name and the mailing address in every email, and unsubscribes honoured within 10 business days. `/privacy` section 6 already promises this.
-
-## 7. Decided
+## 6. Decided
 
 - **Mailing address:** decided: Strobe Labs Inc., 514-1528 16 Ave NW, Calgary, AB T2M 5A3. Set in `site.mailingAddress` (`content/site.ts`) and shown in email footers, the About contact section, Terms and Privacy.
 - **Quebec:** decided: Strobe is not offered to businesses based in Quebec at this time (Terms section 23). No Law 25 or French versions for now.
